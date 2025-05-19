@@ -9,9 +9,8 @@ RESOURCE_DIR = Path(__file__).parent / "resources"
 SPECIALIZATIONS = RESOURCE_DIR / "specializations.yaml"
 SKILLS = RESOURCE_DIR / "skills.yaml"
 WEAPONS = RESOURCE_DIR / "weapons.yaml"
-SETTINGS = RESOURCE_DIR / "settings.yaml"
 
-from gw2_build_randomizer.model import Classes
+from gw2_build_randomizer.model import Classes, Settings
 
 class_list = list(Classes)
 
@@ -38,11 +37,10 @@ def main(print_out: bool = False) -> str:
         
     with WEAPONS.open() as f:
         weapons = yaml.safe_load(f)
+
+    settings = Settings.from_toml(RESOURCE_DIR / "settings.toml")
         
-    with SETTINGS.open() as f:
-        settings = yaml.safe_load(f)
-        
-    class_index = class_to_index(settings["class"])
+    class_index = class_to_index(settings.get_class())
     class_name = class_list[class_index].capitalize()
 
 

@@ -13,18 +13,6 @@ WEAPONS = RESOURCE_DIR / "weapons.yaml"
 from gw2_build_randomizer.model import Classes, Settings
 
 class_list = list(Classes)
-
-def class_to_index(class_pick: Union[Literal["Random"], str, list[str]]) -> int:
-    if isinstance(class_pick, str) and class_pick.lower() == "random":
-        return random.randint(0, 8)
-    elif isinstance(class_pick, str) and class_pick in class_list:
-        return class_list.index(class_pick)
-    else:
-        possible_ind = []
-        for single_class in class_pick:
-            possible_ind.append(class_list.index(single_class.lower()))
-        return possible_ind[random.randint(0, len(possible_ind)-1)]
-
     
 def main(print_out: bool = False) -> str:
     output_string = ""
@@ -39,9 +27,9 @@ def main(print_out: bool = False) -> str:
         weapons = yaml.safe_load(f)
 
     settings = Settings.from_toml(RESOURCE_DIR / "settings.toml")
-        
-    class_index = class_to_index(settings.get_class())
-    class_name = class_list[class_index].capitalize()
+    
+    gw2_class = settings.get_class()
+    class_name = gw2_class.name.capitalize()
 
 
     elite_specs = [0,5,6,7]
@@ -92,7 +80,7 @@ def main(print_out: bool = False) -> str:
         elite_choices.append(5)
     
     # if revenenant, pick 2 legends instead of utility skills
-    if class_index == 2:         
+    if gw2_class == Classes.REVENANT:         
         possible_legends = np.array(skills["rev_legends"])[heal_choices]  # there are as many legends as another class has heal skills
         chosen_legends = np.random.choice(possible_legends, 2, replace=False)
         output = f"Legend 1: Legendary {chosen_legends[0]} Stance \nLegend 2: Legendary {chosen_legends[1]} Stance\n"
@@ -132,7 +120,7 @@ def main(print_out: bool = False) -> str:
     
     # pick 2 pets if you are a ranger
 
-    if class_index == 3:
+    if gw2_class == Classes.RANGER:
         pets = random.sample(skills["ranger_pets"], 2)
         output = f"Pet 1: {pets[0]}\nPet 2: {pets[1]}\n"
         if print_out:
@@ -178,7 +166,7 @@ def main(print_out: bool = False) -> str:
 
     # Weapon choice printing. currently does not support bladesworn to only have a single weapon
     output = f"Weapon set 1: {", ".join(weapon_set[0])}"
-    if class_index not in [5, 6]:
+    if gw2_class not in {Classes.ENGINEER, Classes.ELEMENTALIST}:
         output += f"\nWeapon set 2: {", ".join(weapon_set[1])}"
     if print_out:
         print(output)

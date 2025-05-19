@@ -4,14 +4,16 @@ Guardian:
     off_hand: [focus, shield, torch]
     two_hand: [greatsword, hammer, staff]
   HoT:
-    two_hand: longbow
+    two_hand: [longbow]
   PoF:
-    main_hand: axe
+    main_hand: [axe]
   EoD:
-    off_hand: sword
+    off_hand: [sword]
   SotO:
-    main_hand: pistol
-    off_hand: pistol
+    main_hand: [pistol]
+    off_hand: [pistol]
+  JW:
+    two_hand: [spear]
 
 Revenant:
   base: 
@@ -19,13 +21,16 @@ Revenant:
     off_hand: [axe, sword]
     two_hand: [hammer, staff]
   HoT:
-    off_hand: shield
+    off_hand: [shield]
   PoF:
-    two_hand: shortbow
+    two_hand: [shortbow]
   EoD:
-    two_hand: greatsword
+    two_hand: [greatsword]
   SotO:
-    main_hand: scepter
+    main_hand: [scepter]
+  JW:
+    two_hand: [spear]
+
 
 Warrior:
   base:
@@ -33,14 +38,17 @@ Warrior:
     off_hand: [axe, mace, sword, shield, warhorn]
     two_hand: [greatsword, hammer, longbow, rifle]
   HoT:
-    off_hand: torch 
+    off_hand: [torch] 
   PoF:
-    main_hand: dagger
-    off_hand: dagger 
+    main_hand: [dagger]
+    off_hand: [dagger] 
   EoD:
-    off_hand: pistol
+    off_hand: [pistol]
   SotO:
-    two_hand: staff
+    two_hand: [staff]
+  JW:
+    two_hand: [spear]
+
 
 Ranger:
   base:
@@ -48,14 +56,17 @@ Ranger:
     off_hand: [axe, dagger, torch, warhorn]
     two_hand: [greatsword, longbow, short bow]
   HoT:
-    two_hand: staff 
+    two_hand: [staff] 
   PoF:
-    main_hand: dagger
+    main_hand: [dagger]
   EoD:
-    two_hand: hammer
+    two_hand: [hammer]
   SotO:
-    main_hand: mace
-    off_hand: mace
+    main_hand: [mace]
+    off_hand: [mace]
+  JW:
+    two_hand: [spear]
+
 
 Thief: 
   base:
@@ -63,13 +74,16 @@ Thief:
     off_hand: [dagger, pistol]
     two_hand: [short bow]
   HoT:
-    two_hand: staff 
+    two_hand: [staff] 
   PoF:
-    two_hand: rifle
+    two_hand: [rifle]
   EoD:
-    main_hand: scepter
+    main_hand: [scepter]
   SotO:
-    main_hand: axe
+    main_hand: [axe]
+  JW:
+    two_hand: [spear]
+
 
 Engineer:
   base:
@@ -77,13 +91,16 @@ Engineer:
     off_hand: [pistol, shield]
     two_hand: [rifle]
   HoT:
-    two_hand: hammer
+    two_hand: [hammer]
   PoF:
-    main_hand: sword
+    main_hand: [sword]
   EoD:
-    main_hand: mace
+    main_hand: [mace]
   SotO:
-    two_hand: shortbow
+    two_hand: [shortbow]
+  JW:
+    two_hand: [spear]
+
 
 Elementalist: 
   base:
@@ -91,13 +108,16 @@ Elementalist:
     off_hand: [dagger, focus]
     two_hand: [staff]
   HoT:
-    off_hand: warhorn
+    off_hand: [warhorn]
   PoF:
-    main_hand: sword
+    main_hand: [sword]
   EoD:
-    two_hand: hammer
+    two_hand: [hammer]
   SotO:
-    main_hand: pistol
+    main_hand: [pistol]
+  JW:
+    two_hand: [spear]
+
 
 Mesmer:
   base:
@@ -105,13 +125,16 @@ Mesmer:
     off_hand: [pistol, sword, focus, torch]
     two_hand: [greatsword, staff]
   HoT:
-    off_hand: shield
+    off_hand: [shield]
   PoF:
-    main_hand: axe
+    main_hand: [axe]
   EoD:
-    main_hand: dagger
+    main_hand: [dagger]
   SotO:
-    two_hand: rifle
+    two_hand: [rifle]
+  JW:
+    two_hand: [spear]
+
 
 Necromancer:
   base:
@@ -119,11 +142,14 @@ Necromancer:
     off_hand: [dagger, focus, warhorn]
     two_hand: [staff]
   HoT:
-    two_hand: greatsword 
+    two_hand: [greatsword] 
   PoF:
-    off_hand: torch
+    off_hand: [torch]
   EoD:
-    main_hand: pistol
+    main_hand: [pistol]
   SotO:
-    main_hand: sword
-    off_hand: sword
+    main_hand: [sword]
+    off_hand: [sword]
+  JW:
+    two_hand: [spear]
+

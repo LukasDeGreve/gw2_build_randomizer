@@ -1,4 +1,4 @@
-# Created by Xinatron (discord xinatron#5392, gw2: xinatron.7149) along with foxgloria. Updated for EoD by REMagic42
+# Created by Xinatron (discord xinatron, gw2: xinatron.7149) along with foxgloria. Updated for EoD by REMagic42
 # Send me (xinatron) a message if you have any questions/remarks
 
 import random
@@ -60,7 +60,7 @@ print()
 skill_list = []
  
 heal_skills =   [['Mending','To the Limit!','Healing Signet','Defiant Stance','Natural Healing','Blood Reckoning','Combat Stimulant'],
-                ['Recieve the Light','Litany of Wrath','Shelter','Signet of Resolve','Purification','Mantra of Solace','Reversal of Fortune'],
+                ['Receive the Light','Litany of Wrath','Shelter','Signet of Resolve','Purification','Mantra of Solace','Reversal of Fortune'],
                 [''],
                 ['We Heal as one!','Water Spirit','Troll Unguent','Healing Spring','Glyph of Rejuvenation','Bear Stance','Perilous Gift'],
                 ['Hide in Shadows','Signet of Malice','Withdraw','Skelk Venom','Channeled Vigor','Malicious Restoration','Well of Gloom'],

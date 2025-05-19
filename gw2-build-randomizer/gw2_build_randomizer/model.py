@@ -9,7 +9,7 @@ import tomllib
 
 RESOURCE_DIR = Path(__file__) / "resources"
 
-class Classes(StrEnum):
+class ClassNames(StrEnum):
     WARRIOR = auto()
     GUARDIAN = auto()
     REVENANT = auto()
@@ -26,18 +26,18 @@ class Classes(StrEnum):
         except:
             return None
 
-def classes_validator(values: list[str]) -> list[Classes]:
-    return [Classes[value] for value in values]
+def ClassNames_validator(values: list[str]) -> list[ClassNames]:
+    return [ClassNames[value] for value in values]
 
 class Settings(BaseModel):
-    include_classes: Annotated[list[Classes], BeforeValidator(classes_validator)] = list(Classes)
-    exclude_classes: Annotated[list[Classes], BeforeValidator(classes_validator)] = []
+    include_ClassNames: Annotated[list[ClassNames], BeforeValidator(ClassNames_validator)] = list(ClassNames)
+    exclude_ClassNames: Annotated[list[ClassNames], BeforeValidator(ClassNames_validator)] = []
 
-    def eligible_classes(self) -> list[Classes]:
-        return [i for i in Classes if i in self.include_classes and i not in self.exclude_classes]
+    def eligible_ClassNames(self) -> list[ClassNames]:
+        return [i for i in ClassNames if i in self.include_ClassNames and i not in self.exclude_ClassNames]
     
-    def get_class(self) -> Classes:
-        return random.choice(self.eligible_classes())
+    def get_class(self) -> ClassNames:
+        return random.choice(self.eligible_ClassNames())
 
     @classmethod
     def from_toml(cls, path: Path) -> Settings:

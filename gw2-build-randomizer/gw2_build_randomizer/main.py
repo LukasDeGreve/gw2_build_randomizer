@@ -10,9 +10,9 @@ SPECIALIZATIONS = RESOURCE_DIR / "specializations.yaml"
 SKILLS = RESOURCE_DIR / "skills.yaml"
 WEAPONS = RESOURCE_DIR / "weapons.yaml"
 
-from gw2_build_randomizer.model import Classes, Settings
+from gw2_build_randomizer.model import ClassNames, Settings
 
-class_list = list(Classes)
+class_list = list(ClassNames)
     
 def main(print_out: bool = False) -> str:
     output_string = ""
@@ -80,7 +80,7 @@ def main(print_out: bool = False) -> str:
         elite_choices.append(5)
     
     # if revenenant, pick 2 legends instead of utility skills
-    if gw2_class == Classes.REVENANT:         
+    if gw2_class == ClassNames.REVENANT:         
         possible_legends = np.array(skills["rev_legends"])[heal_choices]  # there are as many legends as another class has heal skills
         chosen_legends = np.random.choice(possible_legends, 2, replace=False)
         output = f"Legend 1: Legendary {chosen_legends[0]} Stance \nLegend 2: Legendary {chosen_legends[1]} Stance\n"
@@ -120,7 +120,7 @@ def main(print_out: bool = False) -> str:
     
     # pick 2 pets if you are a ranger
 
-    if gw2_class == Classes.RANGER:
+    if gw2_class == ClassNames.RANGER:
         pets = random.sample(skills["ranger_pets"], 2)
         output = f"Pet 1: {pets[0]}\nPet 2: {pets[1]}\n"
         if print_out:
@@ -166,7 +166,7 @@ def main(print_out: bool = False) -> str:
 
     # Weapon choice printing. currently does not support bladesworn to only have a single weapon
     output = f"Weapon set 1: {", ".join(weapon_set[0])}"
-    if gw2_class not in {Classes.ENGINEER, Classes.ELEMENTALIST}:
+    if gw2_class not in {ClassNames.ENGINEER, ClassNames.ELEMENTALIST}:
         output += f"\nWeapon set 2: {", ".join(weapon_set[1])}"
     if print_out:
         print(output)

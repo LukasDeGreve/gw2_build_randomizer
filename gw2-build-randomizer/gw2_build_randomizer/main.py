@@ -2,8 +2,17 @@ import numpy as np
 import yaml
 import os
 import random
+from pathlib import Path
 
-class_list = ["warrior", "guardian", "revenant", "ranger", "thief", "engineer", "elementalist", "mesmer", "necromancer"]
+RESOURCE_DIR = Path(__file__).parent / "resources"
+SPECIALIZATIONS = RESOURCE_DIR / "specializations.yaml"
+SKILLS = RESOURCE_DIR / "skills.yaml"
+WEAPONS = RESOURCE_DIR / "weapons.yaml"
+SETTINGS = RESOURCE_DIR / "settings.yaml"
+
+from gw2_build_randomizer.model import Classes
+
+class_list = list(Classes)
 
 def class_to_index(class_pick):
     if isinstance(class_pick, str):
@@ -24,18 +33,17 @@ def class_to_index(class_pick):
     
 def main(print_out=False):
     output_string = ""
-    program_dir = os.path.dirname(os.path.realpath(__file__))
 
-    with open(os.path.join(program_dir, "specializations.yaml"), "r") as f:
+    with SPECIALIZATIONS.open() as f:
         specs = yaml.safe_load(f)
 
-    with open(os.path.join(program_dir, "skills.yaml"), "r") as f:
+    with SKILLS.open() as f:
         skills = yaml.safe_load(f)
         
-    with open(os.path.join(program_dir, "weapons.yaml"), "r") as f:
+    with WEAPONS.open() as f:
         weapons = yaml.safe_load(f)
         
-    with open(os.path.join(program_dir, "settings.yaml"), "r") as f:
+    with SETTINGS.open() as f:
         settings = yaml.safe_load(f)
         
     class_index = class_to_index(settings["class"])

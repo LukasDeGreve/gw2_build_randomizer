@@ -27,7 +27,7 @@ def class_to_index(class_pick: Union[Literal["Random"], str, list[str]]) -> int:
         return possible_ind[random.randint(0, len(possible_ind)-1)]
 
     
-def main(print_out=False):
+def main(print_out: bool = False) -> str:
     output_string = ""
 
     with SPECIALIZATIONS.open() as f:

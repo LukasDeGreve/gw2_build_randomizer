@@ -3,6 +3,7 @@ import yaml
 import os
 import random
 from pathlib import Path
+from typing import Union, Literal
 
 RESOURCE_DIR = Path(__file__).parent / "resources"
 SPECIALIZATIONS = RESOURCE_DIR / "specializations.yaml"
@@ -14,20 +15,15 @@ from gw2_build_randomizer.model import Classes
 
 class_list = list(Classes)
 
-def class_to_index(class_pick):
-    if isinstance(class_pick, str):
-        class_pick = class_pick.lower()
-    else:
-        class_pick = [single_class.lower() for single_class in class_pick]
-        
-    if class_pick == "random":
+def class_to_index(class_pick: Union[Literal["Random"], str, list[str]]) -> int:
+    if isinstance(class_pick, str) and class_pick.lower() == "random":
         return random.randint(0, 8)
-    elif class_pick in class_list:
+    elif isinstance(class_pick, str) and class_pick in class_list:
         return class_list.index(class_pick)
     else:
         possible_ind = []
         for single_class in class_pick:
-            possible_ind.append(class_list.index(single_class))
+            possible_ind.append(class_list.index(single_class.lower()))
         return possible_ind[random.randint(0, len(possible_ind)-1)]
 
     

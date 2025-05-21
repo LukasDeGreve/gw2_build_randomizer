@@ -10,11 +10,14 @@ RESOURCE_DIR = Path(__file__) / "resources"
 
 ProfessionName = NewType("ProfessionName", str)
 
+
 class Settings(BaseModel):
     include_professions: tuple[ProfessionName, ...] = tuple()
     exclude_professions: tuple[ProfessionName, ...] = tuple()
 
+
 Specialization = NewType("Specialization", str)
+
 
 class Expansion(StrEnum):
     BASE = auto()
@@ -24,11 +27,13 @@ class Expansion(StrEnum):
     SECRETS_OF_THE_OBSCURE = auto()
     JANTHIR_WILDS = auto()
 
+
 class WeaponUsage(StrEnum):
     MAIN_HAND = auto()
     OFF_HAND = auto()
     TWO_HAND = auto()
     AQUATIC = auto()
+
 
 class Weapon(StrEnum):
     AXE = auto()
@@ -51,13 +56,16 @@ class Weapon(StrEnum):
     HARPOON_GUN = auto()
     TRIDENT = auto()
 
+
 Skill = NewType("Skill", str)
+
 
 class Skills(BaseModel):
     heal: list[Skill]
     utility: list[Skill]
     elite: list[Skill]
     special: list[Skill] = []
+
 
 class Profession(BaseModel):
     name: ProfessionName
@@ -71,6 +79,7 @@ class Professions(BaseModel):
 
 
 TraitChoice = Literal["bottom", "middle", "top"]
+
 
 class Trait(BaseModel):
     specialization: Specialization
@@ -88,9 +97,11 @@ class Build(BaseModel):
 
     def _render_profession_name(self) -> str:
         maybe_elite_trait = self.traits[2]
-        spec_index = self.profession.specializations.index(maybe_elite_trait.specialization)
+        spec_index = self.profession.specializations.index(
+            maybe_elite_trait.specialization
+        )
         if spec_index < 5:
-            return f"Core {self.profession.name.capitalize()}"  
+            return f"Core {self.profession.name.capitalize()}"
         else:
             return f"{maybe_elite_trait.specialization} ({self.profession.name.capitalize()})"
 
@@ -98,10 +109,14 @@ class Build(BaseModel):
         if self.special is None:
             return ""
         special_name, special_skills = self.special
-        return ", ".join([f"{special_name} {i+1}: {special_skill}" for i, special_skill in enumerate(special_skills)])
+        return ", ".join(
+            [
+                f"{special_name} {i + 1}: {special_skill}"
+                for i, special_skill in enumerate(special_skills)
+            ]
+        )
 
     def render_for_display(self) -> str:
-        
         return dedent(f"""
         Your class is: {self._render_profession_name()} 
 
@@ -120,7 +135,7 @@ class Build(BaseModel):
         Elite skill: {self.elite}
 
         Weapon set 1: {", ".join(self.weapon_sets[0])}
-        {f"Weapon set 2: {", ".join(self.weapon_sets[1])}" if len(self.weapon_sets) > 1 and self.profession.name not in {"engineer", "elementalist"} else ""}
+        {f"Weapon set 2: {', '.join(self.weapon_sets[1])}" if len(self.weapon_sets) > 1 and self.profession.name not in {"engineer", "elementalist"} else ""}
 
         {self._render_special_skills()}
         """).strip()

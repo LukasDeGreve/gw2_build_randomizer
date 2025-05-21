@@ -3,7 +3,15 @@ import random
 import pytest
 
 from gw2_build_randomizer.main import main, get_professions
-from gw2_build_randomizer.model import Build, Trait, Profession, ProfessionName, Skill, Weapon, Specialization
+from gw2_build_randomizer.model import (
+    Build,
+    Trait,
+    Profession,
+    ProfessionName,
+    Skill,
+    Weapon,
+    Specialization,
+)
 
 EXPECTED = {
     0: """Your class is: Catalyst (Elementalist) 
@@ -26,6 +34,7 @@ Weapon set 1: staff
 """
 }
 
+
 @pytest.mark.parametrize("seed", range(1))
 def test_can_run(seed: int) -> None:
     """The most basic test, just so I know I can refactor without something going bang"""
@@ -44,9 +53,18 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
     build = Build(
         profession=professions_by_name[ProfessionName("elementalist")],
         traits=(
-            Trait(specialization=Specialization("Fire"), trait_choices=("bottom", "middle", "middle")),
-            Trait(specialization=Specialization("Earth"), trait_choices=("middle", "middle", "middle")),
-            Trait(specialization=Specialization("Catalyst"), trait_choices=("bottom", "top", "bottom")),
+            Trait(
+                specialization=Specialization("Fire"),
+                trait_choices=("bottom", "middle", "middle"),
+            ),
+            Trait(
+                specialization=Specialization("Earth"),
+                trait_choices=("middle", "middle", "middle"),
+            ),
+            Trait(
+                specialization=Specialization("Catalyst"),
+                trait_choices=("bottom", "top", "bottom"),
+            ),
         ),
         heal=Skill("Ether Renewal"),
         utility=(
@@ -55,8 +73,6 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
             Skill("Arcane Wave"),
         ),
         elite=Skill("Tornado"),
-        weapon_sets=(
-            (Weapon("staff"),),
-        )
+        weapon_sets=((Weapon("staff"),),),
     )
     assert build.render_for_display() == EXPECTED[0].strip()

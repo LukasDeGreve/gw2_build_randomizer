@@ -18,13 +18,13 @@ Catalyst: bottom top bottom
 
 Heal skill: Ether Renewal
 
-Utility skill 1: Conjure Lightning Hammer
-Utility skill 2: Conjure Frost Bow
-Utility skill 3: Invigorating Air
+Utility skill 1: Conjure Flame Axe
+Utility skill 2: Armor of Earth
+Utility skill 3: Arcane Wave
 
 Elite skill: Tornado
 
-Weapon set 1: scepter, warhorn
+Weapon set 1: staff
 """
 }
 
@@ -53,13 +53,13 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
         ),
         heal=Skill("Ether Renewal"),
         utility=(
-            Skill("Conjure Lightning Hammer"),
-            Skill("Conjure Frost Bow"),
-            Skill("Invigorating Air"),
+            Skill("Conjure Flame Axe"),
+            Skill("Armor of Earth"),
+            Skill("Arcane Wave"),
         ),
         elite=Skill("Tornado"),
         weapon_sets=(
-            (Weapon("scepter"), Weapon("warhorn")),
+            (Weapon("staff"),),
         )
     )
     assert build.render_for_display() == EXPECTED[0].strip()

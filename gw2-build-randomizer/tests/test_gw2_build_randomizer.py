@@ -83,11 +83,11 @@ def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Professio
         profession=professions_by_name[ProfessionName("engineer")],
         traits=(
             Trait(
-                specialization=Specialization(name="Firearms", code=6),
+                specialization=Specialization(name="Firearms", code=38),
                 trait_choices=(TraitChoice.BOTTOM, TraitChoice.BOTTOM, TraitChoice.MIDDLE),
             ),
             Trait(
-                specialization=Specialization(name="Explosives", code=38),
+                specialization=Specialization(name="Explosives", code=6),
                 trait_choices=(TraitChoice.BOTTOM, TraitChoice.TOP, TraitChoice.BOTTOM),
             ),
             Trait(
@@ -95,17 +95,17 @@ def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Professio
                 trait_choices=(TraitChoice.BOTTOM, TraitChoice.BOTTOM, TraitChoice.TOP),
             ),
         ),
-        heal=Skill(name="Med Kit", code=0),
+        heal=Skill(name="Med Kit", code=132),
         utility=(
-            Skill(name="Grenade Kit", code=0),
-            Skill(name="Force Signet", code=0),
-            Skill(name="Shift Signet", code=0),
+            Skill(name="Grenade Kit", code=134),
+            Skill(name="Force Signet", code=6938),
+            Skill(name="Shift Signet", code=6928),
         ),
-        elite=Skill(name="Jade Buster Cannon", code=0),
+        elite=Skill(name="Overclock Signet", code=6921),
         weapon_sets=(
             (Weapon("rifle"),),
             (Weapon("hammer"),),
             ),
     )
-    expected = '[&DQMmLwY3Rh+EAIQAhgCGABobGhsQGwsbCRsSAQAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]'
+    expected = '[&DQMmLAY0RhyEAAAAhgAAABobAAAQGwAACRsAAAAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]'
     assert build.render_as_chat_link() == expected

@@ -261,9 +261,29 @@ code = 57
 name = "Mechanist"
 code = 70
 [professions.skills]
-heal = ['A.E.D.', 'Elixer H', 'Healing Turret', 'Medkit', 'Medic Gyro', 'Coolant Blast', 'Rectifier Signet']
 utility = ['Bomb kit', 'Grenade Kit', 'Elixir Gun', 'Flamethrower', 'Tool Kit', 'Elixir B', 'Elixir C', 'Elixir R', 'Elixir S', 'Elixir U', 'Personal Battering Ram', 'Rocket Boots', 'Slick Shoes', 'Throw Mine', 'Utility Goggles', 'Flame Turret', 'Net Turret', 'Rifle Turret', 'Harpoon Turret', 'Rocket Turret', 'Thumper Turret', 'Blast Gyro', 'Bulwark Gyro', 'Purge Gyro', 'Shredder Gyro', 'Spectrum Shield', 'Hard Light Arena', 'Laser Disk', 'Photon Wall', 'Barrier Signet', 'Force Signet', 'Shift Signet', 'Superconducting Signet']
 elite = ['Elite Mortar Kit', 'Elixir X', 'Supply Crate', 'Sneak Gyro', 'Prime Light Beam', 'Overclock Signet']
+[[professions.skills.heal]]
+name = 'A.E.D.'
+code = 3882
+[[professions.skills.heal]]
+name = 'Elixer H'
+code = 276
+[[professions.skills.heal]]
+name = 'Healing Turret'
+code = 296
+[[professions.skills.heal]]
+name = 'Med Kit'
+code = 132
+[[professions.skills.heal]]
+name = 'Medic Gyro'
+code = 4825
+[[professions.skills.heal]]
+name = 'Coolant Blast'
+code = 5717	
+[[professions.skills.heal]]
+name = 'Rectifier Signet'
+code = 6925
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['pistol']

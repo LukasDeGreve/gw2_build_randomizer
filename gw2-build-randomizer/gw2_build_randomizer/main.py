@@ -11,22 +11,36 @@ RESOURCE_DIR = Path(__file__).parent / "resources"
 SETTINGS = RESOURCE_DIR / "settings.toml"
 PROFESSIONS = RESOURCE_DIR / "professions.toml"
 
-from gw2_build_randomizer.model import ClassNames, Settings, Gw2Classes
+from gw2_build_randomizer.model import Settings, Professions, Profession
 
-class_list = list(ClassNames)
-    
+def get_professions() -> Professions:
+    return TypeAdapter(Professions).validate_python(tomllib.loads(PROFESSIONS.read_text()))
+
+def get_settings(known_professions: set[Profession]) -> Settings:
+    settings = Settings.model_validate(tomllib.loads(SETTINGS.read_text()))
+    assert all(i in known_professions for i in settings.include_professions)
+    assert all(i in known_professions for i in settings.exclude_professions)
+    return settings
+
+def determine_random_profession(professions: Professions, settings: Settings) -> Profession:
+    include = set(settings.include_professions or professions)
+    after_exclude = include.difference(settings.exclude_professions)
+    choices = [profession for profession in professions if profession in after_exclude]
+    return random.choice(choices)
+        
+
 def main(print_out: bool = False) -> str:
     output_string = ""
 
-    settings = Settings.from_toml(SETTINGS)
+    professions = get_professions()
+    known_professions = set(professions)
+    settings = get_settings(known_professions)
     
-    profession = settings.get_class()
-    class_name = profession.name.capitalize()
-
-    professions = TypeAdapter(Gw2Classes).validate_python(tomllib.loads(PROFESSIONS.read_text()))
-
+    profession = determine_random_profession(professions, settings)
     profession_info = professions[profession]
+    class_name = profession.capitalize()
 
+    
     elite_specs = [0,5,6,7]
     elite_spec = random.choice(elite_specs)
     traits = range(5)
@@ -75,7 +89,7 @@ def main(print_out: bool = False) -> str:
         elite_choices.append(5)
     
     # if revenenant, pick 2 legends instead of utility skills
-    if profession == ClassNames.REVENANT:         
+    if profession == "revenant":
         possible_legends = np.array(profession_info.skills.special)[heal_choices]  # there are as many legends as another class has heal skills
         chosen_legends = np.random.choice(possible_legends, 2, replace=False)
         output = f"Legend 1: Legendary {chosen_legends[0]} Stance \nLegend 2: Legendary {chosen_legends[1]} Stance\n"
@@ -115,7 +129,7 @@ def main(print_out: bool = False) -> str:
     
     # pick 2 pets if you are a ranger
 
-    if profession == ClassNames.RANGER:
+    if profession == "ranger":
         pets = random.sample(profession_info.skills.special, 2)
         output = f"Pet 1: {pets[0]}\nPet 2: {pets[1]}\n"
         if print_out:
@@ -161,7 +175,7 @@ def main(print_out: bool = False) -> str:
 
     # Weapon choice printing. currently does not support bladesworn to only have a single weapon
     output = f"Weapon set 1: {", ".join(weapon_set[0])}"
-    if profession not in {ClassNames.ENGINEER, ClassNames.ELEMENTALIST}:
+    if profession not in {"engineer", "elementalist"}:
         output += f"\nWeapon set 2: {", ".join(weapon_set[1])}"
     if print_out:
         print(output)

@@ -9,33 +9,11 @@ import tomllib
 
 RESOURCE_DIR = Path(__file__) / "resources"
 
-class ClassNames(StrEnum):
-    WARRIOR = auto()
-    GUARDIAN = auto()
-    REVENANT = auto()
-    RANGER = auto()
-    THIEF = auto()
-    ENGINEER = auto()
-    ELEMENTALIST = auto()
-    MESMER = auto()
-    NECROMANCER = auto()
-
-def ClassNames_validator(values: list[str]) -> list[ClassNames]:
-    return [ClassNames[value] for value in values]
+Profession = NewType("Profession", str)
 
 class Settings(BaseModel):
-    include_ClassNames: Annotated[list[ClassNames], BeforeValidator(ClassNames_validator)] = list(ClassNames)
-    exclude_ClassNames: Annotated[list[ClassNames], BeforeValidator(ClassNames_validator)] = []
-
-    def eligible_ClassNames(self) -> list[ClassNames]:
-        return [i for i in ClassNames if i in self.include_ClassNames and i not in self.exclude_ClassNames]
-    
-    def get_class(self) -> ClassNames:
-        return random.choice(self.eligible_ClassNames())
-    
-    @classmethod
-    def from_toml(cls, path: Path) -> Settings:
-        return cls.model_validate(tomllib.loads(path.read_text()))
+    include_professions: tuple[Profession, ...] = tuple()
+    exclude_professions: tuple[Profession, ...] = tuple()
 
 Specialization = NewType("Specialization", str)
 
@@ -82,10 +60,10 @@ class Skills(BaseModel):
     elite: list[str]
     special: list[str] = []
 
-class Gw2Profession(BaseModel):
+class ProfessionInfo(BaseModel):
     specializations: list[Specialization]
     weapons: dict[Expansion, dict[WeaponUsage, list[Weapon]]]
     skills: Skills
 
 
-Gw2Classes = dict[ClassNames, Gw2Profession]
+Professions = dict[Profession, ProfessionInfo]

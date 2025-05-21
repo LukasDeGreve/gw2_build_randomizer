@@ -1,6 +1,6 @@
 [[professions]]
 name = 'guardian'
-code = 0 # TODO
+code = 1
 [[professions.specializations]]
 name = "Valor"
 code = 13
@@ -47,7 +47,7 @@ off_hand = ['pistol']
 two_hand = ['spear']
 [[professions]]
 name = 'revenant'
-code = 0 # TODO
+code = 9
 [[professions.specializations]]
 name = "Invocation"
 code = 3
@@ -94,7 +94,7 @@ main_hand = ['scepter']
 two_hand = ['spear']
 [[professions]]
 name = 'warrior'
-code = 0 # TODO
+code = 2
 [[professions.specializations]]
 name = "Strength"
 code = 4
@@ -141,7 +141,7 @@ two_hand = ['staff']
 two_hand = ['spear']
 [[professions]]
 name = 'ranger'
-code = 0 # TODO
+code = 4
 [[professions.specializations]]
 name = "Marksmanship"
 code = 8
@@ -301,7 +301,7 @@ two_hand = ['shortbow']
 two_hand = ['spear']
 [[professions]]
 name = 'elementalist'
-code = 0 # TODO
+code = 6
 [[professions.specializations]]
 name = "Water"
 code = 17
@@ -347,7 +347,7 @@ main_hand = ['pistol']
 two_hand = ['spear']
 [[professions]]
 name = 'mesmer'
-code = 0 # TODO
+code = 7
 [[professions.specializations]]
 name = "Dueling"
 code = 1

@@ -4,13 +4,17 @@ import os
 import random
 from pathlib import Path
 from typing import Union, Literal
+import tomllib
+
+from pydantic import TypeAdapter
 
 RESOURCE_DIR = Path(__file__).parent / "resources"
 SPECIALIZATIONS = RESOURCE_DIR / "specializations.yaml"
 SKILLS = RESOURCE_DIR / "skills.yaml"
 WEAPONS = RESOURCE_DIR / "weapons.yaml"
+PROFESSIONS = RESOURCE_DIR / "professions.toml"
 
-from gw2_build_randomizer.model import ClassNames, Settings
+from gw2_build_randomizer.model import ClassNames, Settings, Gw2Classes
 
 class_list = list(ClassNames)
     
@@ -28,9 +32,10 @@ def main(print_out: bool = False) -> str:
 
     settings = Settings.from_toml(RESOURCE_DIR / "settings.toml")
     
-    gw2_class = settings.get_class()
-    class_name = gw2_class.name.capitalize()
+    profession = settings.get_class()
+    class_name = profession.name.capitalize()
 
+    professions = TypeAdapter(Gw2Classes).validate_python(tomllib.loads(PROFESSIONS.read_text()))
 
     elite_specs = [0,5,6,7]
     elite_spec = random.choice(elite_specs)
@@ -80,7 +85,7 @@ def main(print_out: bool = False) -> str:
         elite_choices.append(5)
     
     # if revenenant, pick 2 legends instead of utility skills
-    if gw2_class == ClassNames.REVENANT:         
+    if profession == ClassNames.REVENANT:         
         possible_legends = np.array(skills["rev_legends"])[heal_choices]  # there are as many legends as another class has heal skills
         chosen_legends = np.random.choice(possible_legends, 2, replace=False)
         output = f"Legend 1: Legendary {chosen_legends[0]} Stance \nLegend 2: Legendary {chosen_legends[1]} Stance\n"
@@ -120,7 +125,7 @@ def main(print_out: bool = False) -> str:
     
     # pick 2 pets if you are a ranger
 
-    if gw2_class == ClassNames.RANGER:
+    if profession == ClassNames.RANGER:
         pets = random.sample(skills["ranger_pets"], 2)
         output = f"Pet 1: {pets[0]}\nPet 2: {pets[1]}\n"
         if print_out:
@@ -166,7 +171,7 @@ def main(print_out: bool = False) -> str:
 
     # Weapon choice printing. currently does not support bladesworn to only have a single weapon
     output = f"Weapon set 1: {", ".join(weapon_set[0])}"
-    if gw2_class not in {ClassNames.ENGINEER, ClassNames.ELEMENTALIST}:
+    if profession not in {ClassNames.ENGINEER, ClassNames.ELEMENTALIST}:
         output += f"\nWeapon set 2: {", ".join(weapon_set[1])}"
     if print_out:
         print(output)

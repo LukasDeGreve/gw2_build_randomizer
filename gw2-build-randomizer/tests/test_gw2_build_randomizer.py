@@ -6,6 +6,7 @@ from gw2_build_randomizer.main import main, get_professions
 from gw2_build_randomizer.model import (
     Build,
     Trait,
+    TraitChoice,
     Profession,
     ProfessionName,
     Skill,
@@ -16,9 +17,9 @@ from gw2_build_randomizer.model import (
 EXPECTED = {
     0: """Your class is: Catalyst (Elementalist) 
 
-Fire: bottom middle middle
+Water: bottom middle middle
 
-Earth: middle middle middle
+Fire: middle middle middle
 
 Catalyst: bottom top bottom
 
@@ -54,16 +55,16 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
         profession=professions_by_name[ProfessionName("elementalist")],
         traits=(
             Trait(
-                specialization=Specialization("Fire"),
-                trait_choices=("bottom", "middle", "middle"),
+                specialization=Specialization(name="Water", code=17),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.MIDDLE, TraitChoice.MIDDLE),
             ),
             Trait(
-                specialization=Specialization("Earth"),
-                trait_choices=("middle", "middle", "middle"),
+                specialization=Specialization(name="Fire", code=31),
+                trait_choices=(TraitChoice.MIDDLE, TraitChoice.MIDDLE, TraitChoice.MIDDLE),
             ),
             Trait(
-                specialization=Specialization("Catalyst"),
-                trait_choices=("bottom", "top", "bottom"),
+                specialization=Specialization(name="Catalyst", code=67),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.TOP, TraitChoice.BOTTOM),
             ),
         ),
         heal=Skill("Ether Renewal"),
@@ -82,16 +83,16 @@ def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Professio
         profession=professions_by_name[ProfessionName("engineer")],
         traits=(
             Trait(
-                specialization=Specialization("Firearms"),
-                trait_choices=("bottom", "bottom", "middle"),
+                specialization=Specialization(name="Firearms", code=6),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.BOTTOM, TraitChoice.MIDDLE),
             ),
             Trait(
-                specialization=Specialization("Explosives"),
-                trait_choices=("bottom", "top", "bottom"),
+                specialization=Specialization(name="Explosives", code=38),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.TOP, TraitChoice.BOTTOM),
             ),
             Trait(
-                specialization=Specialization("Mechanist"),
-                trait_choices=("bottom", "bottom", "top"),
+                specialization=Specialization(name="Mechanist", code=70),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.BOTTOM, TraitChoice.TOP),
             ),
         ),
         heal=Skill("Med Kit"),
@@ -101,7 +102,10 @@ def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Professio
             Skill("Shift Signet"),
         ),
         elite=Skill("Jade Buster Cannon"),
-        weapon_sets=((Weapon("rifle"),),),
+        weapon_sets=(
+            (Weapon("rifle"),),
+            (Weapon("hammer"),),
+            ),
     )
     expected = '[&DQMmLwY3Rh+EAIQAhgCGABobGhsQGwsbCRsSAQAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]'
     assert build.render_as_chat_link() == expected

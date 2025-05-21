@@ -1,6 +1,30 @@
 [[professions]]
 name = 'guardian'
-specializations = ['Zeal', 'Radiance', 'Valor', 'Honor', 'Virtues', 'Dragonhunter', 'Firebrand', 'Willbender']
+code = 0 # TODO
+[[professions.specializations]]
+name = "Valor"
+code = 13
+[[professions.specializations]]
+name = "Radiance"
+code = 16
+[[professions.specializations]]
+name = "Zeal"
+code = 42
+[[professions.specializations]]
+name = "Virtues"
+code = 46
+[[professions.specializations]]
+name = "Honor"
+code = 49
+[[professions.specializations]]
+name = "Dragonhunter"
+code = 27
+[[professions.specializations]]
+name = "Firebrand"
+code = 62
+[[professions.specializations]]
+name = "Willbender"
+code = 65
 [professions.skills]
 heal = ['Receive the Light', 'Litany of Wrath', 'Shelter', 'Signet of Resolve', 'Purification', 'Mantra of Solace', 'Reversal of Fortune']
 utility = ['Hallowed Ground', 'Purging Flames', 'Sanctuary', 'Wall of Reflection', 'Contemplation of Purity', 'Judges Intervention', 'Merciful Intervention', 'Smite Condition', 'Hold The Line!', 'Advance!', 'Save Yourselves!', 'Stand Your Ground', 'Bane Signet', 'Signet of Judgment', 'Signet of Mercy', 'Signet of Wrath', 'Bow of Truth', 'Hammer of Wisdom', 'Shield of the Avenger', 'Sword of Justice', 'Fragments of Faith', 'Lights Judgment', 'Test of Faith', 'Procession of Blades', 'Mantra of Flame', 'Mantra of Lore', 'Matra of Truth', 'Mantra of Potence', 'Flash Combo', 'Heel Crack', 'Roiling Light', 'Whirling Light']
@@ -23,7 +47,31 @@ off_hand = ['pistol']
 two_hand = ['spear']
 [[professions]]
 name = 'revenant'
-specializations = ['Corruption', 'Retribution', 'Salvation', 'Invocation', 'Devastation', 'Herald', 'Renegade', 'Vindicator']
+code = 0 # TODO
+[[professions.specializations]]
+name = "Invocation"
+code = 3
+[[professions.specializations]]
+name = "Retribution"
+code = 9
+[[professions.specializations]]
+name = "Salvation"
+code = 12
+[[professions.specializations]]
+name = "Corruption"
+code = 14
+[[professions.specializations]]
+name = "Devastation"
+code = 15
+[[professions.specializations]]
+name = "Herald"
+code = 52
+[[professions.specializations]]
+name = "Renegade"
+code = 63
+[[professions.specializations]]
+name = "Vindicator"
+code = 69
 [professions.skills]
 heal = []
 utility = []
@@ -46,7 +94,31 @@ main_hand = ['scepter']
 two_hand = ['spear']
 [[professions]]
 name = 'warrior'
-specializations = ['Strength', 'Arms', 'Defence', 'Tactics', 'Discipline', 'Spellbreaker', 'Berserker', 'Bladesworn']
+code = 0 # TODO
+[[professions.specializations]]
+name = "Strength"
+code = 4
+[[professions.specializations]]
+name = "Tactics"
+code = 11
+[[professions.specializations]]
+name = "Defense"
+code = 22
+[[professions.specializations]]
+name = "Arms"
+code = 36
+[[professions.specializations]]
+name = "Discipline"
+code = 51
+[[professions.specializations]]
+name = "Berserker"
+code = 18
+[[professions.specializations]]
+name = "Spellbreaker"
+code = 61
+[[professions.specializations]]
+name = "Bladesworn"
+code = 68
 [professions.skills]
 heal = ['Mending', 'To the Limit!', 'Healing Signet', 'Defiant Stance', 'Natural Healing', 'Blood Reckoning', 'Combat Stimulant']
 utility = ['Banner of Defence', 'Banner of Dicipline', 'Banner of Strenght', 'Banner of Tactics', 'Bulls Charge', 'Kick', 'Stomp', 'Throw Bolas', 'Fear me!', 'For Great Justice!', 'On My Mark!', 'Shake It Off!', 'Dolyak Signet', 'Signet of Fury', 'Signet of Might', 'Signet of Stamina', 'Balanced Stance', 'Berserker Stance', 'Endure Pain', 'Frenzy', 'Sight Beyond Sight', 'Featherfoot Grace', 'Imminent Threat', 'Break Enchantments', 'Outrage', 'Shattering Blow', 'Sundering Leap', 'Wild Blow', 'Dragonspike Mine', 'Electric Fence', 'Flow Stabilizer', 'Overcharged Cartridges']
@@ -69,7 +141,31 @@ two_hand = ['staff']
 two_hand = ['spear']
 [[professions]]
 name = 'ranger'
-specializations = ['Marksmanship', 'Skirmishing', 'Wilderness Survival', 'Nature Magic', 'Beastmastery', 'Druid', 'Soulbeast', 'Untamed']
+code = 0 # TODO
+[[professions.specializations]]
+name = "Marksmanship"
+code = 8
+[[professions.specializations]]
+name = "Nature Magic"
+code = 25
+[[professions.specializations]]
+name = "Skirmishing"
+code = 30
+[[professions.specializations]]
+name = "Beastmastery"
+code = 32
+[[professions.specializations]]
+name = "Wilderness Survival"
+code = 33
+[[professions.specializations]]
+name = "Druid"
+code = 5
+[[professions.specializations]]
+name = "Soulbeast"
+code = 55
+[[professions.specializations]]
+name = "Untamed"
+code = 72
 [professions.skills]
 heal = ['We Heal as one!', 'Water Spirit', 'Troll Unguent', 'Healing Spring', 'Glyph of Rejuvenation', 'Bear Stance', 'Perilous Gift']
 utility = ['Guard!', 'Protect Me!', 'Search and Rescue!', "Sic'em", 'Signet of Renewal', 'Signet of Stone', 'Signet of the Hunt', 'Signet of the Wild', 'Frost Spirit', 'Stone Spirit', 'Storm Spirit', 'Sun Spirit', 'Lightning Reflexes', 'Muddy Terrain', 'Quickening Zephyr', 'Sharpening Stone', 'Flame Trap', 'Frost Trap', 'Spike Trap', 'Vipers Nest', 'Glyph of Alignment', 'Glyph of Equality', 'Glyph of Unity', 'Glyph of the Tides', 'Dolyak Stance', 'Griffon Stance', 'Moa Stance', 'Vulture Stance', 'Exploding Spores', 'Mutate Conditions', 'Natures Binding', 'Unnatural Traversal']
@@ -93,7 +189,31 @@ off_hand = ['mace']
 two_hand = ['spear']
 [[professions]]
 name = 'thief'
-specializations = ['Deadly Arts', 'Critical Strikes', 'Shadow Arts', 'Acrobatics', 'Trickery', 'Daredevil', 'Deadeye', 'Specter']
+code = 0
+[[professions.specializations]]
+name = "Shadow Arts"
+code = 20
+[[professions.specializations]]
+name = "Deadly Arts"
+code = 28
+[[professions.specializations]]
+name = "Critical Strikes"
+code = 35
+[[professions.specializations]]
+name = "Trickery"
+code = 44
+[[professions.specializations]]
+name = "Acrobatics"
+code = 54
+[[professions.specializations]]
+name = "Daredevil"
+code = 7
+[[professions.specializations]]
+name = "Deadeye"
+code = 58
+[[professions.specializations]]
+name = "Specter"
+code = 71
 [professions.skills]
 heal = ['Hide in Shadows', 'Signet of Malice', 'Withdraw', 'Skelk Venom', 'Channeled Vigor', 'Malicious Restoration', 'Well of Gloom']
 utility = ['Blinding Powder', 'Shadow Refuge', 'Shadowstep', 'Smoke Screen', 'Prepare Pitfall', 'Prepare Thousand Needles', 'Prepare Shadow Portal', 'Prepare Seal Area', 'Assassins Signet', 'Infiltrators Signet', 'Signet of Agility', 'Signet of Shadows', 'Caltrops', 'Haste', 'Roll for Initiative', 'Scorpion Wire', 'Devourer Venom', 'Ice Drake Venom', 'Skale Venom', 'Spider Venom', 'Bandits Defense', 'Distracting Daggers', 'Fist Furry', 'Impairing Daggers', 'Binding Shadow', 'Mercy', 'Shadow Flare', 'Shadow Gust', 'Well of Bounty', 'Well of Silence', 'Well of Sorrow', 'Well of Tears']
@@ -115,7 +235,31 @@ main_hand = ['axe']
 two_hand = ['spear']
 [[professions]]
 name = 'engineer'
-specializations = ['Explosives', 'Firearms', 'Inventions', 'Alchemy', 'Tools', 'Scrapper', 'Holosmith', 'Mechanist']
+code = 3
+[[professions.specializations]]
+name = "Explosives"
+code = 6
+[[professions.specializations]]
+name = "Tools"
+code = 21
+[[professions.specializations]]
+name = "Alchemy"
+code = 29
+[[professions.specializations]]
+name = "Firearms"
+code = 38
+[[professions.specializations]]
+name = "Inventions"
+code = 47
+[[professions.specializations]]
+name = "Scrapper"
+code = 43
+[[professions.specializations]]
+name = "Holosmith"
+code = 57
+[[professions.specializations]]
+name = "Mechanist"
+code = 70
 [professions.skills]
 heal = ['A.E.D.', 'Elixer H', 'Healing Turret', 'Medkit', 'Medic Gyro', 'Coolant Blast', 'Rectifier Signet']
 utility = ['Bomb kit', 'Grenade Kit', 'Elixir Gun', 'Flamethrower', 'Tool Kit', 'Elixir B', 'Elixir C', 'Elixir R', 'Elixir S', 'Elixir U', 'Personal Battering Ram', 'Rocket Boots', 'Slick Shoes', 'Throw Mine', 'Utility Goggles', 'Flame Turret', 'Net Turret', 'Rifle Turret', 'Harpoon Turret', 'Rocket Turret', 'Thumper Turret', 'Blast Gyro', 'Bulwark Gyro', 'Purge Gyro', 'Shredder Gyro', 'Spectrum Shield', 'Hard Light Arena', 'Laser Disk', 'Photon Wall', 'Barrier Signet', 'Force Signet', 'Shift Signet', 'Superconducting Signet']
@@ -137,7 +281,31 @@ two_hand = ['shortbow']
 two_hand = ['spear']
 [[professions]]
 name = 'elementalist'
-specializations = ['Fire', 'Air', 'Earth', 'Water', 'Arcane', 'Tempest', 'Weaver', 'Catalyst']
+code = 0 # TODO
+[[professions.specializations]]
+name = "Water"
+code = 17
+[[professions.specializations]]
+name = "Earth"
+code = 26
+[[professions.specializations]]
+name = "Fire"
+code = 31
+[[professions.specializations]]
+name = "Arcane"
+code = 37
+[[professions.specializations]]
+name = "Air"
+code = 41
+[[professions.specializations]]
+name = "Tempest"
+code = 48
+[[professions.specializations]]
+name = "Weaver"
+code = 56
+[[professions.specializations]]
+name = "Catalyst"
+code = 67
 [professions.skills]
 heal = ['Arcane Brilliance', 'Ether Renewal', 'Glyph of Elemental Harmony', 'Signet of Restoration', 'Wash the Pain Away!', 'Aquatic Stance', 'Soothing Water']
 utility = ['Arcane Blast', 'Arcane Power', 'Arcane Shield', 'Arcane Wave', 'Armor of Earth', 'Cleansing Fire', 'Lightning Flash', 'Mist Form', 'Conjure Earth Shield', 'Conjure Flame Axe', 'Conjure Frost Bow', 'Conjure Lightning Hammer', 'Glyph of Elemental Power', 'Glyph of Lesser Elementals', 'Glyph of Renewal', 'Glyph of Storms', 'Signet of Air', 'Signet of Earth', 'Signet of Fire', 'Signet of Water', 'Feel the Burn!', 'Eye of the Storm!', 'Aftershock!', 'Flash-Freeze!', 'Primordial Stance', 'Stone Resonance', 'Unravel', 'Twist of Fate', 'Fortified Earth', 'Relentless Fire', 'Invigorating Air', 'Shattering Ice']
@@ -159,7 +327,31 @@ main_hand = ['pistol']
 two_hand = ['spear']
 [[professions]]
 name = 'mesmer'
-specializations = ['Domination', 'Dueling', 'Chaos', 'Inspiration', 'Illusions', 'Chronomancer', 'Mirage', 'Virtuoso']
+code = 0 # TODO
+[[professions.specializations]]
+name = "Dueling"
+code = 1
+[[professions.specializations]]
+name = "Domination"
+code = 10
+[[professions.specializations]]
+name = "Inspiration"
+code = 23
+[[professions.specializations]]
+name = "Illusions"
+code = 24
+[[professions.specializations]]
+name = "Chaos"
+code = 45
+[[professions.specializations]]
+name = "Chronomancer"
+code = 40
+[[professions.specializations]]
+name = "Mirage"
+code = 59
+[[professions.specializations]]
+name = "Virtuoso"
+code = 66
 [professions.skills]
 heal = ['Ether Feast', 'Mirror', 'Mantra of Recovery', 'Signet of the Ether', 'Well of Eternity', 'False Oasis', 'Twin Blade Restoration']
 utility = ['Decoy', 'Mirror Image', 'Feedback', 'Nullfield', 'Portal Entre', 'Veil', 'Arcane Thievery', 'Blink', 'Illusion of Life', 'Mimic', 'Mantra of Concentration', 'Mantra of distraction', 'Mantra of Pain', 'Mantra of Resolve', 'Phantasmal Defender', 'Phantasmal Disenchanter', 'Signet of Domination', 'Signet of Illusions', 'Signet of Inspiration', 'Signet of Midnight', 'Well of Action', 'Well of Calamity', 'Well of Precognition', 'Well of Recall', 'Crystal Sands', 'Illusionary Ambush', 'Mirage Advance', 'Sand Through Glass', 'Blade Renewal', 'Psychic Force', 'Rain of Swords', 'Sword of Decimation']
@@ -181,7 +373,31 @@ two_hand = ['rifle']
 two_hand = ['spear']
 [[professions]]
 name = 'necromancer'
-specializations = ['Spite', 'Curses', 'Death Magic', 'Blood Magic', 'Soul Reaping', 'Reaper', 'Scourge', 'Harbinger']
+code = 0
+[[professions.specializations]]
+name = "Death Magic"
+code = 2
+[[professions.specializations]]
+name = "Blood Magic"
+code = 19
+[[professions.specializations]]
+name = "Curses"
+code = 39
+[[professions.specializations]]
+name = "Soul Reaping"
+code = 50
+[[professions.specializations]]
+name = "Spite"
+code = 53
+[[professions.specializations]]
+name = "Reaper"
+code = 34
+[[professions.specializations]]
+name = "Scourge"
+code = 60
+[[professions.specializations]]
+name = "Harbinger"
+code = 64
 [professions.skills]
 heal = ['Consume Conditions', 'Summon Blood Fiend', 'Signet of Vamparism', 'Well of Blood', 'Your Soul is Mine!', 'Sand Flare', 'Elixir of Promise']
 utility = ['Blood is Power', 'Corrosive Poison Cloud', 'Corrupt Boon', 'Epidemic', 'Summon Bone Fiend', 'Summon Bone Minion', 'Summon Flesh Worm', 'Summon Shadow Fiend', 'Plague Signet', 'Signet of Spite', 'Signet of the Locust', 'Signet of Undeath', 'Spectral Armor', 'Spectral Grasp', 'Spectral Walk', 'Spectral Ring', 'Well of Corruption', 'Well of Darkness', 'Well of Power', 'Well of Suffering', 'Nothing can save you!', 'Rise!', 'Suffer!', 'You are all Weaklings!', 'Trail of Anguish', 'Dessicate', 'Sand Swell', 'Serpent Siphon', 'Elixir of Anguish', 'Elixir of Bliss', 'Elixir of Ignorance', 'Elixir of Risk']

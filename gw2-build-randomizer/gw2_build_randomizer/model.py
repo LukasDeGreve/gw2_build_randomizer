@@ -52,8 +52,6 @@ class Weapon(StrEnum):
     HARPOON_GUN = auto()
     TRIDENT = auto()
 
-SkillType = NewType("SkillType", str)
-
 class Skills(BaseModel):
     heal: list[str]
     utility: list[str]

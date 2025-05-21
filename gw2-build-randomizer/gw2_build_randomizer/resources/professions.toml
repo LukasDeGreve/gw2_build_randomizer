@@ -189,7 +189,7 @@ off_hand = ['mace']
 two_hand = ['spear']
 [[professions]]
 name = 'thief'
-code = 0
+code = 5
 [[professions.specializations]]
 name = "Shadow Arts"
 code = 20
@@ -393,7 +393,7 @@ two_hand = ['rifle']
 two_hand = ['spear']
 [[professions]]
 name = 'necromancer'
-code = 0
+code = 8
 [[professions.specializations]]
 name = "Death Magic"
 code = 2

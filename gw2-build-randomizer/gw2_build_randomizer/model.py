@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import StrEnum, auto, IntEnum
-from typing import Optional, NewType, Literal
+from typing import Optional, NewType, Any
 from pathlib import Path
 from pydantic import BaseModel, model_validator
 from textwrap import dedent
@@ -125,7 +125,6 @@ class Trait(BaseModel):
         return f"{self.specialization.name}: {" ".join([c.name.lower() for c in self.trait_choices])}"
 
     def render_as_chat_link(self) -> bytes:
-        choices = ["top", "middle", "bottom"]
         third = self.trait_choices[2].value << 4
         second = self.trait_choices[1].value << 2
         first = self.trait_choices[2].value << 4
@@ -203,6 +202,6 @@ class Build(BaseModel):
         all_weapons = [weapon for weapon_set in self.weapon_sets for weapon in weapon_set]
         arr.append(len(all_weapons))
         for weapon in all_weapons:
-            arr.extend(int.to_bytes(WeaponIDs[weapon], 2, byteorder='little'))  # arr.extend(weapon.code)
+            arr.extend(int.to_bytes(WeaponIDs[weapon], 2, byteorder='little'))
         arr.append(0)  # Weaponmaster length
         return f"[&{b64encode(arr).decode()}]"

@@ -63,7 +63,7 @@ def main() -> str:
         traits_picked.append(elite_spec)
 
     # chose majors of each trait
-    majors: list[TraitChoice] = list(TraitChoice)
+    majors = list(TraitChoice)
     chosen_traits = (
         Trait(
             specialization=profession.specializations[traits_picked[0]],

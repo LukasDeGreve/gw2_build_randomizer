@@ -1,5 +1,4 @@
 import random
-import numpy.random
 from textwrap import dedent
 
 import pytest
@@ -32,7 +31,6 @@ Weapon set 1: staff
 def test_can_run(seed: int) -> None:
     """The most basic test, just so I know I can refactor without something going bang"""
     random.seed(0)
-    numpy.random.seed(0)
     actual = main()
     if seed in EXPECTED:
         assert actual == EXPECTED[seed].strip()

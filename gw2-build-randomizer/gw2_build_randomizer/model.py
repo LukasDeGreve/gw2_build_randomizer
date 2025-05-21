@@ -139,3 +139,6 @@ class Build(BaseModel):
 
         {self._render_special_skills()}
         """).strip()
+
+    def render_as_chat_link(self) -> str:
+        ...

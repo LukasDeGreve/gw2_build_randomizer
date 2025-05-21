@@ -76,3 +76,32 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
         weapon_sets=((Weapon("staff"),),),
     )
     assert build.render_for_display() == EXPECTED[0].strip()
+
+def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Profession]) -> None:
+    build = Build(
+        profession=professions_by_name[ProfessionName("engineer")],
+        traits=(
+            Trait(
+                specialization=Specialization("Firearms"),
+                trait_choices=("bottom", "bottom", "middle"),
+            ),
+            Trait(
+                specialization=Specialization("Explosives"),
+                trait_choices=("bottom", "top", "bottom"),
+            ),
+            Trait(
+                specialization=Specialization("Mechanist"),
+                trait_choices=("bottom", "bottom", "top"),
+            ),
+        ),
+        heal=Skill("Med Kit"),
+        utility=(
+            Skill("Grenade Kit"),
+            Skill("Force Signet"),
+            Skill("Shift Signet"),
+        ),
+        elite=Skill("Jade Buster Cannon"),
+        weapon_sets=((Weapon("rifle"),),),
+    )
+    expected = '[&DQMmLwY3Rh+EAIQAhgCGABobGhsQGwsbCRsSAQAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]'
+    assert build.render_as_chat_link() == expected

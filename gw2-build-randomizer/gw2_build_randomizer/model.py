@@ -9,11 +9,11 @@ import tomllib
 
 RESOURCE_DIR = Path(__file__) / "resources"
 
-Profession = NewType("Profession", str)
+ProfessionName = NewType("ProfessionName", str)
 
 class Settings(BaseModel):
-    include_professions: tuple[Profession, ...] = tuple()
-    exclude_professions: tuple[Profession, ...] = tuple()
+    include_professions: tuple[ProfessionName, ...] = tuple()
+    exclude_professions: tuple[ProfessionName, ...] = tuple()
 
 Specialization = NewType("Specialization", str)
 
@@ -60,10 +60,12 @@ class Skills(BaseModel):
     elite: list[str]
     special: list[str] = []
 
-class ProfessionInfo(BaseModel):
+class Profession(BaseModel):
+    name: ProfessionName
     specializations: list[Specialization]
     weapons: dict[Expansion, dict[WeaponUsage, list[Weapon]]]
     skills: Skills
 
 
-Professions = dict[Profession, ProfessionInfo]
+class Professions(BaseModel):
+    professions: list[Profession]

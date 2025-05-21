@@ -3,7 +3,7 @@ from __future__ import annotations
 from enum import StrEnum, auto, IntEnum
 from typing import Optional, NewType, Literal
 from pathlib import Path
-from pydantic import BaseModel
+from pydantic import BaseModel, model_validator
 from textwrap import dedent
 from base64 import b64encode
 
@@ -79,7 +79,16 @@ WeaponIDs = {
     Weapon.SPEAR: 265,
 }
 
-Skill = NewType("Skill", str)
+class Skill(BaseModel):
+    name: str
+    code: int
+
+    @model_validator(mode='before')
+    @classmethod
+    def from_str(cls, data: Any) -> Any:  
+        if isinstance(data, str):  
+            return {"name": data, "code": 0}
+        return data
 
 
 class Skills(BaseModel):
@@ -91,10 +100,10 @@ class Skills(BaseModel):
 
 class Profession(BaseModel):
     name: ProfessionName
+    code: int
     specializations: list[Specialization]
     weapons: dict[Expansion, dict[WeaponUsage, list[Weapon]]]
     skills: Skills
-    code: int = 0  # TODO put me in the data
 
 
 class Professions(BaseModel):
@@ -164,13 +173,13 @@ class Build(BaseModel):
 
         {self.traits[2].render_for_display()}
 
-        Heal skill: {self.heal}
+        Heal skill: {self.heal.name}
 
-        Utility skill 1: {self.utility[0]}
-        Utility skill 2: {self.utility[1]}
-        Utility skill 3: {self.utility[2]}
+        Utility skill 1: {self.utility[0].name}
+        Utility skill 2: {self.utility[1].name}
+        Utility skill 3: {self.utility[2].name}
 
-        Elite skill: {self.elite}
+        Elite skill: {self.elite.name}
 
         Weapon set 1: {", ".join(self.weapon_sets[0])}
         {f"Weapon set 2: {', '.join(self.weapon_sets[1])}" if len(self.weapon_sets) > 1 and self.profession.name not in {"engineer", "elementalist"} else ""}
@@ -185,7 +194,7 @@ class Build(BaseModel):
         for trait in self.traits:
             arr.extend(trait.render_as_chat_link())  # spec/trait
         for skill in (self.heal, *self.utility, self.elite):
-            arr.extend(b'\x00\x00') # arr.extend(skill.code)  # above ground
+            arr.extend(int.to_bytes(skill.code, 2, byteorder='little'))  # above ground
             arr.extend(b'\x00\x00')  # aquatic, empty
         if self.special:
             raise NotImplementedError()

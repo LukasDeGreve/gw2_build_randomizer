@@ -67,13 +67,13 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
                 trait_choices=(TraitChoice.BOTTOM, TraitChoice.TOP, TraitChoice.BOTTOM),
             ),
         ),
-        heal=Skill("Ether Renewal"),
+        heal=Skill(name="Ether Renewal", code=0),
         utility=(
-            Skill("Conjure Flame Axe"),
-            Skill("Armor of Earth"),
-            Skill("Arcane Wave"),
+            Skill(name="Conjure Flame Axe", code=0),
+            Skill(name="Armor of Earth", code=0),
+            Skill(name="Arcane Wave", code=0),
         ),
-        elite=Skill("Tornado"),
+        elite=Skill(name="Tornado", code=0),
         weapon_sets=((Weapon("staff"),),),
     )
     assert build.render_for_display() == EXPECTED[0].strip()
@@ -95,13 +95,13 @@ def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Professio
                 trait_choices=(TraitChoice.BOTTOM, TraitChoice.BOTTOM, TraitChoice.TOP),
             ),
         ),
-        heal=Skill("Med Kit"),
+        heal=Skill(name="Med Kit", code=0),
         utility=(
-            Skill("Grenade Kit"),
-            Skill("Force Signet"),
-            Skill("Shift Signet"),
+            Skill(name="Grenade Kit", code=0),
+            Skill(name="Force Signet", code=0),
+            Skill(name="Shift Signet", code=0),
         ),
-        elite=Skill("Jade Buster Cannon"),
+        elite=Skill(name="Jade Buster Cannon", code=0),
         weapon_sets=(
             (Weapon("rifle"),),
             (Weapon("hammer"),),

@@ -3,12 +3,11 @@ from pathlib import Path
 from typing import Optional
 import tomllib
 
+from gw2_build_randomizer.model import Settings, Professions, Profession, Trait, Build, TraitChoice, Skill, Weapon
 
 RESOURCE_DIR = Path(__file__).parent / "resources"
 SETTINGS = RESOURCE_DIR / "settings.toml"
 PROFESSIONS = RESOURCE_DIR / "professions.toml"
-
-from gw2_build_randomizer.model import Settings, Professions, Profession, Trait, Build, TraitChoice, Skill, Weapon
 
 def get_professions() -> Professions:
     return Professions.model_validate(tomllib.loads(PROFESSIONS.read_text()))
@@ -32,8 +31,6 @@ def main() -> str:
     settings = get_settings(professions)
     
     profession = determine_random_profession(professions, settings)
-    class_name = profession.name.capitalize()
-
     
     elite_specs = [0,5,6,7]
     elite_spec = random.choice(elite_specs)
@@ -41,11 +38,9 @@ def main() -> str:
     
     if elite_spec == 0:     # core class: pick 3 traitlines
         traits_picked = random.sample(traits, 3)
-        class_name2 = "Core " + class_name 
     else:                   # elite spec chosen: only 2 traitlines needed
         traits_picked = random.sample(traits, 2)
         traits_picked.append(elite_spec)
-        class_name2 = profession.specializations[elite_spec] + " (" + class_name + ")"
     
     
     # chose majors of each trait
@@ -78,7 +73,7 @@ def main() -> str:
     # if revenenant, pick 2 legends instead of utility skills
     if profession.name == "revenant":
         special_choices = heal_choices  # there are as many legends as another class has heal skills
-        possible_legends = [l for i, l in enumerate(profession.skills.special) if i in special_choices]
+        possible_legends = [legend for i, legend in enumerate(profession.skills.special) if i in special_choices]
         chosen_legends = random.sample(possible_legends, 2)
         special = "Legend", tuple(chosen_legends)
     else:

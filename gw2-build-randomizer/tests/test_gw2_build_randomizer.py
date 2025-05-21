@@ -1,10 +1,9 @@
 import random
-from textwrap import dedent
 
 import pytest
 
 from gw2_build_randomizer.main import main, get_professions
-from gw2_build_randomizer.model import Build, Trait, Profession, Professions, ProfessionName, Skill, Weapon, Specialization
+from gw2_build_randomizer.model import Build, Trait, Profession, ProfessionName, Skill, Weapon, Specialization
 
 EXPECTED = {
     0: """Your class is: Catalyst (Elementalist) 

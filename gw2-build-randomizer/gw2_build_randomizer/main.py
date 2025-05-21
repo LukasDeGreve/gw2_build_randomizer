@@ -1,16 +1,14 @@
-import os
 import random
 from pathlib import Path
-from typing import Union, Literal, Optional
+from typing import Optional
 import tomllib
 
-from pydantic import TypeAdapter
 
 RESOURCE_DIR = Path(__file__).parent / "resources"
 SETTINGS = RESOURCE_DIR / "settings.toml"
 PROFESSIONS = RESOURCE_DIR / "professions.toml"
 
-from gw2_build_randomizer.model import Settings, Professions, ProfessionName, Profession, Trait, Build, TraitChoice, Skill, Weapon
+from gw2_build_randomizer.model import Settings, Professions, Profession, Trait, Build, TraitChoice, Skill, Weapon
 
 def get_professions() -> Professions:
     return Professions.model_validate(tomllib.loads(PROFESSIONS.read_text()))

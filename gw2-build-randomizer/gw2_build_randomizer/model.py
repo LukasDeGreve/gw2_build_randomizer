@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import StrEnum, auto
-from typing import Optional, Annotated, NewType
+from typing import Optional, Annotated, NewType, Any
 import random
 from pathlib import Path
 from pydantic import BaseModel, BeforeValidator
@@ -19,12 +19,6 @@ class ClassNames(StrEnum):
     ELEMENTALIST = auto()
     MESMER = auto()
     NECROMANCER = auto()
-
-    def _missing_(cls, name) -> None:
-        try:
-            return cls[name.upper()]
-        except:
-            return None
 
 def ClassNames_validator(values: list[str]) -> list[ClassNames]:
     return [ClassNames[value] for value in values]
@@ -86,6 +80,7 @@ class Skills(BaseModel):
     heal: list[str]
     utility: list[str]
     elite: list[str]
+    special: list[str] = []
 
 class Gw2Profession(BaseModel):
     specializations: list[Specialization]

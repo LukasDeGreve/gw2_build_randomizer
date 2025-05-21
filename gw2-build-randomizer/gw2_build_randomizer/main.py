@@ -1,5 +1,4 @@
 import numpy as np
-import yaml
 import os
 import random
 from pathlib import Path
@@ -9,9 +8,7 @@ import tomllib
 from pydantic import TypeAdapter
 
 RESOURCE_DIR = Path(__file__).parent / "resources"
-SPECIALIZATIONS = RESOURCE_DIR / "specializations.yaml"
-SKILLS = RESOURCE_DIR / "skills.yaml"
-WEAPONS = RESOURCE_DIR / "weapons.yaml"
+SETTINGS = RESOURCE_DIR / "settings.toml"
 PROFESSIONS = RESOURCE_DIR / "professions.toml"
 
 from gw2_build_randomizer.model import ClassNames, Settings, Gw2Classes
@@ -21,21 +18,14 @@ class_list = list(ClassNames)
 def main(print_out: bool = False) -> str:
     output_string = ""
 
-    with SPECIALIZATIONS.open() as f:
-        specs = yaml.safe_load(f)
-
-    with SKILLS.open() as f:
-        skills = yaml.safe_load(f)
-        
-    with WEAPONS.open() as f:
-        weapons = yaml.safe_load(f)
-
-    settings = Settings.from_toml(RESOURCE_DIR / "settings.toml")
+    settings = Settings.from_toml(SETTINGS)
     
     profession = settings.get_class()
     class_name = profession.name.capitalize()
 
     professions = TypeAdapter(Gw2Classes).validate_python(tomllib.loads(PROFESSIONS.read_text()))
+
+    profession_info = professions[profession]
 
     elite_specs = [0,5,6,7]
     elite_spec = random.choice(elite_specs)
@@ -47,7 +37,7 @@ def main(print_out: bool = False) -> str:
     else:                   # elite spec chosen: only 2 traitlines needed
         traits_picked = random.sample(traits, 2)
         traits_picked.append(elite_spec)
-        class_name2 = specs[class_name][elite_spec] + " (" + class_name + ")"
+        class_name2 = profession_info.specializations[elite_spec] + " (" + class_name + ")"
     
     output = "Your class is: {} \n".format(class_name2)
     if print_out:
@@ -58,7 +48,7 @@ def main(print_out: bool = False) -> str:
     # chose majors of each trait
     majors = ["top", "middle", "bottom"]
     for i in range(3):
-        output = f"{specs[class_name][traits_picked[i]]}:"
+        output = f"{profession_info.specializations[traits_picked[i]]}:"
         for j in range(3):
             output += f" {random.choice(majors)}"
         if print_out:
@@ -86,7 +76,7 @@ def main(print_out: bool = False) -> str:
     
     # if revenenant, pick 2 legends instead of utility skills
     if profession == ClassNames.REVENANT:         
-        possible_legends = np.array(skills["rev_legends"])[heal_choices]  # there are as many legends as another class has heal skills
+        possible_legends = np.array(profession_info.skills.special)[heal_choices]  # there are as many legends as another class has heal skills
         chosen_legends = np.random.choice(possible_legends, 2, replace=False)
         output = f"Legend 1: Legendary {chosen_legends[0]} Stance \nLegend 2: Legendary {chosen_legends[1]} Stance\n"
         if print_out:
@@ -96,7 +86,7 @@ def main(print_out: bool = False) -> str:
     
     else:
         # pick a random heal skill
-        possible_heal = np.array(skills[class_name]["heal_skills"])[heal_choices]
+        possible_heal = np.array(profession_info.skills.heal)[heal_choices]
         heal = random.choice(possible_heal)
         output = f"Heal skill: {heal}\n"
         if print_out:
@@ -106,7 +96,7 @@ def main(print_out: bool = False) -> str:
             
     
         # pick 3 different skills
-        possible_skills = np.array(skills[class_name]["utility_skills"])[skill_choices]
+        possible_skills = np.array(profession_info.skills.utility)[skill_choices]
         skill = np.random.choice(possible_skills, 3, replace=False)
         output = f"Utility skill 1: {skill[0]}\nUtility skill 2: {skill[1]}\nUtility skill 3: {skill[2]}\n"
         if print_out:
@@ -115,7 +105,7 @@ def main(print_out: bool = False) -> str:
             output_string += output
         
         # pick a random elite skill
-        possible_elite = np.array(skills[class_name]["elite_skills"])[elite_choices]
+        possible_elite = np.array(profession_info.skills.elite)[elite_choices]
         elite = random.choice(possible_elite)
         output = f"Elite skill: {elite}\n"
         if print_out:
@@ -126,7 +116,7 @@ def main(print_out: bool = False) -> str:
     # pick 2 pets if you are a ranger
 
     if profession == ClassNames.RANGER:
-        pets = random.sample(skills["ranger_pets"], 2)
+        pets = random.sample(profession_info.skills.special, 2)
         output = f"Pet 1: {pets[0]}\nPet 2: {pets[1]}\n"
         if print_out:
             print(output)
@@ -136,7 +126,7 @@ def main(print_out: bool = False) -> str:
     main_hand_names = []
     off_hand_names = []
     two_handed_names = []
-    for weapon in weapons[class_name].values():
+    for weapon in profession_info.weapons.values():
         for weapon_type, weapon_list in weapon.items():
             if weapon_type == "main_hand":
                 main_hand_names.extend(weapon_list)
@@ -163,11 +153,11 @@ def main(print_out: bool = False) -> str:
     # formatting so it prints nicely
     weapon_set = []
     
-    for weapon in chosen_weapons:
-        if weapon < main_hand_options:
-            weapon_set.append([main_hand_names[weapon], off_hand_names[chosen_off_hands.pop(0)]])
+    for chosen_weapon in chosen_weapons:
+        if chosen_weapon < main_hand_options:
+            weapon_set.append([main_hand_names[chosen_weapon], off_hand_names[chosen_off_hands.pop(0)]])
         else:
-            weapon_set.append([two_handed_names[weapon - main_hand_options]])
+            weapon_set.append([two_handed_names[chosen_weapon - main_hand_options]])
 
     # Weapon choice printing. currently does not support bladesworn to only have a single weapon
     output = f"Weapon set 1: {", ".join(weapon_set[0])}"

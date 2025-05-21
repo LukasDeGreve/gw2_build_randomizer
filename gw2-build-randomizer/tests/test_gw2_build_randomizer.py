@@ -1,9 +1,13 @@
 import random
 import numpy.random
 from textwrap import dedent
+
+import pytest
+
 from gw2_build_randomizer.main import main
 
-EXPECTED = """Your class is: Catalyst (Elementalist) 
+EXPECTED = {
+    0: """Your class is: Catalyst (Elementalist) 
 
 Fire: bottom middle middle
 
@@ -21,12 +25,14 @@ Elite skill: Tornado
 
 Weapon set 1: scepter, warhorn
 """
+}
 
-
-def test_can_run(capsys) -> None:
+@pytest.mark.parametrize("seed", range(1))
+def test_can_run(capsys, seed: int) -> None:
     """The most basic test, just so I know I can refactor without something going bang"""
     random.seed(0)
     numpy.random.seed(0)
     main(print_out=True)
     captured = capsys.readouterr()
-    assert captured.out == EXPECTED
+    if seed in EXPECTED:
+        assert captured.out == EXPECTED[seed]

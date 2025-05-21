@@ -11,7 +11,7 @@ RESOURCE_DIR = Path(__file__).parent / "resources"
 SETTINGS = RESOURCE_DIR / "settings.toml"
 PROFESSIONS = RESOURCE_DIR / "professions.toml"
 
-from gw2_build_randomizer.model import Settings, Professions, ProfessionName, Profession
+from gw2_build_randomizer.model import Settings, Professions, ProfessionName, Profession, Trait, Build
 
 def get_professions() -> Professions:
     return Professions.model_validate(tomllib.loads(PROFESSIONS.read_text()))
@@ -52,6 +52,8 @@ def main(print_out: bool = False) -> str:
         traits_picked.append(elite_spec)
         class_name2 = profession.specializations[elite_spec] + " (" + class_name + ")"
     
+    chosen_traits = []
+
     output = "Your class is: {} \n".format(class_name2)
     if print_out:
         print(output)
@@ -62,8 +64,12 @@ def main(print_out: bool = False) -> str:
     majors = ["top", "middle", "bottom"]
     for i in range(3):
         output = f"{profession.specializations[traits_picked[i]]}:"
+        trait_choices = []
         for j in range(3):
-            output += f" {random.choice(majors)}"
+            choice = random.choice(majors)
+            output += f" {choice}"
+            trait_choices.append(choice)
+        chosen_traits.append(Trait(specialization=profession.specializations[traits_picked[i]], trait_choices=trait_choices))
         if print_out:
             print(output + "\n")
         else:
@@ -181,7 +187,15 @@ def main(print_out: bool = False) -> str:
     else:
         output_string += output
 
-    return output_string
+    build = Build(
+        profession=profession,
+        traits=chosen_traits,
+        heal=heal,
+        utility=skill,
+        elite=elite,
+        weapon_sets=weapon_set,
+    )
+    return build.render_for_display()
     
     
 if __name__ == "__main__":

@@ -29,14 +29,13 @@ Weapon set 1: scepter, warhorn
 }
 
 @pytest.mark.parametrize("seed", range(1))
-def test_can_run(capsys, seed: int) -> None:
+def test_can_run(seed: int) -> None:
     """The most basic test, just so I know I can refactor without something going bang"""
     random.seed(0)
     numpy.random.seed(0)
-    main(print_out=True)
-    captured = capsys.readouterr()
+    actual = main()
     if seed in EXPECTED:
-        assert captured.out == EXPECTED[seed]
+        assert actual == EXPECTED[seed].strip()
 
 
 @pytest.fixture

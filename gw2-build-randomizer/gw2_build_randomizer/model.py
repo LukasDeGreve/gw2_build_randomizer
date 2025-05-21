@@ -115,5 +115,5 @@ class Build(BaseModel):
         Elite skill: {self.elite}
 
         Weapon set 1: {", ".join(self.weapon_sets[0])}
-        {f"Weapon set 2: {", ".join(self.weapon_sets[1])}" if len(self.weapon_sets) > 1 else ""}
+        {f"Weapon set 2: {", ".join(self.weapon_sets[1])}" if len(self.weapon_sets) > 1 and self.profession.name not in {"engineer", "elementalist"} else ""}
         """).strip()

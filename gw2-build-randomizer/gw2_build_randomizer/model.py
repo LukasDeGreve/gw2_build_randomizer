@@ -86,6 +86,7 @@ class Build(BaseModel):
     utility: tuple[Skill, Skill, Skill]
     elite: Skill
     weapon_sets: tuple[tuple[Weapon, ...], ...]
+    special: Optional[tuple[str, tuple[Skill, ...]]] = None
 
     def _render_profession_name(self) -> str:
         maybe_elite_trait = self.traits[2]
@@ -94,6 +95,12 @@ class Build(BaseModel):
             return f"Core {self.profession.name.capitalize()}"  
         else:
             return f"{maybe_elite_trait.specialization} ({self.profession.name.capitalize()})"
+
+    def _render_special_skills(self) -> str:
+        if self.special is None:
+            return ""
+        special_name, special_skills = self.special
+        return ", ".join([f"{special_name} {i+1}: {special_skill}" for i, special_skill in enumerate(special_skills)])
 
     def render_for_display(self) -> str:
         
@@ -116,4 +123,6 @@ class Build(BaseModel):
 
         Weapon set 1: {", ".join(self.weapon_sets[0])}
         {f"Weapon set 2: {", ".join(self.weapon_sets[1])}" if len(self.weapon_sets) > 1 and self.profession.name not in {"engineer", "elementalist"} else ""}
+
+        {self._render_special_skills()}
         """).strip()

@@ -5,7 +5,7 @@ from textwrap import dedent
 import pytest
 
 from gw2_build_randomizer.main import main, get_professions
-from gw2_build_randomizer.model import Build, Trait, Profession, Professions, ProfessionName
+from gw2_build_randomizer.model import Build, Trait, Profession, Professions, ProfessionName, Skill, Weapon, Specialization
 
 EXPECTED = {
     0: """Your class is: Catalyst (Elementalist) 
@@ -39,27 +39,27 @@ def test_can_run(seed: int) -> None:
 
 
 @pytest.fixture
-def professions_by_name() -> dict[ProfessionName, Professions]:
+def professions_by_name() -> dict[ProfessionName, Profession]:
     return {p.name: p for p in get_professions().professions}
 
 
-def test_build_rendering(professions_by_name: dict[ProfessionName, Professions]) -> None:
+def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) -> None:
     build = Build(
-        profession=professions_by_name["elementalist"],
+        profession=professions_by_name[ProfessionName("elementalist")],
         traits=(
-            Trait(specialization="Fire", trait_choices=("bottom", "middle", "middle")),
-            Trait(specialization="Earth", trait_choices=("middle", "middle", "middle")),
-            Trait(specialization="Catalyst", trait_choices=("bottom", "top", "bottom")),
+            Trait(specialization=Specialization("Fire"), trait_choices=("bottom", "middle", "middle")),
+            Trait(specialization=Specialization("Earth"), trait_choices=("middle", "middle", "middle")),
+            Trait(specialization=Specialization("Catalyst"), trait_choices=("bottom", "top", "bottom")),
         ),
-        heal="Ether Renewal",
+        heal=Skill("Ether Renewal"),
         utility=(
-            "Conjure Lightning Hammer",
-            "Conjure Frost Bow",
-            "Invigorating Air",
+            Skill("Conjure Lightning Hammer"),
+            Skill("Conjure Frost Bow"),
+            Skill("Invigorating Air"),
         ),
-        elite="Tornado",
+        elite=Skill("Tornado"),
         weapon_sets=(
-            ("scepter", "warhorn"),
+            (Weapon("scepter"), Weapon("warhorn")),
         )
     )
     assert build.render_for_display() == EXPECTED[0].strip()

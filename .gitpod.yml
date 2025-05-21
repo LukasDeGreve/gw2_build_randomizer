@@ -1,0 +1,4 @@
+image: gitpod/workspace-python-3.12
+tasks:
+  - name: Install requirements
+    command: cd gw2-build-randomizer && poetry install && eval $(poetry env activate)

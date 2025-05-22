@@ -6,6 +6,7 @@ from gw2_build_randomizer.main import main, get_professions
 from gw2_build_randomizer.model import (
     Build,
     Trait,
+    TraitChoice,
     Profession,
     ProfessionName,
     Skill,
@@ -16,9 +17,9 @@ from gw2_build_randomizer.model import (
 EXPECTED = {
     0: """Your class is: Catalyst (Elementalist) 
 
-Fire: bottom middle middle
+Water: bottom middle middle
 
-Earth: middle middle middle
+Fire: middle middle middle
 
 Catalyst: bottom top bottom
 
@@ -54,25 +55,57 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
         profession=professions_by_name[ProfessionName("elementalist")],
         traits=(
             Trait(
-                specialization=Specialization("Fire"),
-                trait_choices=("bottom", "middle", "middle"),
+                specialization=Specialization(name="Water", code=17),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.MIDDLE, TraitChoice.MIDDLE),
             ),
             Trait(
-                specialization=Specialization("Earth"),
-                trait_choices=("middle", "middle", "middle"),
+                specialization=Specialization(name="Fire", code=31),
+                trait_choices=(TraitChoice.MIDDLE, TraitChoice.MIDDLE, TraitChoice.MIDDLE),
             ),
             Trait(
-                specialization=Specialization("Catalyst"),
-                trait_choices=("bottom", "top", "bottom"),
+                specialization=Specialization(name="Catalyst", code=67),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.TOP, TraitChoice.BOTTOM),
             ),
         ),
-        heal=Skill("Ether Renewal"),
+        heal=Skill(name="Ether Renewal", code=0),
         utility=(
-            Skill("Conjure Flame Axe"),
-            Skill("Armor of Earth"),
-            Skill("Arcane Wave"),
+            Skill(name="Conjure Flame Axe", code=0),
+            Skill(name="Armor of Earth", code=0),
+            Skill(name="Arcane Wave", code=0),
         ),
-        elite=Skill("Tornado"),
+        elite=Skill(name="Tornado", code=0),
         weapon_sets=((Weapon("staff"),),),
     )
     assert build.render_for_display() == EXPECTED[0].strip()
+
+def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Profession]) -> None:
+    build = Build(
+        profession=professions_by_name[ProfessionName("engineer")],
+        traits=(
+            Trait(
+                specialization=Specialization(name="Firearms", code=38),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.BOTTOM, TraitChoice.MIDDLE),
+            ),
+            Trait(
+                specialization=Specialization(name="Explosives", code=6),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.TOP, TraitChoice.BOTTOM),
+            ),
+            Trait(
+                specialization=Specialization(name="Mechanist", code=70),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.BOTTOM, TraitChoice.TOP),
+            ),
+        ),
+        heal=Skill(name="Med Kit", code=132),
+        utility=(
+            Skill(name="Grenade Kit", code=134),
+            Skill(name="Force Signet", code=6938),
+            Skill(name="Shift Signet", code=6928),
+        ),
+        elite=Skill(name="Overclock Signet", code=6921),
+        weapon_sets=(
+            (Weapon("rifle"),),
+            (Weapon("hammer"),),
+            ),
+    )
+    expected = '[&DQMmLAY0RhyEAAAAhgAAABobAAAQGwAACRsAAAAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]'
+    assert build.render_as_chat_link() == expected

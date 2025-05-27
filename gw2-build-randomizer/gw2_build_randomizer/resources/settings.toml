@@ -1,14 +1,14 @@
 # You can customise the include/exclude list for classes here
 
-include_classes = [
-    "WARRIOR",
-    "GUARDIAN",
-    "REVENANT",
-    "RANGER",
-    "THIEF",
-    "ENGINEER",
-    "ELEMENTALIST",
-    "MESMER",
-    "NECROMANCER",
+include_professions = [
+    "warrior",
+    "guardian",
+    "revenant",
+    "ranger",
+    "thief",
+    "engineer",
+    "elementalist",
+    "mesmer",
+    "necromancer",
 ]
-exclude_classes = []
+exclude_professions = []

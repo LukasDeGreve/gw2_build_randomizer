@@ -1,4 +1,5 @@
 import random
+from collections import Counter
 
 import pytest
 
@@ -43,6 +44,21 @@ def test_can_run(seed: int) -> None:
     actual = main()
     if seed in EXPECTED:
         assert actual == EXPECTED[seed].strip()
+
+
+def test_validate_models() -> None:
+    professions = get_professions()
+    for profession in professions.professions:
+        assert profession.code, f"No code for {profession.name}"
+        for specialization in profession.specializations:
+            assert specialization.code, f"No code for {specialization.name} for {profession.name}"
+        all_skills = (*profession.skills.heal, *profession.skills.utility, *profession.skills.elite, *profession.skills.special)
+        all_skills_ids = Counter((i.palette_id for i in all_skills))
+        duplicated_skills = {i for i, v in all_skills_ids.items() if v > 1}
+        if profession.name != "revenant":  #  TODO Fix me :)
+            assert not duplicated_skills, profession.name
+            for skill in all_skills:
+                assert skill.palette_id, f"No palette_id for {skill.name} for {profession.name}"
 
 
 @pytest.fixture

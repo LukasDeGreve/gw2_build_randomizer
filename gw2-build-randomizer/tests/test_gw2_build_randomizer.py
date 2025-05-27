@@ -16,7 +16,7 @@ from gw2_build_randomizer.model import (
 )
 
 EXPECTED = {
-    0: """Chat link: [&DQYRKB8oQzR1AAAAygAAAE8BAABOAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAABWQAA]
+    0: """Chat link: [&DQYRKh8qQzd1AAAAygAAAE8BAABOAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAABWQAA]
 
 Your class is: Catalyst (Elementalist) 
 
@@ -128,5 +128,5 @@ def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Professio
             (Weapon("hammer"),),
             ),
     )
-    expected = '[&DQMmLAY0RhyEAAAAhgAAABobAAAQGwAACRsAAAAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]'
+    expected = '[&DQMmLgY3Rh2EAAAAhgAAABobAAAQGwAACRsAAAAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]'
     assert build.render_as_chat_link() == expected

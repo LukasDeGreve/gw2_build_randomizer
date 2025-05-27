@@ -3,7 +3,7 @@ from collections import Counter
 
 import pytest
 
-from gw2_build_randomizer.main import main, get_professions
+from gw2_build_randomizer.main import main, get_professions, get_settings
 from gw2_build_randomizer.model import (
     Build,
     Trait,
@@ -16,7 +16,9 @@ from gw2_build_randomizer.model import (
 )
 
 EXPECTED = {
-    0: """Your class is: Catalyst (Elementalist) 
+    0: """Chat link: [&DQYRKB8oQzR1AAAAygAAAE8BAABOAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAABWQAA]
+
+Your class is: Catalyst (Elementalist) 
 
 Water: bottom middle middle
 
@@ -48,6 +50,9 @@ def test_can_run(seed: int) -> None:
 
 def test_validate_models() -> None:
     professions = get_professions()
+    settings = get_settings(professions)
+    assert len(settings.include_professions) == 9
+    assert not settings.exclude_professions
     for profession in professions.professions:
         assert profession.code, f"No code for {profession.name}"
         for specialization in profession.specializations:
@@ -83,13 +88,13 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
                 trait_choices=(TraitChoice.BOTTOM, TraitChoice.TOP, TraitChoice.BOTTOM),
             ),
         ),
-        heal=Skill(name="Ether Renewal", palette_id=0),
+        heal=Skill(name="Ether Renewal", palette_id=117),
         utility=(
-            Skill(name="Conjure Flame Axe", palette_id=0),
-            Skill(name="Armor of Earth", palette_id=0),
-            Skill(name="Arcane Wave", palette_id=0),
+            Skill(name="Conjure Flame Axe", palette_id=202),
+            Skill(name="Armor of Earth", palette_id=335),
+            Skill(name="Arcane Wave", palette_id=334),
         ),
-        elite=Skill(name="Tornado", palette_id=0),
+        elite=Skill(name="Tornado", palette_id=150),
         weapon_sets=((Weapon("staff"),),),
     )
     assert build.render_for_display() == EXPECTED[0].strip()

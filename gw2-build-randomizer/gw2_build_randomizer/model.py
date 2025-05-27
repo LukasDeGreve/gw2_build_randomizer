@@ -164,6 +164,8 @@ class Build(BaseModel):
 
     def render_for_display(self) -> str:
         return dedent(f"""
+        {self.render_chat_link_for_display()}
+
         Your class is: {self._render_profession_name()} 
 
         {self.traits[0].render_for_display()}
@@ -186,6 +188,9 @@ class Build(BaseModel):
         {self._render_special_skills()}
         """).strip()
 
+    def render_chat_link_for_display(self) -> str:
+        return f"Chat link: {self.render_as_chat_link()}" if not self.profession.skills.special else ""  # Ranger / Rev not yet implem
+
     def render_as_chat_link(self) -> str:
         arr = bytearray()
         arr.append(0x0D)  # Header
@@ -193,6 +198,7 @@ class Build(BaseModel):
         for trait in self.traits:
             arr.extend(trait.render_as_chat_link())  # spec/trait
         for skill in (self.heal, *self.utility, self.elite):
+            assert skill.palette_id
             arr.extend(int.to_bytes(skill.palette_id, 2, byteorder='little'))  # above ground
             arr.extend(b'\x00\x00')  # aquatic, empty
         if self.special:

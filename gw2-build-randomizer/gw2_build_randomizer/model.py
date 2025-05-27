@@ -81,13 +81,13 @@ WeaponIDs = {
 
 class Skill(BaseModel):
     name: str
-    code: int
+    palette_id: int
 
     @model_validator(mode='before')
     @classmethod
     def from_str(cls, data: Any) -> Any:  
         if isinstance(data, str):  
-            return {"name": data, "code": 0}
+            return {"name": data, "palette_id": 0}
         return data
 
 
@@ -193,7 +193,7 @@ class Build(BaseModel):
         for trait in self.traits:
             arr.extend(trait.render_as_chat_link())  # spec/trait
         for skill in (self.heal, *self.utility, self.elite):
-            arr.extend(int.to_bytes(skill.code, 2, byteorder='little'))  # above ground
+            arr.extend(int.to_bytes(skill.palette_id, 2, byteorder='little'))  # above ground
             arr.extend(b'\x00\x00')  # aquatic, empty
         if self.special:
             raise NotImplementedError()

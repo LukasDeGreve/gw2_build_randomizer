@@ -67,13 +67,13 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
                 trait_choices=(TraitChoice.BOTTOM, TraitChoice.TOP, TraitChoice.BOTTOM),
             ),
         ),
-        heal=Skill(name="Ether Renewal", code=0),
+        heal=Skill(name="Ether Renewal", palette_id=0),
         utility=(
-            Skill(name="Conjure Flame Axe", code=0),
-            Skill(name="Armor of Earth", code=0),
-            Skill(name="Arcane Wave", code=0),
+            Skill(name="Conjure Flame Axe", palette_id=0),
+            Skill(name="Armor of Earth", palette_id=0),
+            Skill(name="Arcane Wave", palette_id=0),
         ),
-        elite=Skill(name="Tornado", code=0),
+        elite=Skill(name="Tornado", palette_id=0),
         weapon_sets=((Weapon("staff"),),),
     )
     assert build.render_for_display() == EXPECTED[0].strip()
@@ -95,13 +95,13 @@ def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Professio
                 trait_choices=(TraitChoice.BOTTOM, TraitChoice.BOTTOM, TraitChoice.TOP),
             ),
         ),
-        heal=Skill(name="Med Kit", code=132),
+        heal=Skill(name="Med Kit", palette_id=132),
         utility=(
-            Skill(name="Grenade Kit", code=134),
-            Skill(name="Force Signet", code=6938),
-            Skill(name="Shift Signet", code=6928),
+            Skill(name="Grenade Kit", palette_id=134),
+            Skill(name="Force Signet", palette_id=6938),
+            Skill(name="Shift Signet", palette_id=6928),
         ),
-        elite=Skill(name="Overclock Signet", code=6921),
+        elite=Skill(name="Overclock Signet", palette_id=6921),
         weapon_sets=(
             (Weapon("rifle"),),
             (Weapon("hammer"),),

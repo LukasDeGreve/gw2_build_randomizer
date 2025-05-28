@@ -3,7 +3,11 @@ from collections import Counter
 
 import pytest
 
-from gw2_build_randomizer.main import main, get_professions, get_settings, generate_random_build
+from gw2_build_randomizer.main import (
+    get_professions,
+    get_settings,
+    generate_random_build,
+)
 from gw2_build_randomizer.model import (
     Build,
     Trait,
@@ -44,7 +48,7 @@ def test_can_run(seed: int) -> None:
     """The most basic test, just so I know I can refactor without something going bang"""
     random.seed(seed)
     build = generate_random_build()
-    
+
     if build.profession.name != "revenant":
         _ = build.render_as_chat_link()
 
@@ -61,14 +65,23 @@ def test_validate_models() -> None:
     for profession in professions.professions:
         assert profession.code, f"No code for {profession.name}"
         for specialization in profession.specializations:
-            assert specialization.code, f"No code for {specialization.name} for {profession.name}"
-        all_skills = (*profession.skills.heal, *profession.skills.utility, *profession.skills.elite, *(profession.skills.special if profession.name != "ranger" else ()))
+            assert specialization.code, (
+                f"No code for {specialization.name} for {profession.name}"
+            )
+        all_skills = (
+            *profession.skills.heal,
+            *profession.skills.utility,
+            *profession.skills.elite,
+            *(profession.skills.special if profession.name != "ranger" else ()),
+        )
         all_skills_ids = Counter((i.palette_id for i in all_skills))
         duplicated_skills = {i for i, v in all_skills_ids.items() if v > 1}
         if profession.name != "revenant":  #  TODO Fix me :)
             assert not duplicated_skills, profession.name
             for skill in all_skills:
-                assert skill.palette_id, f"No palette_id for {skill.name} for {profession.name}"
+                assert skill.palette_id, (
+                    f"No palette_id for {skill.name} for {profession.name}"
+                )
 
 
 @pytest.fixture
@@ -82,11 +95,19 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
         traits=(
             Trait(
                 specialization=Specialization(name="Water", code=17),
-                trait_choices=(TraitChoice.BOTTOM, TraitChoice.MIDDLE, TraitChoice.MIDDLE),
+                trait_choices=(
+                    TraitChoice.BOTTOM,
+                    TraitChoice.MIDDLE,
+                    TraitChoice.MIDDLE,
+                ),
             ),
             Trait(
                 specialization=Specialization(name="Fire", code=31),
-                trait_choices=(TraitChoice.MIDDLE, TraitChoice.MIDDLE, TraitChoice.MIDDLE),
+                trait_choices=(
+                    TraitChoice.MIDDLE,
+                    TraitChoice.MIDDLE,
+                    TraitChoice.MIDDLE,
+                ),
             ),
             Trait(
                 specialization=Specialization(name="Catalyst", code=67),
@@ -100,19 +121,28 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
             Skill(name="Arcane Blast", palette_id=336),
         ),
         elite=Skill(name="Tornado", palette_id=150),
-        weapon_sets=((Weapon("staff"),),(Weapon("hammer"),)),
+        weapon_sets=((Weapon("staff"),), (Weapon("hammer"),)),
     )
-    assert build.render_as_chat_link() == "[&DQYRKh8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]"
+    assert (
+        build.render_as_chat_link()
+        == "[&DQYRKh8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]"
+    )
     assert build.render_for_display() == EXPECTED[0].strip()
-    
 
-def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Profession]) -> None:
+
+def test_chat_code_rendering(
+    professions_by_name: dict[ProfessionName, Profession],
+) -> None:
     build = Build(
         profession=professions_by_name[ProfessionName("engineer")],
         traits=(
             Trait(
                 specialization=Specialization(name="Firearms", code=38),
-                trait_choices=(TraitChoice.BOTTOM, TraitChoice.BOTTOM, TraitChoice.MIDDLE),
+                trait_choices=(
+                    TraitChoice.BOTTOM,
+                    TraitChoice.BOTTOM,
+                    TraitChoice.MIDDLE,
+                ),
             ),
             Trait(
                 specialization=Specialization(name="Explosives", code=6),
@@ -133,7 +163,7 @@ def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Professio
         weapon_sets=(
             (Weapon("rifle"),),
             (Weapon("hammer"),),
-            ),
+        ),
     )
-    expected = '[&DQMmLgY3Rh2EAAAAhgAAABobAAAQGwAACRsAAAAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]'
+    expected = "[&DQMmLgY3Rh2EAAAAhgAAABobAAAQGwAACRsAAAAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]"
     assert build.render_as_chat_link() == expected

@@ -59,6 +59,7 @@ class Weapon(StrEnum):
     HARPOON_GUN = auto()
     TRIDENT = auto()
 
+
 WeaponIDs = {
     Weapon.AXE: 5,
     Weapon.DAGGER: 47,
@@ -79,14 +80,15 @@ WeaponIDs = {
     Weapon.SPEAR: 265,
 }
 
+
 class Skill(BaseModel):
     name: str
     palette_id: int
 
-    @model_validator(mode='before')
+    @model_validator(mode="before")
     @classmethod
-    def from_str(cls, data: Any) -> Any:  
-        if isinstance(data, str):  
+    def from_str(cls, data: Any) -> Any:
+        if isinstance(data, str):
             return {"name": data, "palette_id": 0}
         return data
 
@@ -120,9 +122,8 @@ class Trait(BaseModel):
     specialization: Specialization
     trait_choices: tuple[TraitChoice, TraitChoice, TraitChoice]
 
-    
     def render_for_display(self) -> str:
-        return f"{self.specialization.name}: {" ".join([c.name.lower() for c in self.trait_choices])}"
+        return f"{self.specialization.name}: {' '.join([c.name.lower() for c in self.trait_choices])}"
 
     def render_as_chat_link(self) -> bytes:
         third = self.trait_choices[2].value << 4
@@ -189,7 +190,11 @@ class Build(BaseModel):
         """).strip()
 
     def render_chat_link_for_display(self) -> str:
-        return f"Chat link: {self.render_as_chat_link()}" if self.profession.name != "revenant" else ""  # Rev not yet implem
+        return (
+            f"Chat link: {self.render_as_chat_link()}"
+            if self.profession.name != "revenant"
+            else ""
+        )  # Rev not yet implem
 
     def render_as_chat_link(self) -> str:
         arr = bytearray()
@@ -199,15 +204,21 @@ class Build(BaseModel):
             arr.extend(trait.render_as_chat_link())  # spec/trait
         for skill in (self.heal, *self.utility, self.elite):
             assert skill.palette_id
-            arr.extend(int.to_bytes(skill.palette_id, 2, byteorder='little'))  # above ground
-            arr.extend(b'\x00\x00')  # aquatic, empty
+            arr.extend(
+                int.to_bytes(skill.palette_id, 2, byteorder="little")
+            )  # above ground
+            arr.extend(b"\x00\x00")  # aquatic, empty
         if self.profession.name == "revenant":
             raise NotImplementedError()
         else:
-            arr.extend(b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')    
-        all_weapons = [weapon for weapon_set in self.weapon_sets for weapon in weapon_set]
+            arr.extend(
+                b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+            )
+        all_weapons = [
+            weapon for weapon_set in self.weapon_sets for weapon in weapon_set
+        ]
         arr.append(len(all_weapons))
         for weapon in all_weapons:
-            arr.extend(int.to_bytes(WeaponIDs[weapon], 2, byteorder='little'))
+            arr.extend(int.to_bytes(WeaponIDs[weapon], 2, byteorder="little"))
         arr.append(0)  # Weaponmaster length
         return f"[&{b64encode(arr).decode()}]"

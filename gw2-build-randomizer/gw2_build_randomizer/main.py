@@ -45,6 +45,7 @@ def determine_random_profession(
     ]
     return random.choice(choices)
 
+
 def generate_random_build() -> Build:
     professions = get_professions()
     settings = get_settings(professions)
@@ -199,6 +200,7 @@ def generate_random_build() -> Build:
         weapon_sets=tuple(weapon_sets),
         special=special,
     )
+
 
 def main() -> str:
     return generate_random_build().render_for_display()

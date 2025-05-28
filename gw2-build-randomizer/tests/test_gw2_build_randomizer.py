@@ -19,7 +19,7 @@ from gw2_build_randomizer.model import (
     Specialization,
 )
 
-EXPECTED = {
+EXPECTED_DISPLAY = {
     0: """Chat link: [&DQYRKh8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]
 
 Your class is: Catalyst (Elementalist) 
@@ -42,19 +42,23 @@ Weapon set 1: staff
 """
 }
 
+EXPECTED_CHAT_LINK = {
+    0: "[&DQYRKh8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]"
+}
+
 
 @pytest.mark.parametrize("seed", range(10))
-def test_can_run(seed: int) -> None:
+def test_build_rendering(seed: int) -> None:
     """The most basic test, just so I know I can refactor without something going bang"""
     random.seed(seed)
     build = generate_random_build()
 
     if build.profession.name != "revenant":
-        _ = build.render_as_chat_link()
+        chat_link = build.render_as_chat_link()
+        assert chat_link == EXPECTED_CHAT_LINK.get(seed, chat_link)
 
     display_str = build.render_for_display()
-    if seed in EXPECTED:
-        assert display_str == EXPECTED[seed].strip()
+    assert display_str == EXPECTED_DISPLAY.get(seed, display_str).strip()
 
 
 def test_validate_models() -> None:
@@ -87,47 +91,6 @@ def test_validate_models() -> None:
 @pytest.fixture
 def professions_by_name() -> dict[ProfessionName, Profession]:
     return {p.name: p for p in get_professions().professions}
-
-
-def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) -> None:
-    build = Build(
-        profession=professions_by_name[ProfessionName("elementalist")],
-        traits=(
-            Trait(
-                specialization=Specialization(name="Water", code=17),
-                trait_choices=(
-                    TraitChoice.BOTTOM,
-                    TraitChoice.MIDDLE,
-                    TraitChoice.MIDDLE,
-                ),
-            ),
-            Trait(
-                specialization=Specialization(name="Fire", code=31),
-                trait_choices=(
-                    TraitChoice.MIDDLE,
-                    TraitChoice.MIDDLE,
-                    TraitChoice.MIDDLE,
-                ),
-            ),
-            Trait(
-                specialization=Specialization(name="Catalyst", code=67),
-                trait_choices=(TraitChoice.BOTTOM, TraitChoice.TOP, TraitChoice.BOTTOM),
-            ),
-        ),
-        heal=Skill(name="Ether Renewal", palette_id=117),
-        utility=(
-            Skill(name="Signet of Water", palette_id=143),
-            Skill(name="Glyph of Elemental Power", palette_id=115),
-            Skill(name="Arcane Blast", palette_id=336),
-        ),
-        elite=Skill(name="Tornado", palette_id=150),
-        weapon_sets=((Weapon("staff"),), (Weapon("hammer"),)),
-    )
-    assert (
-        build.render_as_chat_link()
-        == "[&DQYRKh8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]"
-    )
-    assert build.render_for_display() == EXPECTED[0].strip()
 
 
 def test_chat_code_rendering(

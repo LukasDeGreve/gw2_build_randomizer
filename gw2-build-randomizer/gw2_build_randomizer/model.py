@@ -165,7 +165,7 @@ class Build(BaseModel):
 
     def render_for_display(self) -> str:
         return dedent(f"""
-        {self.render_chat_link_for_display()}
+        Chat link: {self.render_as_chat_link()}
 
         Your class is: {self._render_profession_name()} 
 
@@ -189,13 +189,6 @@ class Build(BaseModel):
         {self._render_special_skills()}
         """).strip()
 
-    def render_chat_link_for_display(self) -> str:
-        return (
-            f"Chat link: {self.render_as_chat_link()}"
-            if self.profession.name != "revenant"
-            else ""
-        )  # Rev not yet implem
-
     def render_as_chat_link(self) -> str:
         arr = bytearray()
         arr.append(0x0D)  # Header
@@ -203,13 +196,22 @@ class Build(BaseModel):
         for trait in self.traits:
             arr.extend(trait.render_as_chat_link())  # spec/trait
         for skill in (self.heal, *self.utility, self.elite):
-            assert skill.palette_id
+            if self.profession.name != "revenant":
+                assert skill.palette_id
             arr.extend(
                 int.to_bytes(skill.palette_id, 2, byteorder="little")
             )  # above ground
             arr.extend(b"\x00\x00")  # aquatic, empty
         if self.profession.name == "revenant":
-            raise NotImplementedError()
+            special_name, special_skills = self.special
+            for legend in special_skills:
+                arr.append(legend.palette_id)
+            arr.extend(b"\x00" * (16 - len(special_skills)))
+        elif self.profession.name == "ranger":
+            special_name, special_skills = self.special
+            for pet in special_skills:
+                arr.append(pet.palette_id)
+            arr.extend(b"\x00" * (16 - len(special_skills)))
         else:
             arr.extend(
                 b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"

@@ -46,12 +46,12 @@ EXPECTED_CHAT_LINK = {
     0: "[&DQYRKh8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]",
     1: "[&DQIWOwQVCyYpDwAAaQAAAKIBAACsAAAAnAAAAAAAAAAAAAAAAAAAAAAAAAAELwBmADUABQAA]",
     2: "[&DQENLiodMTc4AQAATAEAAP8AAAB4AQAANwEAAAAAAAAAAAAAAAAAAAAAAAACIwBZAAA=]",
-    3: "[&DQQeHSAmBR14AAAAuBIAALYAAAC7AAAAtBIAAAAAAAAAAAAAAAAAAAAAAAAENQA1AC8AZwAA]",
-    4: "[&DQQIFSAmNxl4AAAApQEAALsAAACWAQAAlwEAAAAAAAAAAAAAAAAAAAAAAAADMgA1AAUAAA==]",
+    3: "[&DQQeHSAmBR14AAAAuBIAALYAAAC7AAAAtBIAADYUAAAAAAAAAAAAAAAAAAAENQA1AC8AZwAA]",
+    4: "[&DQQIFSAmNxl4AAAApQEAALsAAACWAQAAlwEAABcOAAAAAAAAAAAAAAAAAAADMgA1AAUAAA==]",
     5: "[&DQU2NxQVOhmFAAAANAEAAFUBAABZAQAADgEAAAAAAAAAAAAAAAAAAAAAAAAELwA2AFYALwAA]",
     6: "[&DQkMNQM7RRrcEQAA1BEAAAYSAAArEgAAyhEAAAQDAADUEQYSKxIAAAAAAAACMgBZAAA=]",  # Weapons likely wrong
     7: "[&DQMmHQYdKxUUAQAAlQEAACMBAABeAQAAiQEAAAAAAAAAAAAAAAAAAAAAAAACMwBVAAA=]",
-    8: "[&DQQgHRkVNyZ5AAAAvAAAALYAAAC9AAAALhYAAAAAAAAAAAAAAAAAAAAAAAADWgAvAFkAAA==]",
+    8: "[&DQQgHRkVNyZ5AAAAvAAAALYAAAC9AAAALhYAABk3AAAAAAAAAAAAAAAAAAADWgAvAFkAAA==]",
     9: "[&DQcXHQouOybuFQAAGgEAAAcWAACBAQAARhcAAAAAAAAAAAAAAAAAAAAAAAADBQBmAFkAAA==]",
     10: "[&DQEuKg0dQS5/AAAASQEAADIBAADgGgAAcRIAAAAAAAAAAAAAAAAAAAAAAAADNQBXADMAAA==]",
 }
@@ -86,16 +86,14 @@ def test_validate_models() -> None:
             *profession.skills.heal,
             *profession.skills.utility,
             *profession.skills.elite,
-            *(profession.skills.special if profession.name != "ranger" else ()),
         )
         all_skills_ids = Counter((i.palette_id for i in all_skills))
         duplicated_skills = {i for i, v in all_skills_ids.items() if v > 1}
-        if profession.name != "revenant":  #  TODO Fix me :)
-            assert not duplicated_skills, profession.name
-            for skill in all_skills:
-                assert skill.palette_id, (
-                    f"No palette_id for {skill.name} for {profession.name}"
-                )
+        assert not duplicated_skills, profession.name
+        for skill in all_skills:
+            assert skill.palette_id, (
+                f"No palette_id for {skill.name} for {profession.name}"
+            )
 
 
 @pytest.fixture

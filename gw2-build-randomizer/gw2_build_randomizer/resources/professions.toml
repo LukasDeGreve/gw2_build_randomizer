@@ -250,10 +250,165 @@ code = 63
 name = "Vindicator"
 code = 69
 [professions.skills]
-heal = []
-utility = []
-elite = []
-special = ['Assassin', 'Centaur', 'Demon', 'Dwarf', 'Dragon', 'Renegade', 'Alliance']
+[[professions.skills.heal]]
+name = 'Soothing Stone'
+id = 27372
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Inspiring Reinforcement'
+id = 28516
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Forced Engagement'
+id = 26679
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Vengeful Hammers'
+id = 26557
+palette_id = 0
+[[professions.skills.elite]]
+name = 'Rite of the Great Dwarf'
+id = 27975
+palette_id = 0
+[[professions.skills.heal]]
+name = 'Empowering Misery'
+id = 28219
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Pain Absorption'
+id = 27322
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Banish Enchantment'
+id = 27505
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Call to Anguish'
+id = 27917
+palette_id = 0
+[[professions.skills.elite]]
+name = 'Embrace the Darkness'
+id = 28287
+palette_id = 0
+[[professions.skills.heal]]
+name = 'Project Tranquility'
+id = 29148
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Protective Solace'
+id = 26821
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Natural Harmony'
+id = 27025
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Purifying Essence'
+id = 27715
+palette_id = 0
+[[professions.skills.elite]]
+name = 'Energy Expulsion'
+id = 27356
+palette_id = 0
+[[professions.skills.heal]]
+name = 'Enchanted Daggers'
+id = 26937
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Riposting Shadows'
+id = 29209
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Phase Traversal'
+id = 28231
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Impossible Odds'
+id = 27107
+palette_id = 0
+[[professions.skills.elite]]
+name = 'Jade Winds'
+id = 28406
+palette_id = 0
+[[professions.skills.heal]]
+name = 'Facet of Light'
+id = 27220
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Facet of Darkness'
+id = 28379
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Facet of Elements'
+id = 27014
+palette_id = 0
+[[professions.skills.utility]]
+name = 'Facet of Strength'
+id = 26644
+palette_id = 0
+[[professions.skills.elite]]
+name = 'Facet of Chaos'
+id = 27760
+palette_id = 0
+[[professions.skills.heal]]
+name = "Breakrazor's Bastion"
+id = 45686
+palette_id = 0
+[[professions.skills.utility]]
+name = "Razorclaw's Rage"
+id = 42949
+palette_id = 0
+[[professions.skills.utility]]
+name = "Icerazor's Ire"
+id = 40485
+palette_id = 0
+[[professions.skills.utility]]
+name = "Darkrazor's Daring"
+id = 41220
+palette_id = 0
+[[professions.skills.elite]]
+name = "Soulcleave's Summit"
+id = 45773
+palette_id = 0
+[[professions.skills.heal]]
+name = 'Selfish Spirit'
+id = 62719
+palette_id = 4572
+[[professions.skills.elite]]
+name = 'Spear of Archemorus'
+id = 62942
+palette_id = 4554
+[[professions.skills.utility]]
+name = "Nomad's Advance"
+id = 62832
+palette_id = 4614
+[[professions.skills.utility]]
+name = 'Scavenger Burst'
+id = 62962
+palette_id = 4651
+[[professions.skills.utility]]
+name = "Reaver's Rage"
+id = 62878
+palette_id = 4564
+[[professions.skills.special]]
+name = "Legendary Dragon Stance"
+palette_id = 1
+[[professions.skills.special]]
+name = "Legendary Assassin Stance"
+palette_id = 2
+[[professions.skills.special]]
+name = "Legendary Dwarf Stance"
+palette_id = 3
+[[professions.skills.special]]
+name = "Legendary Demon Stance"
+palette_id = 4
+[[professions.skills.special]]
+name = "Legendary Renegade Stance"
+palette_id = 5
+[[professions.skills.special]]
+name = "Legendary Centaur Stance"
+palette_id = 6
+# TODO Alliance?
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['mace', 'sword']

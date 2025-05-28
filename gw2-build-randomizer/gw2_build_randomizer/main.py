@@ -114,16 +114,19 @@ def generate_random_build() -> Build:
     if profession.name == "revenant":
         special_choices = (
             heal_choices  # there are as many legends as another class has heal skills
+            #  TODO are we sure about this?
         )
         possible_legends = [
             legend
             for i, legend in enumerate(profession.skills.special)
             if i in special_choices
         ]
-        chosen_legends = random.sample(possible_legends, 2)
-        heal = Skill(name="fake", palette_id=1)  # TODO
-        skill = (heal, heal, heal)  # TODO
-        elite = heal  # TODO
+        chosen_legends = random.sample(profession.skills.special, 2)
+
+        index = profession.skills.special.index(chosen_legends[0])
+        heal = profession.skills.heal[index]
+        skill = (profession.skills.utility[3 * index + 0], profession.skills.utility[3 * index + 1], profession.skills.utility[3 * index + 2])
+        elite = profession.skills.elite[index]
         special = "Legend", tuple(chosen_legends)
     else:
         # pick a random heal skill

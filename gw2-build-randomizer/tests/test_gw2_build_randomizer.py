@@ -3,7 +3,7 @@ from collections import Counter
 
 import pytest
 
-from gw2_build_randomizer.main import main, get_professions, get_settings
+from gw2_build_randomizer.main import main, get_professions, get_settings, generate_random_build
 from gw2_build_randomizer.model import (
     Build,
     Trait,
@@ -39,13 +39,18 @@ Weapon set 1: staff
 }
 
 
-@pytest.mark.parametrize("seed", range(1))
+@pytest.mark.parametrize("seed", range(10))
 def test_can_run(seed: int) -> None:
     """The most basic test, just so I know I can refactor without something going bang"""
-    random.seed(0)
-    actual = main()
+    random.seed(seed)
+    build = generate_random_build()
+    
+    if build.profession.name != "revenant":
+        _ = build.render_as_chat_link()
+
+    display_str = build.render_for_display()
     if seed in EXPECTED:
-        assert actual == EXPECTED[seed].strip()
+        assert display_str == EXPECTED[seed].strip()
 
 
 def test_validate_models() -> None:

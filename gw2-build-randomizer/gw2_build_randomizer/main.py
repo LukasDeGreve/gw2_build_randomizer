@@ -120,6 +120,9 @@ def generate_random_build() -> Build:
             if i in special_choices
         ]
         chosen_legends = random.sample(possible_legends, 2)
+        heal = Skill(name="fake", palette_id=1)  # TODO
+        skill = (heal, heal, heal)  # TODO
+        elite = heal  # TODO
         special = "Legend", tuple(chosen_legends)
     else:
         # pick a random heal skill

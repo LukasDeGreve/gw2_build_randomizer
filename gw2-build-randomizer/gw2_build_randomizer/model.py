@@ -201,7 +201,7 @@ class Build(BaseModel):
             assert skill.palette_id
             arr.extend(int.to_bytes(skill.palette_id, 2, byteorder='little'))  # above ground
             arr.extend(b'\x00\x00')  # aquatic, empty
-        if self.special:
+        if self.profession.name == "revenant":
             raise NotImplementedError()
         else:
             arr.extend(b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')    

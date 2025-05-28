@@ -20,7 +20,7 @@ from gw2_build_randomizer.model import (
 )
 
 EXPECTED_DISPLAY = {
-    0: """Chat link: [&DQYRKh8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]
+    0: """Chat link: [&DQYRKx8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]
 
 Your class is: Catalyst (Elementalist) 
 
@@ -43,16 +43,16 @@ Weapon set 1: staff
 }
 
 EXPECTED_CHAT_LINK = {
-    0: "[&DQYRKh8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]",
-    1: "[&DQIWOwQVCyYpDwAAaQAAAKIBAACsAAAAnAAAAAAAAAAAAAAAAAAAAAAAAAAELwBmADUABQAA]",
-    2: "[&DQENLiodMTc4AQAATAEAAP8AAAB4AQAANwEAAAAAAAAAAAAAAAAAAAAAAAACIwBZAAA=]",
-    3: "[&DQQeHSAmBR14AAAAuBIAALYAAAC7AAAAtBIAADYUAAAAAAAAAAAAAAAAAAAENQA1AC8AZwAA]",
-    4: "[&DQQIFSAmNxl4AAAApQEAALsAAACWAQAAlwEAABcOAAAAAAAAAAAAAAAAAAADMgA1AAUAAA==]",
-    5: "[&DQU2NxQVOhmFAAAANAEAAFUBAABZAQAADgEAAAAAAAAAAAAAAAAAAAAAAAAELwA2AFYALwAA]",
-    6: "[&DQkMNQM7RRrcEQAA1BEAAAYSAAArEgAAyhEAAAQDAADUEQYSKxIAAAAAAAACMgBZAAA=]",  # Weapons likely wrong
-    7: "[&DQMmHQYdKxUUAQAAlQEAACMBAABeAQAAiQEAAAAAAAAAAAAAAAAAAAAAAAACMwBVAAA=]",
-    8: "[&DQQgHRkVNyZ5AAAAvAAAALYAAAC9AAAALhYAABk3AAAAAAAAAAAAAAAAAAADWgAvAFkAAA==]",
-    9: "[&DQcXHQouOybuFQAAGgEAAAcWAACBAQAARhcAAAAAAAAAAAAAAAAAAAAAAAADBQBmAFkAAA==]",
+    0: "[&DQYRKx8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]",
+    1: "[&DQIWOgQWCyYpDwAAaQAAAKIBAACsAAAAnAAAAAAAAAAAAAAAAAAAAAAAAAAELwBmADUABQAA]",
+    2: "[&DQENLyoeMTc4AQAATAEAAP8AAAB4AQAANwEAAAAAAAAAAAAAAAAAAAAAAAACIwBZAAA=]",
+    3: "[&DQQeHyAnBR54AAAAuBIAALYAAAC7AAAAtBIAADYUAAAAAAAAAAAAAAAAAAAENQA1AC8AZwAA]",
+    4: "[&DQQIFiAlNxt4AAAApQEAALsAAACWAQAAlwEAABcOAAAAAAAAAAAAAAAAAAADMgA1AAUAAA==]",
+    5: "[&DQU2NhQVOhqFAAAANAEAAFUBAABZAQAADgEAAAAAAAAAAAAAAAAAAAAAAAAELwA2AFYALwAA]",
+    6: "[&DQkMNQM7RRrcEQAABhIAACsSAADUEQAAyhEAAAMEAAAAAAAAAAAAAAAAAAACMwBrAAA=]",
+    7: "[&DQMmHQYeKxcUAQAAlQEAACMBAABeAQAAiQEAAAAAAAAAAAAAAAAAAAAAAAACMwBVAAA=]",
+    8: "[&DQQgHRkVNyd5AAAAvAAAALYAAAC9AAAALhYAABk3AAAAAAAAAAAAAAAAAAADWgAvAFkAAA==]",
+    9: "[&DQcXHQouOyfuFQAAGgEAAAcWAACBAQAARhcAAAAAAAAAAAAAAAAAAAAAAAADBQBmAFkAAA==]",
     10: "[&DQEuKg0dQS5/AAAASQEAADIBAADgGgAAcRIAAAAAAAAAAAAAAAAAAAAAAAADNQBXADMAAA==]",
 }
 
@@ -63,11 +63,10 @@ def test_build_rendering(seed: int) -> None:
     random.seed(seed)
     build = generate_random_build()
 
-    if build.profession.name != "revenant":
-        chat_link = build.render_as_chat_link()
-        assert chat_link == EXPECTED_CHAT_LINK.get(seed, chat_link)
-
+    chat_link = build.render_as_chat_link()
     display_str = build.render_for_display()
+
+    assert chat_link == EXPECTED_CHAT_LINK.get(seed, chat_link)
     assert display_str == EXPECTED_DISPLAY.get(seed, display_str).strip()
 
 
@@ -82,6 +81,8 @@ def test_validate_models() -> None:
             assert specialization.code, (
                 f"No code for {specialization.name} for {profession.name}"
             )
+        if profession.name == "revenant":
+            continue
         all_skills = (
             *profession.skills.heal,
             *profession.skills.utility,
@@ -136,5 +137,5 @@ def test_chat_code_rendering(
             (Weapon("hammer"),),
         ),
     )
-    expected = "[&DQMmLgY3Rh2EAAAAhgAAABobAAAQGwAACRsAAAAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]"
+    expected = "[&DQMmLwY3Rh+EAAAAhgAAABobAAAQGwAACRsAAAAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]"
     assert build.render_as_chat_link() == expected

@@ -128,7 +128,7 @@ class Trait(BaseModel):
     def render_as_chat_link(self) -> bytes:
         third = self.trait_choices[2].value << 4
         second = self.trait_choices[1].value << 2
-        first = self.trait_choices[2].value << 0
+        first = self.trait_choices[0].value << 0
         trait_choices = int.to_bytes(third | second | first)
         return int.to_bytes(self.specialization.code) + trait_choices
 

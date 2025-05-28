@@ -202,15 +202,11 @@ class Build(BaseModel):
                 int.to_bytes(skill.palette_id, 2, byteorder="little")
             )  # above ground
             arr.extend(b"\x00\x00")  # aquatic, empty
-        if self.profession.name == "revenant":
+        if self.profession.name in {"revenant", "ranger"}:
+            assert self.special is not None
             special_name, special_skills = self.special
-            for legend in special_skills:
-                arr.append(legend.palette_id)
-            arr.extend(b"\x00" * (16 - len(special_skills)))
-        elif self.profession.name == "ranger":
-            special_name, special_skills = self.special
-            for pet in special_skills:
-                arr.append(pet.palette_id)
+            for special in special_skills:
+                arr.append(special.palette_id)
             arr.extend(b"\x00" * (16 - len(special_skills)))
         else:
             arr.extend(

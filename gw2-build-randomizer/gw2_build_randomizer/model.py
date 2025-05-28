@@ -189,7 +189,7 @@ class Build(BaseModel):
         """).strip()
 
     def render_chat_link_for_display(self) -> str:
-        return f"Chat link: {self.render_as_chat_link()}" if not self.profession.skills.special else ""  # Ranger / Rev not yet implem
+        return f"Chat link: {self.render_as_chat_link()}" if self.profession.name != "revenant" else ""  # Rev not yet implem
 
     def render_as_chat_link(self) -> str:
         arr = bytearray()

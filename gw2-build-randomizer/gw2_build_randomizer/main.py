@@ -45,8 +45,7 @@ def determine_random_profession(
     ]
     return random.choice(choices)
 
-
-def main() -> str:
+def generate_random_build() -> Build:
     professions = get_professions()
     settings = get_settings(professions)
 
@@ -188,7 +187,7 @@ def main() -> str:
         else:
             weapon_sets.append((two_handed_names[chosen_weapon - main_hand_options],))
 
-    build = Build(
+    return Build(
         profession=profession,
         traits=chosen_traits,
         heal=heal,
@@ -197,7 +196,9 @@ def main() -> str:
         weapon_sets=tuple(weapon_sets),
         special=special,
     )
-    return build.render_for_display()
+
+def main() -> str:
+    return generate_random_build().render_for_display()
 
 
 if __name__ == "__main__":

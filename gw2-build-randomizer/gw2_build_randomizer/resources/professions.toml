@@ -701,7 +701,262 @@ palette_id = 6931
 name = "Nature's Binding"
 id = 63130
 palette_id = 6916
-special = ['Arctodus', 'Black Bear', 'Brown Bear', 'Murrelow', 'Polar bear', 'Eagle', 'Hawk', 'Owl', 'Raven', 'White Raven', 'Alpine Wolf', 'Fern hound', 'Hyena', 'Krytan Drakehound', 'Wolf', 'Carrion Devourer', 'Lashtail Devourer', 'Whiptail Devourer', 'Ice Drake', 'Marsh Drake', 'Reef Drake', 'River Drake', 'Salamander Drake', 'Cheetah', 'Jaguar', 'Jungle Stalker', 'Lynx', 'Sand Lion', 'Snow Leopard', 'Tiger', 'Black Moa', 'Blue Moa', 'Pink Moa', 'Red Moa', 'White Moa', 'Boar', 'Pig', 'Siamoth', 'Warthog', 'Black Widow Spider', 'Cave Spider', 'Forest Spider', 'Jungle Spider', 'Electric Wyvern', 'Fire Wyvern', 'Armor Fish', 'Bristleback', 'Fanged Iboga', 'Jacaranda', 'Rock Gazelle', 'Smoke Scale', 'Phoenix', 'White Tiger', 'Wallow', 'Siege Turtle']
+[[professions.skills.special]]
+name = "Juvenile Jungle Stalker"
+id = 1
+palette_id = 1
+[[professions.skills.special]]
+name = "Juvenile Boar"
+id = 2
+palette_id = 2
+[[professions.skills.special]]
+name = "Juvenile Lynx"
+id = 3
+palette_id = 3
+[[professions.skills.special]]
+name = "Juvenile Krytan Drakehound"
+id = 4
+palette_id = 4
+[[professions.skills.special]]
+name = "Juvenile Brown Bear"
+id = 5
+palette_id = 5
+[[professions.skills.special]]
+name = "Juvenile Carrion Devourer"
+id = 6
+palette_id = 6
+[[professions.skills.special]]
+name = "Juvenile Salamander Drake"
+id = 7
+palette_id = 7
+[[professions.skills.special]]
+name = "Juvenile Alpine Wolf"
+id = 8
+palette_id = 8
+[[professions.skills.special]]
+name = "Juvenile Snow Leopard"
+id = 9
+palette_id = 9
+[[professions.skills.special]]
+name = "Juvenile Raven"
+id = 10
+palette_id = 10
+[[professions.skills.special]]
+name = "Juvenile Jaguar"
+id = 11
+palette_id = 11
+[[professions.skills.special]]
+name = "Juvenile Marsh Drake"
+id = 12
+palette_id = 12
+[[professions.skills.special]]
+name = "Juvenile Blue Moa"
+id = 13
+palette_id = 13
+[[professions.skills.special]]
+name = "Juvenile White Moa"
+id = 14
+palette_id = 14
+[[professions.skills.special]]
+name = "Juvenile Pink Moa"
+id = 15
+palette_id = 15
+[[professions.skills.special]]
+name = "Juvenile Black Moa"
+id = 16
+palette_id = 16
+[[professions.skills.special]]
+name = "Juvenile Red Moa"
+id = 17
+palette_id = 17
+[[professions.skills.special]]
+name = "Juvenile Ice Drake"
+id = 18
+palette_id = 18
+[[professions.skills.special]]
+name = "Juvenile River Drake"
+id = 19
+palette_id = 19
+[[professions.skills.special]]
+name = "Juvenile Murellow"
+id = 20
+palette_id = 20
+[[professions.skills.special]]
+name = "Juvenile Shark"
+id = 21
+palette_id = 21
+[[professions.skills.special]]
+name = "Juvenile Fern Hound"
+id = 22
+palette_id = 22
+[[professions.skills.special]]
+name = "Juvenile Black Bear"
+id = 23
+palette_id = 23
+[[professions.skills.special]]
+name = "Juvenile Polar Bear"
+id = 24
+palette_id = 24
+[[professions.skills.special]]
+name = "Juvenile Arctodus"
+id = 25
+palette_id = 25
+[[professions.skills.special]]
+name = "Juvenile Whiptail Devourer"
+id = 26
+palette_id = 26
+[[professions.skills.special]]
+name = "Juvenile Lashtail Devourer"
+id = 27
+palette_id = 27
+[[professions.skills.special]]
+name = "Juvenile Hyena"
+id = 28
+palette_id = 28
+[[professions.skills.special]]
+name = "Juvenile Wolf"
+id = 29
+palette_id = 29
+[[professions.skills.special]]
+name = "Juvenile Owl"
+id = 30
+palette_id = 30
+[[professions.skills.special]]
+name = "Juvenile Eagle"
+id = 31
+palette_id = 31
+[[professions.skills.special]]
+name = "Juvenile White Raven"
+id = 32
+palette_id = 32
+[[professions.skills.special]]
+name = "Juvenile Forest Spider"
+id = 33
+palette_id = 33
+[[professions.skills.special]]
+name = "Juvenile Jungle Spider"
+id = 34
+palette_id = 34
+[[professions.skills.special]]
+name = "Juvenile Cave Spider"
+id = 35
+palette_id = 35
+[[professions.skills.special]]
+name = "Juvenile Black Widow Spider"
+id = 36
+palette_id = 36
+[[professions.skills.special]]
+name = "Juvenile Warthog"
+id = 37
+palette_id = 37
+[[professions.skills.special]]
+name = "Juvenile Siamoth"
+id = 38
+palette_id = 38
+[[professions.skills.special]]
+name = "Juvenile Pig"
+id = 39
+palette_id = 39
+[[professions.skills.special]]
+name = "Juvenile Armor Fish"
+id = 40
+palette_id = 40
+[[professions.skills.special]]
+name = "Juvenile Blue Jellyfish"
+id = 41
+palette_id = 41
+[[professions.skills.special]]
+name = "Juvenile Red Jellyfish"
+id = 42
+palette_id = 42
+[[professions.skills.special]]
+name = "Juvenile Rainbow Jellyfish"
+id = 43
+palette_id = 43
+[[professions.skills.special]]
+name = "Juvenile Hawk"
+id = 44
+palette_id = 44
+[[professions.skills.special]]
+name = "Juvenile Reef Drake"
+id = 45
+palette_id = 45
+[[professions.skills.special]]
+name = "Juvenile Smokescale"
+id = 46
+palette_id = 46
+[[professions.skills.special]]
+name = "Juvenile Tiger"
+id = 47
+palette_id = 47
+[[professions.skills.special]]
+name = "Juvenile Electric Wyvern"
+id = 48
+palette_id = 48
+[[professions.skills.special]]
+name = "Juvenile Fire Wyvern"
+id = 51
+palette_id = 51
+[[professions.skills.special]]
+name = "Juvenile Bristleback"
+id = 52
+palette_id = 52
+[[professions.skills.special]]
+name = "Juvenile Cheetah"
+id = 54
+palette_id = 54
+[[professions.skills.special]]
+name = "Juvenile Sand Lion"
+id = 55
+palette_id = 55
+[[professions.skills.special]]
+name = "Juvenile Jacaranda"
+id = 57
+palette_id = 57
+[[professions.skills.special]]
+name = "Juvenile Rock Gazelle"
+id = 59
+palette_id = 59
+[[professions.skills.special]]
+name = "Juvenile Fanged Iboga"
+id = 61
+palette_id = 61
+[[professions.skills.special]]
+name = "Juvenile White Tiger"
+id = 63
+palette_id = 63
+[[professions.skills.special]]
+name = "Juvenile Wallow"
+id = 64
+palette_id = 64
+[[professions.skills.special]]
+name = "Juvenile Phoenix"
+id = 65
+palette_id = 65
+[[professions.skills.special]]
+name = "Juvenile Siege Turtle"
+id = 66
+palette_id = 66
+[[professions.skills.special]]
+name = "Juvenile Aether Hunter"
+id = 67
+palette_id = 67
+[[professions.skills.special]]
+name = "Juvenile Sky-Chak Striker"
+id = 68
+palette_id = 68
+[[professions.skills.special]]
+name = "Juvenile Spinegazer"
+id = 69
+palette_id = 69
+[[professions.skills.special]]
+name = "Juvenile Warclaw"
+id = 70
+palette_id = 70
+[[professions.skills.special]]
+name = "Juvenile Janthiri Bee"
+id = 71
+palette_id = 71
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['axe', 'sword']

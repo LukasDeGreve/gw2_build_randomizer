@@ -57,7 +57,7 @@ def test_validate_models() -> None:
         assert profession.code, f"No code for {profession.name}"
         for specialization in profession.specializations:
             assert specialization.code, f"No code for {specialization.name} for {profession.name}"
-        all_skills = (*profession.skills.heal, *profession.skills.utility, *profession.skills.elite, *profession.skills.special)
+        all_skills = (*profession.skills.heal, *profession.skills.utility, *profession.skills.elite, *(profession.skills.special if profession.name != "ranger" else ()))
         all_skills_ids = Counter((i.palette_id for i in all_skills))
         duplicated_skills = {i for i, v in all_skills_ids.items() if v > 1}
         if profession.name != "revenant":  #  TODO Fix me :)

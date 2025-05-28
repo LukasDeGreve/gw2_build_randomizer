@@ -55,6 +55,8 @@ def test_build_rendering(seed: int) -> None:
 
     if build.profession.name != "revenant":
         chat_link = build.render_as_chat_link()
+        if seed not in EXPECTED_CHAT_LINK:
+            print(chat_link)
         assert chat_link == EXPECTED_CHAT_LINK.get(seed, chat_link)
 
     display_str = build.render_for_display()

@@ -202,9 +202,21 @@ def generate_random_build() -> Build:
     )
 
 
-def main() -> str:
-    return generate_random_build().render_for_display()
+def _main(seed: Optional[int], link_only: bool) -> str:
+    if seed is not None:
+        random.seed(seed)
+    build = generate_random_build()
+    if link_only:
+        return build.render_as_chat_link()
+    else:
+        return build.render_for_display()
 
+def main() -> None:
+    from argparse import ArgumentParser
+    parser = ArgumentParser()
+    parser.add_argument("--seed", type=int)
+    parser.add_argument("--link-only", action="store_true")
+    print(_main(**vars(parser.parse_args())))
 
 if __name__ == "__main__":
-    print(main())
+    main()

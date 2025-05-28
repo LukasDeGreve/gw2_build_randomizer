@@ -16,7 +16,7 @@ from gw2_build_randomizer.model import (
 )
 
 EXPECTED = {
-    0: """Chat link: [&DQYRKh8qQzd1AAAAygAAAE8BAABOAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAABWQAA]
+    0: """Chat link: [&DQYRKh8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]
 
 Your class is: Catalyst (Elementalist) 
 
@@ -28,9 +28,9 @@ Catalyst: bottom top bottom
 
 Heal skill: Ether Renewal
 
-Utility skill 1: Conjure Flame Axe
-Utility skill 2: Armor of Earth
-Utility skill 3: Arcane Wave
+Utility skill 1: Signet of Water
+Utility skill 2: Glyph of Elemental Power
+Utility skill 3: Arcane Blast
 
 Elite skill: Tornado
 
@@ -90,14 +90,16 @@ def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) 
         ),
         heal=Skill(name="Ether Renewal", palette_id=117),
         utility=(
-            Skill(name="Conjure Flame Axe", palette_id=202),
-            Skill(name="Armor of Earth", palette_id=335),
-            Skill(name="Arcane Wave", palette_id=334),
+            Skill(name="Signet of Water", palette_id=143),
+            Skill(name="Glyph of Elemental Power", palette_id=115),
+            Skill(name="Arcane Blast", palette_id=336),
         ),
         elite=Skill(name="Tornado", palette_id=150),
-        weapon_sets=((Weapon("staff"),),),
+        weapon_sets=((Weapon("staff"),),(Weapon("hammer"),)),
     )
+    assert build.render_as_chat_link() == "[&DQYRKh8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]"
     assert build.render_for_display() == EXPECTED[0].strip()
+    
 
 def test_chat_code_rendering(professions_by_name: dict[ProfessionName, Profession]) -> None:
     build = Build(

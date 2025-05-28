@@ -1,11 +1,17 @@
 import random
+from collections import Counter
 
 import pytest
 
-from gw2_build_randomizer.main import main, get_professions
+from gw2_build_randomizer.main import (
+    get_professions,
+    get_settings,
+    generate_random_build,
+)
 from gw2_build_randomizer.model import (
     Build,
     Trait,
+    TraitChoice,
     Profession,
     ProfessionName,
     Skill,
@@ -13,20 +19,22 @@ from gw2_build_randomizer.model import (
     Specialization,
 )
 
-EXPECTED = {
-    0: """Your class is: Catalyst (Elementalist) 
+EXPECTED_DISPLAY = {
+    0: """Chat link: [&DQYRKx8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]
 
-Fire: bottom middle middle
+Your class is: Catalyst (Elementalist) 
 
-Earth: middle middle middle
+Water: bottom middle middle
+
+Fire: middle middle middle
 
 Catalyst: bottom top bottom
 
 Heal skill: Ether Renewal
 
-Utility skill 1: Conjure Flame Axe
-Utility skill 2: Armor of Earth
-Utility skill 3: Arcane Wave
+Utility skill 1: Signet of Water
+Utility skill 2: Glyph of Elemental Power
+Utility skill 3: Arcane Blast
 
 Elite skill: Tornado
 
@@ -34,14 +42,59 @@ Weapon set 1: staff
 """
 }
 
+EXPECTED_CHAT_LINK = {
+    0: "[&DQYRKx8qQzd1AAAAjwAAAHMAAABQAQAAlgAAAAAAAAAAAAAAAAAAAAAAAAACWQAzAAA=]",
+    1: "[&DQIWOgQWCyYpDwAAaQAAAKIBAACsAAAAnAAAAAAAAAAAAAAAAAAAAAAAAAAELwBmADUABQAA]",
+    2: "[&DQENLyoeMTc4AQAATAEAAP8AAAB4AQAANwEAAAAAAAAAAAAAAAAAAAAAAAACIwBZAAA=]",
+    3: "[&DQQeHyAnBR54AAAAuBIAALYAAAC7AAAAtBIAADYUAAAAAAAAAAAAAAAAAAAENQA1AC8AZwAA]",
+    4: "[&DQQIFiAlNxt4AAAApQEAALsAAACWAQAAlwEAABcOAAAAAAAAAAAAAAAAAAADMgA1AAUAAA==]",
+    5: "[&DQU2NhQVOhqFAAAANAEAAFUBAABZAQAADgEAAAAAAAAAAAAAAAAAAAAAAAAELwA2AFYALwAA]",
+    6: "[&DQkMNQM7RRrcEQAABhIAACsSAADUEQAAyhEAAAMEAAAAAAAAAAAAAAAAAAACMwBrAAA=]",
+    7: "[&DQMmHQYeKxcUAQAAlQEAACMBAABeAQAAiQEAAAAAAAAAAAAAAAAAAAAAAAACMwBVAAA=]",
+    8: "[&DQQgHRkVNyd5AAAAvAAAALYAAAC9AAAALhYAABk3AAAAAAAAAAAAAAAAAAADWgAvAFkAAA==]",
+    9: "[&DQcXHQouOyfuFQAAGgEAAAcWAACBAQAARhcAAAAAAAAAAAAAAAAAAAAAAAADBQBmAFkAAA==]",
+    10: "[&DQEuKg0dQS5/AAAASQEAADIBAADgGgAAcRIAAAAAAAAAAAAAAAAAAAAAAAADNQBXADMAAA==]",
+}
 
-@pytest.mark.parametrize("seed", range(1))
-def test_can_run(seed: int) -> None:
+
+@pytest.mark.parametrize("seed", range(10))
+def test_build_rendering(seed: int) -> None:
     """The most basic test, just so I know I can refactor without something going bang"""
-    random.seed(0)
-    actual = main()
-    if seed in EXPECTED:
-        assert actual == EXPECTED[seed].strip()
+    random.seed(seed)
+    build = generate_random_build()
+
+    chat_link = build.render_as_chat_link()
+    display_str = build.render_for_display()
+
+    assert chat_link == EXPECTED_CHAT_LINK.get(seed, chat_link)
+    assert display_str == EXPECTED_DISPLAY.get(seed, display_str).strip()
+
+
+def test_validate_models() -> None:
+    professions = get_professions()
+    settings = get_settings(professions)
+    assert len(settings.include_professions) == 9
+    assert not settings.exclude_professions
+    for profession in professions.professions:
+        assert profession.code, f"No code for {profession.name}"
+        for specialization in profession.specializations:
+            assert specialization.code, (
+                f"No code for {specialization.name} for {profession.name}"
+            )
+        if profession.name == "revenant":
+            continue
+        all_skills = (
+            *profession.skills.heal,
+            *profession.skills.utility,
+            *profession.skills.elite,
+        )
+        all_skills_ids = Counter((i.palette_id for i in all_skills))
+        duplicated_skills = {i for i, v in all_skills_ids.items() if v > 1}
+        assert not duplicated_skills, profession.name
+        for skill in all_skills:
+            assert skill.palette_id, (
+                f"No palette_id for {skill.name} for {profession.name}"
+            )
 
 
 @pytest.fixture
@@ -49,30 +102,40 @@ def professions_by_name() -> dict[ProfessionName, Profession]:
     return {p.name: p for p in get_professions().professions}
 
 
-def test_build_rendering(professions_by_name: dict[ProfessionName, Profession]) -> None:
+def test_chat_code_rendering(
+    professions_by_name: dict[ProfessionName, Profession],
+) -> None:
     build = Build(
-        profession=professions_by_name[ProfessionName("elementalist")],
+        profession=professions_by_name[ProfessionName("engineer")],
         traits=(
             Trait(
-                specialization=Specialization("Fire"),
-                trait_choices=("bottom", "middle", "middle"),
+                specialization=Specialization(name="Firearms", code=38),
+                trait_choices=(
+                    TraitChoice.BOTTOM,
+                    TraitChoice.BOTTOM,
+                    TraitChoice.MIDDLE,
+                ),
             ),
             Trait(
-                specialization=Specialization("Earth"),
-                trait_choices=("middle", "middle", "middle"),
+                specialization=Specialization(name="Explosives", code=6),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.TOP, TraitChoice.BOTTOM),
             ),
             Trait(
-                specialization=Specialization("Catalyst"),
-                trait_choices=("bottom", "top", "bottom"),
+                specialization=Specialization(name="Mechanist", code=70),
+                trait_choices=(TraitChoice.BOTTOM, TraitChoice.BOTTOM, TraitChoice.TOP),
             ),
         ),
-        heal=Skill("Ether Renewal"),
+        heal=Skill(name="Med Kit", palette_id=132),
         utility=(
-            Skill("Conjure Flame Axe"),
-            Skill("Armor of Earth"),
-            Skill("Arcane Wave"),
+            Skill(name="Grenade Kit", palette_id=134),
+            Skill(name="Force Signet", palette_id=6938),
+            Skill(name="Shift Signet", palette_id=6928),
         ),
-        elite=Skill("Tornado"),
-        weapon_sets=((Weapon("staff"),),),
+        elite=Skill(name="Overclock Signet", palette_id=6921),
+        weapon_sets=(
+            (Weapon("rifle"),),
+            (Weapon("hammer"),),
+        ),
     )
-    assert build.render_for_display() == EXPECTED[0].strip()
+    expected = "[&DQMmLwY3Rh+EAAAAhgAAABobAAAQGwAACRsAAAAAAAAAAAAAAAAAAAAAAAACVQAzAAA=]"
+    assert build.render_as_chat_link() == expected

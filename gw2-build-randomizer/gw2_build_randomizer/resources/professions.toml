@@ -1,10 +1,211 @@
 [[professions]]
 name = 'guardian'
-specializations = ['Zeal', 'Radiance', 'Valor', 'Honor', 'Virtues', 'Dragonhunter', 'Firebrand', 'Willbender']
+code = 1
+[[professions.specializations]]
+name = "Valor"
+code = 13
+[[professions.specializations]]
+name = "Radiance"
+code = 16
+[[professions.specializations]]
+name = "Zeal"
+code = 42
+[[professions.specializations]]
+name = "Virtues"
+code = 46
+[[professions.specializations]]
+name = "Honor"
+code = 49
+[[professions.specializations]]
+name = "Dragonhunter"
+code = 27
+[[professions.specializations]]
+name = "Firebrand"
+code = 62
+[[professions.specializations]]
+name = "Willbender"
+code = 65
 [professions.skills]
-heal = ['Receive the Light', 'Litany of Wrath', 'Shelter', 'Signet of Resolve', 'Purification', 'Mantra of Solace', 'Reversal of Fortune']
-utility = ['Hallowed Ground', 'Purging Flames', 'Sanctuary', 'Wall of Reflection', 'Contemplation of Purity', 'Judges Intervention', 'Merciful Intervention', 'Smite Condition', 'Hold The Line!', 'Advance!', 'Save Yourselves!', 'Stand Your Ground', 'Bane Signet', 'Signet of Judgment', 'Signet of Mercy', 'Signet of Wrath', 'Bow of Truth', 'Hammer of Wisdom', 'Shield of the Avenger', 'Sword of Justice', 'Fragments of Faith', 'Lights Judgment', 'Test of Faith', 'Procession of Blades', 'Mantra of Flame', 'Mantra of Lore', 'Matra of Truth', 'Mantra of Potence', 'Flash Combo', 'Heel Crack', 'Roiling Light', 'Whirling Light']
-elite = ['Feel my Wrath!', 'Renewed Focus', 'Signet of Courage', 'Dragons Maw', 'Mantra of Liberation', 'Heavens Palm']
+[[professions.skills.heal]]
+name = 'Shelter'
+id = 9102
+palette_id = 259
+[[professions.skills.heal]]
+name = 'Signet of Resolve'
+id = 9158
+palette_id = 312
+[[professions.skills.heal]]
+name = '"Receive the Light!"'
+id = 9083
+palette_id = 127
+[[professions.skills.heal]]
+name = 'Litany of Wrath'
+id = 21664
+palette_id = 3878
+[[professions.skills.utility]]
+name = 'Hammer of Wisdom'
+id = 9125
+palette_id = 256
+[[professions.skills.utility]]
+name = 'Sword of Justice'
+id = 9168
+palette_id = 328
+[[professions.skills.utility]]
+name = 'Bow of Truth'
+id = 9175
+palette_id = 329
+[[professions.skills.utility]]
+name = 'Shield of the Avenger'
+id = 9182
+palette_id = 330
+[[professions.skills.utility]]
+name = 'Bane Signet'
+id = 9093
+palette_id = 254
+[[professions.skills.utility]]
+name = 'Signet of Judgment'
+id = 9150
+palette_id = 326
+[[professions.skills.utility]]
+name = 'Signet of Wrath'
+id = 9151
+palette_id = 305
+[[professions.skills.utility]]
+name = 'Signet of Mercy'
+id = 9163
+palette_id = 306
+[[professions.skills.utility]]
+name = '"Advance!"'
+id = 9084
+palette_id = 301
+[[professions.skills.utility]]
+name = '"Save Yourselves!"'
+id = 9085
+palette_id = 138
+[[professions.skills.utility]]
+name = '"Stand Your Ground!"'
+id = 9153
+palette_id = 310
+[[professions.skills.utility]]
+name = '"Hold the Line!"'
+id = 9152
+palette_id = 309
+[[professions.skills.utility]]
+name = 'Wall of Reflection'
+id = 9251
+palette_id = 255
+[[professions.skills.utility]]
+name = 'Purging Flames'
+id = 9187
+palette_id = 332
+[[professions.skills.utility]]
+name = 'Hallowed Ground'
+id = 9253
+palette_id = 331
+[[professions.skills.utility]]
+name = 'Sanctuary'
+id = 9128
+palette_id = 278
+[[professions.skills.utility]]
+name = 'Smite Condition'
+id = 9245
+palette_id = 376
+[[professions.skills.utility]]
+name = 'Contemplation of Purity'
+id = 9248
+palette_id = 260
+[[professions.skills.utility]]
+name = "Judge's Intervention"
+id = 9247
+palette_id = 327
+[[professions.skills.utility]]
+name = 'Merciful Intervention'
+id = 9246
+palette_id = 441
+[[professions.skills.elite]]
+name = '"Feel My Wrath!"'
+id = 29965
+palette_id = 4745
+[[professions.skills.elite]]
+name = 'Renewed Focus'
+id = 9154
+palette_id = 311
+[[professions.skills.elite]]
+name = 'Signet of Courage'
+id = 30461
+palette_id = 4721
+[[professions.skills.heal]]
+name = 'Purification'
+id = 30025
+palette_id = 4796
+[[professions.skills.utility]]
+name = 'Test of Faith'
+id = 29786
+palette_id = 4862
+[[professions.skills.utility]]
+name = 'Fragments of Faith'
+id = 30553
+palette_id = 4740
+[[professions.skills.utility]]
+name = 'Procession of Blades'
+id = 30364
+palette_id = 4746
+[[professions.skills.utility]]
+name = "Light's Judgment"
+id = 30871
+palette_id = 4858
+[[professions.skills.elite]]
+name = "Dragon's Maw"
+id = 30273
+palette_id = 4789
+[[professions.skills.heal]]
+name = 'Mantra of Solace'
+id = 41714
+palette_id = 5963
+[[professions.skills.utility]]
+name = 'Mantra of Potence'
+id = 40915
+palette_id = 5754
+[[professions.skills.utility]]
+name = 'Mantra of Flame'
+id = 46148
+palette_id = 5909
+[[professions.skills.utility]]
+name = 'Mantra of Truth'
+id = 44080
+palette_id = 5827
+[[professions.skills.utility]]
+name = 'Mantra of Lore'
+id = 45460
+palette_id = 5971
+[[professions.skills.elite]]
+name = 'Mantra of Liberation'
+id = 43357
+palette_id = 5656
+[[professions.skills.heal]]
+name = 'Reversal of Fortune'
+id = 62622
+palette_id = 6883
+[[professions.skills.elite]]
+name = "Heaven's Palm"
+id = 62561
+palette_id = 6889
+[[professions.skills.utility]]
+name = 'Flash Combo'
+id = 62608
+palette_id = 6878
+[[professions.skills.utility]]
+name = 'Roiling Light'
+id = 62521
+palette_id = 6881
+[[professions.skills.utility]]
+name = 'Whirling Light'
+id = 62565
+palette_id = 6872
+[[professions.skills.utility]]
+name = 'Heel Crack'
+id = 62549
+palette_id = 6880
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['mace', 'sword', 'scepter']
@@ -23,12 +224,191 @@ off_hand = ['pistol']
 two_hand = ['spear']
 [[professions]]
 name = 'revenant'
-specializations = ['Corruption', 'Retribution', 'Salvation', 'Invocation', 'Devastation', 'Herald', 'Renegade', 'Vindicator']
+code = 9
+[[professions.specializations]]
+name = "Invocation"
+code = 3
+[[professions.specializations]]
+name = "Retribution"
+code = 9
+[[professions.specializations]]
+name = "Salvation"
+code = 12
+[[professions.specializations]]
+name = "Corruption"
+code = 14
+[[professions.specializations]]
+name = "Devastation"
+code = 15
+[[professions.specializations]]
+name = "Herald"
+code = 52
+[[professions.specializations]]
+name = "Renegade"
+code = 63
+[[professions.specializations]]
+name = "Vindicator"
+code = 69
 [professions.skills]
-heal = []
-utility = []
-elite = []
-special = ['Assassin', 'Centaur', 'Demon', 'Dwarf', 'Dragon', 'Renegade', 'Alliance']
+[[professions.skills.heal]]
+name = 'Soothing Stone'
+id = 27372
+palette_id = 4572
+[[professions.skills.utility]]
+name = 'Inspiring Reinforcement'
+id = 28516
+palette_id = 4614
+[[professions.skills.utility]]
+name = 'Forced Engagement'
+id = 26679
+palette_id = 4651
+[[professions.skills.utility]]
+name = 'Vengeful Hammers'
+id = 26557
+palette_id = 4564
+[[professions.skills.elite]]
+name = 'Rite of the Great Dwarf'
+id = 27975
+palette_id = 4554
+[[professions.skills.heal]]
+name = 'Empowering Misery'
+id = 28219
+palette_id = 4572
+[[professions.skills.utility]]
+name = 'Pain Absorption'
+id = 27322
+palette_id = 4614
+[[professions.skills.utility]]
+name = 'Banish Enchantment'
+id = 27505
+palette_id = 4651
+[[professions.skills.utility]]
+name = 'Call to Anguish'
+id = 27917
+palette_id = 4564
+[[professions.skills.elite]]
+name = 'Embrace the Darkness'
+id = 28287
+palette_id = 4554
+[[professions.skills.heal]]
+name = 'Project Tranquility'
+id = 29148
+palette_id = 4572
+[[professions.skills.utility]]
+name = 'Protective Solace'
+id = 26821
+palette_id = 4614
+[[professions.skills.utility]]
+name = 'Natural Harmony'
+id = 27025
+palette_id = 4651
+[[professions.skills.utility]]
+name = 'Purifying Essence'
+id = 27715
+palette_id = 4564
+[[professions.skills.elite]]
+name = 'Energy Expulsion'
+id = 27356
+palette_id = 4554
+[[professions.skills.heal]]
+name = 'Enchanted Daggers'
+id = 26937
+palette_id = 4572
+[[professions.skills.utility]]
+name = 'Riposting Shadows'
+id = 29209
+palette_id = 4614
+[[professions.skills.utility]]
+name = 'Phase Traversal'
+id = 28231
+palette_id = 4651
+[[professions.skills.utility]]
+name = 'Impossible Odds'
+id = 27107
+palette_id = 4654
+[[professions.skills.elite]]
+name = 'Jade Winds'
+id = 28406
+palette_id = 4554
+[[professions.skills.heal]]
+name = 'Facet of Light'
+id = 27220
+palette_id = 4572
+[[professions.skills.utility]]
+name = 'Facet of Darkness'
+id = 28379
+palette_id = 4614
+[[professions.skills.utility]]
+name = 'Facet of Elements'
+id = 27014
+palette_id = 4651
+[[professions.skills.utility]]
+name = 'Facet of Strength'
+id = 26644
+palette_id = 4654
+[[professions.skills.elite]]
+name = 'Facet of Chaos'
+id = 27760
+palette_id = 4554
+[[professions.skills.heal]]
+name = "Breakrazor's Bastion"
+id = 45686
+palette_id = 4572
+[[professions.skills.utility]]
+name = "Razorclaw's Rage"
+id = 42949
+palette_id = 4614
+[[professions.skills.utility]]
+name = "Icerazor's Ire"
+id = 40485
+palette_id = 4651
+[[professions.skills.utility]]
+name = "Darkrazor's Daring"
+id = 41220
+palette_id = 4654
+[[professions.skills.elite]]
+name = "Soulcleave's Summit"
+id = 45773
+palette_id = 4554
+[[professions.skills.heal]]
+name = 'Selfish Spirit'
+id = 62719
+palette_id = 4572
+[[professions.skills.elite]]
+name = 'Spear of Archemorus'
+id = 62942
+palette_id = 4554
+[[professions.skills.utility]]
+name = "Nomad's Advance"
+id = 62832
+palette_id = 4614
+[[professions.skills.utility]]
+name = 'Scavenger Burst'
+id = 62962
+palette_id = 4651
+[[professions.skills.utility]]
+name = "Reaver's Rage"
+id = 62878
+palette_id = 4564
+[[professions.skills.special]]
+name = "Legendary Dragon Stance"
+palette_id = 1
+[[professions.skills.special]]
+name = "Legendary Assassin Stance"
+palette_id = 2
+[[professions.skills.special]]
+name = "Legendary Dwarf Stance"
+palette_id = 3
+[[professions.skills.special]]
+name = "Legendary Demon Stance"
+palette_id = 4
+[[professions.skills.special]]
+name = "Legendary Renegade Stance"
+palette_id = 5
+[[professions.skills.special]]
+name = "Legendary Centaur Stance"
+palette_id = 6
+# TODO Alliance?
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['mace', 'sword']
@@ -46,11 +426,212 @@ main_hand = ['scepter']
 two_hand = ['spear']
 [[professions]]
 name = 'warrior'
-specializations = ['Strength', 'Arms', 'Defence', 'Tactics', 'Discipline', 'Spellbreaker', 'Berserker', 'Bladesworn']
+code = 2
+[[professions.specializations]]
+name = "Strength"
+code = 4
+[[professions.specializations]]
+name = "Tactics"
+code = 11
+[[professions.specializations]]
+name = "Defense"
+code = 22
+[[professions.specializations]]
+name = "Arms"
+code = 36
+[[professions.specializations]]
+name = "Discipline"
+code = 51
+[[professions.specializations]]
+name = "Berserker"
+code = 18
+[[professions.specializations]]
+name = "Spellbreaker"
+code = 61
+[[professions.specializations]]
+name = "Bladesworn"
+code = 68
 [professions.skills]
-heal = ['Mending', 'To the Limit!', 'Healing Signet', 'Defiant Stance', 'Natural Healing', 'Blood Reckoning', 'Combat Stimulant']
-utility = ['Banner of Defence', 'Banner of Dicipline', 'Banner of Strenght', 'Banner of Tactics', 'Bulls Charge', 'Kick', 'Stomp', 'Throw Bolas', 'Fear me!', 'For Great Justice!', 'On My Mark!', 'Shake It Off!', 'Dolyak Signet', 'Signet of Fury', 'Signet of Might', 'Signet of Stamina', 'Balanced Stance', 'Berserker Stance', 'Endure Pain', 'Frenzy', 'Sight Beyond Sight', 'Featherfoot Grace', 'Imminent Threat', 'Break Enchantments', 'Outrage', 'Shattering Blow', 'Sundering Leap', 'Wild Blow', 'Dragonspike Mine', 'Electric Fence', 'Flow Stabilizer', 'Overcharged Cartridges']
-elite = ['Battle Standard', 'Rampage', 'Signet of Rage', 'Winds of Disenchantment', 'Head Butt', 'Tactical Reload']
+[[professions.skills.heal]]
+name = '"To the Limit!"'
+id = 14402
+palette_id = 166
+[[professions.skills.heal]]
+name = 'Mending'
+id = 14401
+palette_id = 167
+[[professions.skills.heal]]
+name = 'Healing Signet'
+id = 14389
+palette_id = 112
+[[professions.skills.heal]]
+name = 'Defiant Stance'
+id = 21815
+palette_id = 3881
+[[professions.skills.utility]]
+name = 'Kick'
+id = 14502
+palette_id = 418
+[[professions.skills.utility]]
+name = 'Throw Bolas'
+id = 14354
+palette_id = 10
+[[professions.skills.utility]]
+name = "Bull's Charge"
+id = 14516
+palette_id = 173
+[[professions.skills.utility]]
+name = 'Stomp'
+id = 14388
+palette_id = 110
+[[professions.skills.utility]]
+name = 'Signet of Might'
+id = 14404
+palette_id = 169
+[[professions.skills.utility]]
+name = 'Signet of Fury'
+id = 14410
+palette_id = 175
+[[professions.skills.utility]]
+name = 'Signet of Stamina'
+id = 14479
+palette_id = 317
+[[professions.skills.utility]]
+name = 'Dolyak Signet'
+id = 14413
+palette_id = 179
+[[professions.skills.utility]]
+name = '"For Great Justice!"'
+id = 14403
+palette_id = 168
+[[professions.skills.utility]]
+name = '"Shake It Off!"'
+id = 14372
+palette_id = 106
+[[professions.skills.utility]]
+name = '"On My Mark!"'
+id = 14575
+palette_id = 482
+[[professions.skills.utility]]
+name = '"Fear Me!"'
+id = 14409
+palette_id = 174
+[[professions.skills.utility]]
+name = 'Banner of Defense'
+id = 14528
+palette_id = 429
+[[professions.skills.utility]]
+name = 'Banner of Strength'
+id = 14405
+palette_id = 170
+[[professions.skills.utility]]
+name = 'Banner of Discipline'
+id = 14407
+palette_id = 172
+[[professions.skills.utility]]
+name = 'Banner of Tactics'
+id = 14408
+palette_id = 176
+[[professions.skills.utility]]
+name = 'Berserker Stance'
+id = 14406
+palette_id = 171
+[[professions.skills.utility]]
+name = 'Endure Pain'
+id = 14392
+palette_id = 113
+[[professions.skills.utility]]
+name = 'Balanced Stance'
+id = 14412
+palette_id = 178
+[[professions.skills.utility]]
+name = 'Frenzy'
+id = 14368
+palette_id = 105
+[[professions.skills.elite]]
+name = 'Battle Standard'
+id = 14419
+palette_id = 238
+[[professions.skills.elite]]
+name = 'Signet of Rage'
+id = 14355
+palette_id = 156
+[[professions.skills.elite]]
+name = 'Rampage'
+id = 14483
+palette_id = 380
+[[professions.skills.elite]]
+name = 'Head Butt'
+id = 30343
+palette_id = 4802
+[[professions.skills.utility]]
+name = 'Wild Blow'
+id = 29941
+palette_id = 4804
+[[professions.skills.utility]]
+name = 'Shattering Blow'
+id = 30074
+palette_id = 4828
+[[professions.skills.utility]]
+name = 'Sundering Leap'
+id = 29613
+palette_id = 4769
+[[professions.skills.utility]]
+name = 'Outrage'
+id = 30258
+palette_id = 4823
+[[professions.skills.heal]]
+name = 'Blood Reckoning'
+id = 30189
+palette_id = 4850
+[[professions.skills.heal]]
+name = 'Natural Healing'
+id = 41100
+palette_id = 5959
+[[professions.skills.elite]]
+name = 'Winds of Disenchantment'
+id = 45333
+palette_id = 5789
+[[professions.skills.utility]]
+name = 'Featherfoot Grace'
+id = 45380
+palette_id = 5904
+[[professions.skills.utility]]
+name = 'Sight beyond Sight'
+id = 43745
+palette_id = 5750
+[[professions.skills.utility]]
+name = 'Imminent Threat'
+id = 41919
+palette_id = 5738
+[[professions.skills.utility]]
+name = 'Break Enchantments'
+id = 43123
+palette_id = 5671
+[[professions.skills.utility]]
+name = 'Flow Stabilizer'
+id = 62967
+palette_id = 6898
+[[professions.skills.elite]]
+name = 'Tactical Reload'
+id = 62901
+palette_id = 6908
+[[professions.skills.utility]]
+name = 'Overcharged Cartridges'
+id = 68085
+palette_id = 6909
+[[professions.skills.utility]]
+name = 'Electric Fence'
+id = 62804
+palette_id = 6893
+[[professions.skills.utility]]
+name = 'Dragonspike Mine'
+id = 62960
+palette_id = 6896
+[[professions.skills.heal]]
+name = 'Combat Stimulant'
+id = 62978
+palette_id = 6911
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['axe', 'mace', 'sword']
@@ -69,12 +650,468 @@ two_hand = ['staff']
 two_hand = ['spear']
 [[professions]]
 name = 'ranger'
-specializations = ['Marksmanship', 'Skirmishing', 'Wilderness Survival', 'Nature Magic', 'Beastmastery', 'Druid', 'Soulbeast', 'Untamed']
+code = 4
+[[professions.specializations]]
+name = "Marksmanship"
+code = 8
+[[professions.specializations]]
+name = "Nature Magic"
+code = 25
+[[professions.specializations]]
+name = "Skirmishing"
+code = 30
+[[professions.specializations]]
+name = "Beastmastery"
+code = 32
+[[professions.specializations]]
+name = "Wilderness Survival"
+code = 33
+[[professions.specializations]]
+name = "Druid"
+code = 5
+[[professions.specializations]]
+name = "Soulbeast"
+code = 55
+[[professions.specializations]]
+name = "Untamed"
+code = 72
 [professions.skills]
-heal = ['We Heal as one!', 'Water Spirit', 'Troll Unguent', 'Healing Spring', 'Glyph of Rejuvenation', 'Bear Stance', 'Perilous Gift']
-utility = ['Guard!', 'Protect Me!', 'Search and Rescue!', "Sic'em", 'Signet of Renewal', 'Signet of Stone', 'Signet of the Hunt', 'Signet of the Wild', 'Frost Spirit', 'Stone Spirit', 'Storm Spirit', 'Sun Spirit', 'Lightning Reflexes', 'Muddy Terrain', 'Quickening Zephyr', 'Sharpening Stone', 'Flame Trap', 'Frost Trap', 'Spike Trap', 'Vipers Nest', 'Glyph of Alignment', 'Glyph of Equality', 'Glyph of Unity', 'Glyph of the Tides', 'Dolyak Stance', 'Griffon Stance', 'Moa Stance', 'Vulture Stance', 'Exploding Spores', 'Mutate Conditions', 'Natures Binding', 'Unnatural Traversal']
-elite = ['Strength of the Pack!', 'Spirit of Nature', 'Entangle', 'Glyph of the Stars', 'One Wolf Pack', 'Forests Fortification']
-special = ['Arctodus', 'Black Bear', 'Brown Bear', 'Murrelow', 'Polar bear', 'Eagle', 'Hawk', 'Owl', 'Raven', 'White Raven', 'Alpine Wolf', 'Fern hound', 'Hyena', 'Krytan Drakehound', 'Wolf', 'Carrion Devourer', 'Lashtail Devourer', 'Whiptail Devourer', 'Ice Drake', 'Marsh Drake', 'Reef Drake', 'River Drake', 'Salamander Drake', 'Cheetah', 'Jaguar', 'Jungle Stalker', 'Lynx', 'Sand Lion', 'Snow Leopard', 'Tiger', 'Black Moa', 'Blue Moa', 'Pink Moa', 'Red Moa', 'White Moa', 'Boar', 'Pig', 'Siamoth', 'Warthog', 'Black Widow Spider', 'Cave Spider', 'Forest Spider', 'Jungle Spider', 'Electric Wyvern', 'Fire Wyvern', 'Armor Fish', 'Bristleback', 'Fanged Iboga', 'Jacaranda', 'Rock Gazelle', 'Smoke Scale', 'Phoenix', 'White Tiger', 'Wallow', 'Siege Turtle']
+[[professions.skills.heal]]
+name = '"We Heal As One!"'
+id = 31914
+palette_id = 121
+[[professions.skills.heal]]
+name = 'Troll Unguent'
+id = 12483
+palette_id = 120
+[[professions.skills.heal]]
+name = 'Healing Spring'
+id = 12489
+palette_id = 161
+[[professions.skills.heal]]
+name = 'Water Spirit'
+id = 21773
+palette_id = 3877
+[[professions.skills.utility]]
+name = 'Spike Trap'
+id = 12476
+palette_id = 27
+[[professions.skills.utility]]
+name = 'Flame Trap'
+id = 12499
+palette_id = 190
+[[professions.skills.utility]]
+name = "Viper's Nest"
+id = 12496
+palette_id = 186
+[[professions.skills.utility]]
+name = 'Frost Trap'
+id = 12492
+palette_id = 181
+[[professions.skills.utility]]
+name = 'Signet of Renewal'
+id = 12502
+palette_id = 194
+[[professions.skills.utility]]
+name = 'Signet of the Hunt'
+id = 12542
+palette_id = 154
+[[professions.skills.utility]]
+name = 'Signet of Stone'
+id = 12500
+palette_id = 427
+[[professions.skills.utility]]
+name = 'Signet of the Wild'
+id = 12491
+palette_id = 428
+[[professions.skills.utility]]
+name = 'Sharpening Stone'
+id = 12537
+palette_id = 191
+[[professions.skills.utility]]
+name = 'Lightning Reflexes'
+id = 12494
+palette_id = 184
+[[professions.skills.utility]]
+name = 'Muddy Terrain'
+id = 12501
+palette_id = 193
+[[professions.skills.utility]]
+name = 'Quickening Zephyr'
+id = 12550
+palette_id = 406
+[[professions.skills.utility]]
+name = 'Sun Spirit'
+id = 12498
+palette_id = 189
+[[professions.skills.utility]]
+name = 'Stone Spirit'
+id = 12495
+palette_id = 185
+[[professions.skills.utility]]
+name = 'Frost Spirit'
+id = 12497
+palette_id = 188
+[[professions.skills.utility]]
+name = 'Storm Spirit'
+id = 12493
+palette_id = 182
+[[professions.skills.utility]]
+name = "\"Sic 'Em!\""
+id = 12633
+palette_id = 421
+[[professions.skills.utility]]
+name = '"Protect Me!"'
+id = 12631
+palette_id = 187
+[[professions.skills.utility]]
+name = '"Guard!"'
+id = 12632
+palette_id = 183
+[[professions.skills.utility]]
+name = '"Search and Rescue!"'
+id = 34309
+palette_id = 180
+[[professions.skills.elite]]
+name = '"Strength of the Pack!"'
+id = 12516
+palette_id = 237
+[[professions.skills.elite]]
+name = 'Entangle'
+id = 12580
+palette_id = 192
+[[professions.skills.elite]]
+name = 'Spirit of Nature'
+id = 12569
+palette_id = 407
+[[professions.skills.heal]]
+name = 'Glyph of Rejuvenation'
+id = 31407
+palette_id = 4873
+[[professions.skills.utility]]
+name = 'Glyph of Alignment'
+id = 31322
+palette_id = 4821
+[[professions.skills.utility]]
+name = 'Glyph of Equality'
+id = 31746
+palette_id = 4838
+[[professions.skills.utility]]
+name = 'Glyph of Unity'
+id = 31582
+palette_id = 4792
+[[professions.skills.utility]]
+name = 'Glyph of the Tides'
+id = 30238
+palette_id = 4776
+[[professions.skills.elite]]
+name = 'Glyph of the Stars'
+id = 31677
+palette_id = 4788
+[[professions.skills.utility]]
+name = 'Dolyak Stance'
+id = 45789
+palette_id = 5882
+[[professions.skills.elite]]
+name = 'One Wolf Pack'
+id = 45717
+palette_id = 5678
+[[professions.skills.utility]]
+name = 'Griffon Stance'
+id = 45142
+palette_id = 5889
+[[professions.skills.heal]]
+name = 'Bear Stance'
+id = 44948
+palette_id = 5934
+[[professions.skills.utility]]
+name = 'Moa Stance'
+id = 45970
+palette_id = 5684
+[[professions.skills.utility]]
+name = 'Vulture Stance'
+id = 40498
+palette_id = 5865
+[[professions.skills.heal]]
+name = 'Perilous Gift'
+id = 63319
+palette_id = 6932
+[[professions.skills.elite]]
+name = "Forest's Fortification"
+id = 63163
+palette_id = 6927
+[[professions.skills.utility]]
+name = 'Exploding Spores'
+id = 63157
+palette_id = 6913
+[[professions.skills.utility]]
+name = 'Mutate Conditions'
+id = 63256
+palette_id = 6937
+[[professions.skills.utility]]
+name = 'Unnatural Traversal'
+id = 63195
+palette_id = 6931
+[[professions.skills.utility]]
+name = "Nature's Binding"
+id = 63130
+palette_id = 6916
+[[professions.skills.special]]
+name = "Juvenile Jungle Stalker"
+id = 1
+palette_id = 1
+[[professions.skills.special]]
+name = "Juvenile Boar"
+id = 2
+palette_id = 2
+[[professions.skills.special]]
+name = "Juvenile Lynx"
+id = 3
+palette_id = 3
+[[professions.skills.special]]
+name = "Juvenile Krytan Drakehound"
+id = 4
+palette_id = 4
+[[professions.skills.special]]
+name = "Juvenile Brown Bear"
+id = 5
+palette_id = 5
+[[professions.skills.special]]
+name = "Juvenile Carrion Devourer"
+id = 6
+palette_id = 6
+[[professions.skills.special]]
+name = "Juvenile Salamander Drake"
+id = 7
+palette_id = 7
+[[professions.skills.special]]
+name = "Juvenile Alpine Wolf"
+id = 8
+palette_id = 8
+[[professions.skills.special]]
+name = "Juvenile Snow Leopard"
+id = 9
+palette_id = 9
+[[professions.skills.special]]
+name = "Juvenile Raven"
+id = 10
+palette_id = 10
+[[professions.skills.special]]
+name = "Juvenile Jaguar"
+id = 11
+palette_id = 11
+[[professions.skills.special]]
+name = "Juvenile Marsh Drake"
+id = 12
+palette_id = 12
+[[professions.skills.special]]
+name = "Juvenile Blue Moa"
+id = 13
+palette_id = 13
+[[professions.skills.special]]
+name = "Juvenile White Moa"
+id = 14
+palette_id = 14
+[[professions.skills.special]]
+name = "Juvenile Pink Moa"
+id = 15
+palette_id = 15
+[[professions.skills.special]]
+name = "Juvenile Black Moa"
+id = 16
+palette_id = 16
+[[professions.skills.special]]
+name = "Juvenile Red Moa"
+id = 17
+palette_id = 17
+[[professions.skills.special]]
+name = "Juvenile Ice Drake"
+id = 18
+palette_id = 18
+[[professions.skills.special]]
+name = "Juvenile River Drake"
+id = 19
+palette_id = 19
+[[professions.skills.special]]
+name = "Juvenile Murellow"
+id = 20
+palette_id = 20
+[[professions.skills.special]]
+name = "Juvenile Shark"
+id = 21
+palette_id = 21
+[[professions.skills.special]]
+name = "Juvenile Fern Hound"
+id = 22
+palette_id = 22
+[[professions.skills.special]]
+name = "Juvenile Black Bear"
+id = 23
+palette_id = 23
+[[professions.skills.special]]
+name = "Juvenile Polar Bear"
+id = 24
+palette_id = 24
+[[professions.skills.special]]
+name = "Juvenile Arctodus"
+id = 25
+palette_id = 25
+[[professions.skills.special]]
+name = "Juvenile Whiptail Devourer"
+id = 26
+palette_id = 26
+[[professions.skills.special]]
+name = "Juvenile Lashtail Devourer"
+id = 27
+palette_id = 27
+[[professions.skills.special]]
+name = "Juvenile Hyena"
+id = 28
+palette_id = 28
+[[professions.skills.special]]
+name = "Juvenile Wolf"
+id = 29
+palette_id = 29
+[[professions.skills.special]]
+name = "Juvenile Owl"
+id = 30
+palette_id = 30
+[[professions.skills.special]]
+name = "Juvenile Eagle"
+id = 31
+palette_id = 31
+[[professions.skills.special]]
+name = "Juvenile White Raven"
+id = 32
+palette_id = 32
+[[professions.skills.special]]
+name = "Juvenile Forest Spider"
+id = 33
+palette_id = 33
+[[professions.skills.special]]
+name = "Juvenile Jungle Spider"
+id = 34
+palette_id = 34
+[[professions.skills.special]]
+name = "Juvenile Cave Spider"
+id = 35
+palette_id = 35
+[[professions.skills.special]]
+name = "Juvenile Black Widow Spider"
+id = 36
+palette_id = 36
+[[professions.skills.special]]
+name = "Juvenile Warthog"
+id = 37
+palette_id = 37
+[[professions.skills.special]]
+name = "Juvenile Siamoth"
+id = 38
+palette_id = 38
+[[professions.skills.special]]
+name = "Juvenile Pig"
+id = 39
+palette_id = 39
+[[professions.skills.special]]
+name = "Juvenile Armor Fish"
+id = 40
+palette_id = 40
+[[professions.skills.special]]
+name = "Juvenile Blue Jellyfish"
+id = 41
+palette_id = 41
+[[professions.skills.special]]
+name = "Juvenile Red Jellyfish"
+id = 42
+palette_id = 42
+[[professions.skills.special]]
+name = "Juvenile Rainbow Jellyfish"
+id = 43
+palette_id = 43
+[[professions.skills.special]]
+name = "Juvenile Hawk"
+id = 44
+palette_id = 44
+[[professions.skills.special]]
+name = "Juvenile Reef Drake"
+id = 45
+palette_id = 45
+[[professions.skills.special]]
+name = "Juvenile Smokescale"
+id = 46
+palette_id = 46
+[[professions.skills.special]]
+name = "Juvenile Tiger"
+id = 47
+palette_id = 47
+[[professions.skills.special]]
+name = "Juvenile Electric Wyvern"
+id = 48
+palette_id = 48
+[[professions.skills.special]]
+name = "Juvenile Fire Wyvern"
+id = 51
+palette_id = 51
+[[professions.skills.special]]
+name = "Juvenile Bristleback"
+id = 52
+palette_id = 52
+[[professions.skills.special]]
+name = "Juvenile Cheetah"
+id = 54
+palette_id = 54
+[[professions.skills.special]]
+name = "Juvenile Sand Lion"
+id = 55
+palette_id = 55
+[[professions.skills.special]]
+name = "Juvenile Jacaranda"
+id = 57
+palette_id = 57
+[[professions.skills.special]]
+name = "Juvenile Rock Gazelle"
+id = 59
+palette_id = 59
+[[professions.skills.special]]
+name = "Juvenile Fanged Iboga"
+id = 61
+palette_id = 61
+[[professions.skills.special]]
+name = "Juvenile White Tiger"
+id = 63
+palette_id = 63
+[[professions.skills.special]]
+name = "Juvenile Wallow"
+id = 64
+palette_id = 64
+[[professions.skills.special]]
+name = "Juvenile Phoenix"
+id = 65
+palette_id = 65
+[[professions.skills.special]]
+name = "Juvenile Siege Turtle"
+id = 66
+palette_id = 66
+[[professions.skills.special]]
+name = "Juvenile Aether Hunter"
+id = 67
+palette_id = 67
+[[professions.skills.special]]
+name = "Juvenile Sky-Chak Striker"
+id = 68
+palette_id = 68
+[[professions.skills.special]]
+name = "Juvenile Spinegazer"
+id = 69
+palette_id = 69
+[[professions.skills.special]]
+name = "Juvenile Warclaw"
+id = 70
+palette_id = 70
+[[professions.skills.special]]
+name = "Juvenile Janthiri Bee"
+id = 71
+palette_id = 71
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['axe', 'sword']
@@ -93,11 +1130,212 @@ off_hand = ['mace']
 two_hand = ['spear']
 [[professions]]
 name = 'thief'
-specializations = ['Deadly Arts', 'Critical Strikes', 'Shadow Arts', 'Acrobatics', 'Trickery', 'Daredevil', 'Deadeye', 'Specter']
+code = 5
+[[professions.specializations]]
+name = "Shadow Arts"
+code = 20
+[[professions.specializations]]
+name = "Deadly Arts"
+code = 28
+[[professions.specializations]]
+name = "Critical Strikes"
+code = 35
+[[professions.specializations]]
+name = "Trickery"
+code = 44
+[[professions.specializations]]
+name = "Acrobatics"
+code = 54
+[[professions.specializations]]
+name = "Daredevil"
+code = 7
+[[professions.specializations]]
+name = "Deadeye"
+code = 58
+[[professions.specializations]]
+name = "Specter"
+code = 71
 [professions.skills]
-heal = ['Hide in Shadows', 'Signet of Malice', 'Withdraw', 'Skelk Venom', 'Channeled Vigor', 'Malicious Restoration', 'Well of Gloom']
-utility = ['Blinding Powder', 'Shadow Refuge', 'Shadowstep', 'Smoke Screen', 'Prepare Pitfall', 'Prepare Thousand Needles', 'Prepare Shadow Portal', 'Prepare Seal Area', 'Assassins Signet', 'Infiltrators Signet', 'Signet of Agility', 'Signet of Shadows', 'Caltrops', 'Haste', 'Roll for Initiative', 'Scorpion Wire', 'Devourer Venom', 'Ice Drake Venom', 'Skale Venom', 'Spider Venom', 'Bandits Defense', 'Distracting Daggers', 'Fist Furry', 'Impairing Daggers', 'Binding Shadow', 'Mercy', 'Shadow Flare', 'Shadow Gust', 'Well of Bounty', 'Well of Silence', 'Well of Sorrow', 'Well of Tears']
-elite = ['Thieves Guild', 'Basilisk Venom', 'Dagger Storm', 'Impact Strike', 'Shadow Meld', 'Shadowfall']
+[[professions.skills.heal]]
+name = 'Hide in Shadows'
+id = 13027
+palette_id = 268
+[[professions.skills.heal]]
+name = 'Withdraw'
+id = 13021
+palette_id = 266
+[[professions.skills.heal]]
+name = 'Skelk Venom'
+id = 21778
+palette_id = 3876
+[[professions.skills.heal]]
+name = 'Signet of Malice'
+id = 13050
+palette_id = 133
+[[professions.skills.utility]]
+name = 'Spider Venom'
+id = 13037
+palette_id = 303
+[[professions.skills.utility]]
+name = 'Skale Venom'
+id = 13055
+palette_id = 318
+[[professions.skills.utility]]
+name = 'Ice Drake Venom'
+id = 13096
+palette_id = 346
+[[professions.skills.utility]]
+name = 'Devourer Venom'
+id = 13093
+palette_id = 341
+[[professions.skills.utility]]
+name = 'Prepare Pitfall'
+id = 13057
+palette_id = 340
+[[professions.skills.utility]]
+name = 'Prepare Thousand Needles'
+id = 13026
+palette_id = 267
+[[professions.skills.utility]]
+name = 'Prepare Shadow Portal'
+id = 13038
+palette_id = 283
+[[professions.skills.utility]]
+name = 'Prepare Seal Area'
+id = 13056
+palette_id = 339
+[[professions.skills.utility]]
+name = "Assassin's Signet"
+id = 13046
+palette_id = 307
+[[professions.skills.utility]]
+name = "Infiltrator's Signet"
+id = 13064
+palette_id = 344
+[[professions.skills.utility]]
+name = 'Signet of Agility'
+id = 13062
+palette_id = 343
+[[professions.skills.utility]]
+name = 'Signet of Shadows'
+id = 13060
+palette_id = 342
+[[professions.skills.utility]]
+name = 'Scorpion Wire'
+id = 13020
+palette_id = 137
+[[professions.skills.utility]]
+name = 'Roll for Initiative'
+id = 13035
+palette_id = 281
+[[professions.skills.utility]]
+name = 'Haste'
+id = 13066
+palette_id = 347
+[[professions.skills.utility]]
+name = 'Caltrops'
+id = 13028
+palette_id = 269
+[[professions.skills.utility]]
+name = 'Shadowstep'
+id = 13002
+palette_id = 88
+[[professions.skills.utility]]
+name = 'Blinding Powder'
+id = 13044
+palette_id = 308
+[[professions.skills.utility]]
+name = 'Smoke Screen'
+id = 13065
+palette_id = 345
+[[professions.skills.utility]]
+name = 'Shadow Refuge'
+id = 13117
+palette_id = 443
+[[professions.skills.elite]]
+name = 'Thieves Guild'
+id = 13082
+palette_id = 40
+[[professions.skills.elite]]
+name = 'Basilisk Venom'
+id = 13132
+palette_id = 270
+[[professions.skills.elite]]
+name = 'Dagger Storm'
+id = 13085
+palette_id = 415
+[[professions.skills.heal]]
+name = 'Channeled Vigor'
+id = 30400
+palette_id = 4756
+[[professions.skills.utility]]
+name = 'Fist Flurry'
+id = 30868
+palette_id = 4784
+[[professions.skills.utility]]
+name = 'Distracting Daggers'
+id = 30568
+palette_id = 4727
+[[professions.skills.utility]]
+name = "Bandit's Defense"
+id = 30661
+palette_id = 4790
+[[professions.skills.utility]]
+name = 'Impairing Daggers'
+id = 30369
+palette_id = 4905
+[[professions.skills.elite]]
+name = 'Impact Strike'
+id = 29516
+palette_id = 4846
+[[professions.skills.heal]]
+name = 'Malicious Restoration'
+id = 45088
+palette_id = 5617
+[[professions.skills.elite]]
+name = 'Shadow Meld'
+id = 45508
+palette_id = 5693
+[[professions.skills.utility]]
+name = 'Shadow Gust'
+id = 46335
+palette_id = 5663
+[[professions.skills.utility]]
+name = 'Binding Shadow'
+id = 41205
+palette_id = 5860
+[[professions.skills.utility]]
+name = 'Mercy'
+id = 41372
+palette_id = 5920
+[[professions.skills.utility]]
+name = 'Shadow Flare'
+id = 41158
+palette_id = 5804
+[[professions.skills.heal]]
+name = 'Well of Gloom'
+id = 63292
+palette_id = 6933
+[[professions.skills.elite]]
+name = 'Shadowfall'
+id = 63275
+palette_id = 6929
+[[professions.skills.utility]]
+name = 'Well of Bounty'
+id = 63323
+palette_id = 6920
+[[professions.skills.utility]]
+name = 'Well of Tears'
+id = 63294
+palette_id = 6917
+[[professions.skills.utility]]
+name = 'Well of Silence'
+id = 63230
+palette_id = 6919
+[[professions.skills.utility]]
+name = 'Well of Sorrow'
+id = 63276
+palette_id = 6918
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['dagger', 'pistol', 'sword']
@@ -115,11 +1353,212 @@ main_hand = ['axe']
 two_hand = ['spear']
 [[professions]]
 name = 'engineer'
-specializations = ['Explosives', 'Firearms', 'Inventions', 'Alchemy', 'Tools', 'Scrapper', 'Holosmith', 'Mechanist']
+code = 3
+[[professions.specializations]]
+name = "Explosives"
+code = 6
+[[professions.specializations]]
+name = "Tools"
+code = 21
+[[professions.specializations]]
+name = "Alchemy"
+code = 29
+[[professions.specializations]]
+name = "Firearms"
+code = 38
+[[professions.specializations]]
+name = "Inventions"
+code = 47
+[[professions.specializations]]
+name = "Scrapper"
+code = 43
+[[professions.specializations]]
+name = "Holosmith"
+code = 57
+[[professions.specializations]]
+name = "Mechanist"
+code = 70
 [professions.skills]
-heal = ['A.E.D.', 'Elixer H', 'Healing Turret', 'Medkit', 'Medic Gyro', 'Coolant Blast', 'Rectifier Signet']
-utility = ['Bomb kit', 'Grenade Kit', 'Elixir Gun', 'Flamethrower', 'Tool Kit', 'Elixir B', 'Elixir C', 'Elixir R', 'Elixir S', 'Elixir U', 'Personal Battering Ram', 'Rocket Boots', 'Slick Shoes', 'Throw Mine', 'Utility Goggles', 'Flame Turret', 'Net Turret', 'Rifle Turret', 'Harpoon Turret', 'Rocket Turret', 'Thumper Turret', 'Blast Gyro', 'Bulwark Gyro', 'Purge Gyro', 'Shredder Gyro', 'Spectrum Shield', 'Hard Light Arena', 'Laser Disk', 'Photon Wall', 'Barrier Signet', 'Force Signet', 'Shift Signet', 'Superconducting Signet']
-elite = ['Elite Mortar Kit', 'Elixir X', 'Supply Crate', 'Sneak Gyro', 'Prime Light Beam', 'Overclock Signet']
+[[professions.skills.heal]]
+name = 'Elixir H'
+id = 5834
+palette_id = 276
+[[professions.skills.heal]]
+name = 'Med Kit'
+id = 5802
+palette_id = 132
+[[professions.skills.heal]]
+name = 'A.E.D.'
+id = 21659
+palette_id = 3882
+[[professions.skills.heal]]
+name = 'Healing Turret'
+id = 5857
+palette_id = 296
+[[professions.skills.utility]]
+name = 'Rifle Turret'
+id = 5818
+palette_id = 163
+[[professions.skills.utility]]
+name = 'Flame Turret'
+id = 5836
+palette_id = 290
+[[professions.skills.utility]]
+name = 'Net Turret'
+id = 5837
+palette_id = 291
+[[professions.skills.utility]]
+name = 'Thumper Turret'
+id = 5838
+palette_id = 292
+[[professions.skills.utility]]
+name = 'Rocket Turret'
+id = 5912
+palette_id = 398
+[[professions.skills.utility]]
+name = 'Elixir B'
+id = 5821
+palette_id = 257
+[[professions.skills.utility]]
+name = 'Elixir U'
+id = 5862
+palette_id = 351
+[[professions.skills.utility]]
+name = 'Elixir S'
+id = 5861
+palette_id = 350
+[[professions.skills.utility]]
+name = 'Elixir C'
+id = 5860
+palette_id = 396
+[[professions.skills.utility]]
+name = 'Elixir R'
+id = 5968
+palette_id = 353
+[[professions.skills.utility]]
+name = 'Grenade Kit'
+id = 5805
+palette_id = 134
+[[professions.skills.utility]]
+name = 'Bomb Kit'
+id = 5812
+palette_id = 263
+[[professions.skills.utility]]
+name = 'Flamethrower'
+id = 5927
+palette_id = 403
+[[professions.skills.utility]]
+name = 'Elixir Gun'
+id = 5933
+palette_id = 405
+[[professions.skills.utility]]
+name = 'Tool Kit'
+id = 5904
+palette_id = 394
+[[professions.skills.utility]]
+name = 'Throw Mine'
+id = 6161
+palette_id = 294
+[[professions.skills.utility]]
+name = 'Utility Goggles'
+id = 5865
+palette_id = 352
+[[professions.skills.utility]]
+name = 'Rocket Boots'
+id = 5910
+palette_id = 397
+[[professions.skills.utility]]
+name = 'Personal Battering Ram'
+id = 5811
+palette_id = 136
+[[professions.skills.utility]]
+name = 'Slick Shoes'
+id = 5825
+palette_id = 275
+[[professions.skills.elite]]
+name = 'Supply Crate'
+id = 5868
+palette_id = 393
+[[professions.skills.elite]]
+name = 'Elixir X'
+id = 5832
+palette_id = 274
+[[professions.skills.elite]]
+name = 'Elite Mortar Kit'
+id = 30800
+palette_id = 408
+[[professions.skills.heal]]
+name = 'Medic Gyro'
+id = 30357
+palette_id = 4825
+[[professions.skills.utility]]
+name = 'Bulwark Gyro'
+id = 30101
+palette_id = 4878
+[[professions.skills.utility]]
+name = 'Purge Gyro'
+id = 29739
+palette_id = 4812
+[[professions.skills.utility]]
+name = 'Blast Gyro'
+id = 31248
+palette_id = 4903
+[[professions.skills.utility]]
+name = 'Shredder Gyro'
+id = 29921
+palette_id = 4782
+[[professions.skills.elite]]
+name = 'Sneak Gyro'
+id = 30815
+palette_id = 4739
+[[professions.skills.heal]]
+name = 'Rectifier Signet'
+id = 63049
+palette_id = 6925
+[[professions.skills.elite]]
+name = 'Overclock Signet'
+id = 63095
+palette_id = 6921
+[[professions.skills.utility]]
+name = 'Barrier Signet'
+id = 63262
+palette_id = 6923
+[[professions.skills.utility]]
+name = 'Shift Signet'
+id = 63111
+palette_id = 6928
+[[professions.skills.utility]]
+name = 'Force Signet'
+id = 63253
+palette_id = 6938
+[[professions.skills.utility]]
+name = 'Superconducting Signet'
+id = 63113
+palette_id = 6926
+[[professions.skills.heal]]
+name = 'Coolant Blast'
+id = 40507
+palette_id = 5717
+[[professions.skills.elite]]
+name = 'Prime Light Beam'
+id = 42009
+palette_id = 5616
+[[professions.skills.utility]]
+name = 'Photon Wall'
+id = 43739
+palette_id = 5861
+[[professions.skills.utility]]
+name = 'Laser Disk'
+id = 42842
+palette_id = 5719
+[[professions.skills.utility]]
+name = 'Hard Light Arena'
+id = 44646
+palette_id = 5685
+[[professions.skills.utility]]
+name = 'Spectrum Shield'
+id = 41218
+palette_id = 5679
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['pistol']
@@ -137,11 +1576,211 @@ two_hand = ['shortbow']
 two_hand = ['spear']
 [[professions]]
 name = 'elementalist'
-specializations = ['Fire', 'Air', 'Earth', 'Water', 'Arcane', 'Tempest', 'Weaver', 'Catalyst']
-[professions.skills]
-heal = ['Arcane Brilliance', 'Ether Renewal', 'Glyph of Elemental Harmony', 'Signet of Restoration', 'Wash the Pain Away!', 'Aquatic Stance', 'Soothing Water']
-utility = ['Arcane Blast', 'Arcane Power', 'Arcane Shield', 'Arcane Wave', 'Armor of Earth', 'Cleansing Fire', 'Lightning Flash', 'Mist Form', 'Conjure Earth Shield', 'Conjure Flame Axe', 'Conjure Frost Bow', 'Conjure Lightning Hammer', 'Glyph of Elemental Power', 'Glyph of Lesser Elementals', 'Glyph of Renewal', 'Glyph of Storms', 'Signet of Air', 'Signet of Earth', 'Signet of Fire', 'Signet of Water', 'Feel the Burn!', 'Eye of the Storm!', 'Aftershock!', 'Flash-Freeze!', 'Primordial Stance', 'Stone Resonance', 'Unravel', 'Twist of Fate', 'Fortified Earth', 'Relentless Fire', 'Invigorating Air', 'Shattering Ice']
-elite = ['Conjure Fiery Greatsword', 'Glyph of Elementals', 'Tornado', 'Rebound!', 'Weave Self', 'Elemental Celerity']
+code = 6
+[[professions.specializations]]
+name = "Water"
+code = 17
+[[professions.specializations]]
+name = "Earth"
+code = 26
+[[professions.specializations]]
+name = "Fire"
+code = 31
+[[professions.specializations]]
+name = "Arcane"
+code = 37
+[[professions.specializations]]
+name = "Air"
+code = 41
+[[professions.specializations]]
+name = "Tempest"
+code = 48
+[[professions.specializations]]
+name = "Weaver"
+code = 56
+[[professions.specializations]]
+name = "Catalyst"
+code = 67
+[[professions.skills.heal]]
+name = 'Glyph of Elemental Harmony'
+id = 5569
+palette_id = 279
+[[professions.skills.heal]]
+name = 'Ether Renewal'
+id = 5507
+palette_id = 117
+[[professions.skills.heal]]
+name = 'Signet of Restoration'
+id = 5503
+palette_id = 116
+[[professions.skills.heal]]
+name = 'Arcane Brilliance'
+id = 21656
+palette_id = 3879
+[[professions.skills.utility]]
+name = 'Arcane Wave'
+id = 5638
+palette_id = 334
+[[professions.skills.utility]]
+name = 'Arcane Shield'
+id = 5641
+palette_id = 246
+[[professions.skills.utility]]
+name = 'Arcane Power'
+id = 5635
+palette_id = 333
+[[professions.skills.utility]]
+name = 'Arcane Blast'
+id = 5539
+palette_id = 336
+[[professions.skills.utility]]
+name = 'Glyph of Elemental Power'
+id = 5506
+palette_id = 115
+[[professions.skills.utility]]
+name = 'Glyph of Storms'
+id = 5734
+palette_id = 446
+[[professions.skills.utility]]
+name = 'Glyph of Lesser Elementals'
+id = 5502
+palette_id = 114
+[[professions.skills.utility]]
+name = 'Glyph of Renewal'
+id = 5573
+palette_id = 285
+[[professions.skills.utility]]
+name = 'Signet of Fire'
+id = 5542
+palette_id = 203
+[[professions.skills.utility]]
+name = 'Signet of Water'
+id = 5570
+palette_id = 143
+[[professions.skills.utility]]
+name = 'Signet of Air'
+id = 5572
+palette_id = 284
+[[professions.skills.utility]]
+name = 'Signet of Earth'
+id = 5571
+palette_id = 145
+[[professions.skills.utility]]
+name = 'Cleansing Fire'
+id = 5535
+palette_id = 142
+[[professions.skills.utility]]
+name = 'Mist Form'
+id = 5554
+palette_id = 235
+[[professions.skills.utility]]
+name = 'Lightning Flash'
+id = 5536
+palette_id = 144
+[[professions.skills.utility]]
+name = 'Armor of Earth'
+id = 5639
+palette_id = 335
+[[professions.skills.utility]]
+name = 'Conjure Flame Axe'
+id = 5540
+palette_id = 202
+[[professions.skills.utility]]
+name = 'Conjure Frost Bow'
+id = 5567
+palette_id = 261
+[[professions.skills.utility]]
+name = 'Conjure Lightning Hammer'
+id = 5624
+palette_id = 322
+[[professions.skills.utility]]
+name = 'Conjure Earth Shield'
+id = 5546
+palette_id = 230
+[[professions.skills.elite]]
+name = 'Glyph of Elementals'
+id = 5666
+palette_id = 38
+[[professions.skills.elite]]
+name = 'Conjure Fiery Greatsword'
+id = 5516
+palette_id = 151
+[[professions.skills.elite]]
+name = 'Tornado'
+id = 5534
+palette_id = 150
+[[professions.skills.heal]]
+name = '"Wash the Pain Away!"'
+id = 29535
+palette_id = 4807
+[[professions.skills.utility]]
+name = '"Feel the Burn!"'
+id = 30662
+palette_id = 4803
+[[professions.skills.utility]]
+name = '"Flash-Freeze!"'
+id = 29948
+palette_id = 4773
+[[professions.skills.utility]]
+name = '"Eye of the Storm!"'
+id = 30047
+palette_id = 4726
+[[professions.skills.utility]]
+name = '"Aftershock!"'
+id = 30432
+palette_id = 4724
+[[professions.skills.elite]]
+name = '"Rebound!"'
+id = 29968
+palette_id = 4761
+[[professions.skills.heal]]
+name = 'Aquatic Stance'
+id = 44239
+palette_id = 5632
+[[professions.skills.elite]]
+name = 'Weave Self'
+id = 43638
+palette_id = 5906
+[[professions.skills.utility]]
+name = 'Stone Resonance'
+id = 44926
+palette_id = 5851
+[[professions.skills.utility]]
+name = 'Unravel'
+id = 44612
+palette_id = 5755
+[[professions.skills.utility]]
+name = 'Twist of Fate'
+id = 45746
+palette_id = 5621
+[[professions.skills.utility]]
+name = 'Primordial Stance'
+id = 40183
+palette_id = 5941
+[[professions.skills.heal]]
+name = 'Soothing Water'
+id = 62827
+palette_id = 6910
+[[professions.skills.elite]]
+name = 'Elemental Celerity'
+id = 62725
+palette_id = 6903
+[[professions.skills.utility]]
+name = 'Relentless Fire'
+id = 62965
+palette_id = 6904
+[[professions.skills.utility]]
+name = 'Shattering Ice'
+id = 62698
+palette_id = 6894
+[[professions.skills.utility]]
+name = 'Invigorating Air'
+id = 62982
+palette_id = 6897
+[[professions.skills.utility]]
+name = 'Fortified Earth'
+id = 62826
+palette_id = 6895
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['dagger', 'scepter']
@@ -159,11 +1798,212 @@ main_hand = ['pistol']
 two_hand = ['spear']
 [[professions]]
 name = 'mesmer'
-specializations = ['Domination', 'Dueling', 'Chaos', 'Inspiration', 'Illusions', 'Chronomancer', 'Mirage', 'Virtuoso']
+code = 7
+[[professions.specializations]]
+name = "Dueling"
+code = 1
+[[professions.specializations]]
+name = "Domination"
+code = 10
+[[professions.specializations]]
+name = "Inspiration"
+code = 23
+[[professions.specializations]]
+name = "Illusions"
+code = 24
+[[professions.specializations]]
+name = "Chaos"
+code = 45
+[[professions.specializations]]
+name = "Chronomancer"
+code = 40
+[[professions.specializations]]
+name = "Mirage"
+code = 59
+[[professions.specializations]]
+name = "Virtuoso"
+code = 66
 [professions.skills]
-heal = ['Ether Feast', 'Mirror', 'Mantra of Recovery', 'Signet of the Ether', 'Well of Eternity', 'False Oasis', 'Twin Blade Restoration']
-utility = ['Decoy', 'Mirror Image', 'Feedback', 'Nullfield', 'Portal Entre', 'Veil', 'Arcane Thievery', 'Blink', 'Illusion of Life', 'Mimic', 'Mantra of Concentration', 'Mantra of distraction', 'Mantra of Pain', 'Mantra of Resolve', 'Phantasmal Defender', 'Phantasmal Disenchanter', 'Signet of Domination', 'Signet of Illusions', 'Signet of Inspiration', 'Signet of Midnight', 'Well of Action', 'Well of Calamity', 'Well of Precognition', 'Well of Recall', 'Crystal Sands', 'Illusionary Ambush', 'Mirage Advance', 'Sand Through Glass', 'Blade Renewal', 'Psychic Force', 'Rain of Swords', 'Sword of Decimation']
-elite = ['Time Warp', 'Mass Invisibility', 'Signet of Humility', 'Gravity Well', 'Jaunt', 'Thousand Cuts']
+[[professions.skills.heal]]
+name = 'Ether Feast'
+id = 10176
+palette_id = 366
+[[professions.skills.heal]]
+name = 'Mirror'
+id = 10177
+palette_id = 271
+[[professions.skills.heal]]
+name = 'Mantra of Recovery'
+id = 10213
+palette_id = 365
+[[professions.skills.heal]]
+name = 'Signet of the Ether'
+id = 21750
+palette_id = 3875
+[[professions.skills.utility]]
+name = 'Signet of Inspiration'
+id = 10236
+palette_id = 384
+[[professions.skills.utility]]
+name = 'Signet of Domination'
+id = 10232
+palette_id = 385
+[[professions.skills.utility]]
+name = 'Signet of Midnight'
+id = 10234
+palette_id = 387
+[[professions.skills.utility]]
+name = 'Signet of Illusions'
+id = 10247
+palette_id = 386
+[[professions.skills.utility]]
+name = 'Mantra of Pain'
+id = 10211
+palette_id = 361
+[[professions.skills.utility]]
+name = 'Mantra of Distraction'
+id = 10204
+palette_id = 359
+[[professions.skills.utility]]
+name = 'Mantra of Resolve'
+id = 10207
+palette_id = 360
+[[professions.skills.utility]]
+name = 'Mantra of Concentration'
+id = 10237
+palette_id = 389
+[[professions.skills.utility]]
+name = 'Blink'
+id = 10200
+palette_id = 357
+[[professions.skills.utility]]
+name = 'Arcane Thievery'
+id = 10185
+palette_id = 280
+[[professions.skills.utility]]
+name = 'Illusion of Life'
+id = 10244
+palette_id = 388
+[[professions.skills.utility]]
+name = 'Mimic'
+id = 29578
+palette_id = 438
+[[professions.skills.utility]]
+name = 'Decoy'
+id = 10201
+palette_id = 358
+[[professions.skills.utility]]
+name = 'Mirror Images'
+id = 10202
+palette_id = 363
+[[professions.skills.utility]]
+name = 'Phantasmal Defender'
+id = 10341
+palette_id = 390
+[[professions.skills.utility]]
+name = 'Phantasmal Disenchanter'
+id = 10267
+palette_id = 399
+[[professions.skills.utility]]
+name = 'Null Field'
+id = 10203
+palette_id = 362
+[[professions.skills.utility]]
+name = 'Feedback'
+id = 10302
+palette_id = 383
+[[professions.skills.utility]]
+name = 'Portal Entre'
+id = 10197
+palette_id = 356
+[[professions.skills.utility]]
+name = 'Veil'
+id = 10187
+palette_id = 282
+[[professions.skills.elite]]
+name = 'Signet of Humility'
+id = 29519
+palette_id = 4845
+[[professions.skills.elite]]
+name = 'Time Warp'
+id = 10311
+palette_id = 444
+[[professions.skills.elite]]
+name = 'Mass Invisibility'
+id = 10245
+palette_id = 410
+[[professions.skills.elite]]
+name = 'Gravity Well'
+id = 30359
+palette_id = 4787
+[[professions.skills.heal]]
+name = 'Well of Eternity'
+id = 30305
+palette_id = 4848
+[[professions.skills.utility]]
+name = 'Well of Precognition'
+id = 29526
+palette_id = 4755
+[[professions.skills.utility]]
+name = 'Well of Calamity'
+id = 30525
+palette_id = 4868
+[[professions.skills.utility]]
+name = 'Well of Senility'
+id = 29856
+palette_id = 4743
+[[professions.skills.utility]]
+name = 'Well of Action'
+id = 30814
+palette_id = 4815
+[[professions.skills.heal]]
+name = 'False Oasis'
+id = 40200
+palette_id = 5614
+[[professions.skills.elite]]
+name = 'Jaunt'
+id = 45449
+palette_id = 5958
+[[professions.skills.utility]]
+name = 'Illusionary Ambush'
+id = 45046
+palette_id = 5770
+[[professions.skills.utility]]
+name = 'Mirage Advance'
+id = 42851
+palette_id = 5810
+[[professions.skills.utility]]
+name = 'Sand through Glass'
+id = 43064
+palette_id = 5639
+[[professions.skills.utility]]
+name = 'Crystal Sands'
+id = 41065
+palette_id = 5600
+[[professions.skills.heal]]
+name = 'Twin Blade Restoration'
+id = 62522
+palette_id = 6875
+[[professions.skills.utility]]
+name = 'Psychic Force'
+id = 62573
+palette_id = 6879
+[[professions.skills.utility]]
+name = 'Rain of Swords'
+id = 45425
+palette_id = 6877
+[[professions.skills.utility]]
+name = 'Blade Renewal'
+id = 43343
+palette_id = 6876
+[[professions.skills.elite]]
+name = 'Thousand Cuts'
+id = 24755
+palette_id = 6885
+[[professions.skills.utility]]
+name = 'Sword of Decimation'
+id = 35637
+palette_id = 6890
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['sword', 'scepter']
@@ -181,11 +2021,212 @@ two_hand = ['rifle']
 two_hand = ['spear']
 [[professions]]
 name = 'necromancer'
-specializations = ['Spite', 'Curses', 'Death Magic', 'Blood Magic', 'Soul Reaping', 'Reaper', 'Scourge', 'Harbinger']
+code = 8
+[[professions.specializations]]
+name = "Death Magic"
+code = 2
+[[professions.specializations]]
+name = "Blood Magic"
+code = 19
+[[professions.specializations]]
+name = "Curses"
+code = 39
+[[professions.specializations]]
+name = "Soul Reaping"
+code = 50
+[[professions.specializations]]
+name = "Spite"
+code = 53
+[[professions.specializations]]
+name = "Reaper"
+code = 34
+[[professions.specializations]]
+name = "Scourge"
+code = 60
+[[professions.specializations]]
+name = "Harbinger"
+code = 64
 [professions.skills]
-heal = ['Consume Conditions', 'Summon Blood Fiend', 'Signet of Vamparism', 'Well of Blood', 'Your Soul is Mine!', 'Sand Flare', 'Elixir of Promise']
-utility = ['Blood is Power', 'Corrosive Poison Cloud', 'Corrupt Boon', 'Epidemic', 'Summon Bone Fiend', 'Summon Bone Minion', 'Summon Flesh Worm', 'Summon Shadow Fiend', 'Plague Signet', 'Signet of Spite', 'Signet of the Locust', 'Signet of Undeath', 'Spectral Armor', 'Spectral Grasp', 'Spectral Walk', 'Spectral Ring', 'Well of Corruption', 'Well of Darkness', 'Well of Power', 'Well of Suffering', 'Nothing can save you!', 'Rise!', 'Suffer!', 'You are all Weaklings!', 'Trail of Anguish', 'Dessicate', 'Sand Swell', 'Serpent Siphon', 'Elixir of Anguish', 'Elixir of Bliss', 'Elixir of Ignorance', 'Elixir of Risk']
-elite = ['Plaguelands', 'Summon Flesh Golem', 'Lich Form', 'Chill to the Bone!', 'Ghastly Breach', 'Elixir of Ambition']
+[[professions.skills.heal]]
+name = 'Summon Blood Fiend'
+id = 10547
+palette_id = 155
+[[professions.skills.heal]]
+name = 'Consume Conditions'
+id = 10548
+palette_id = 162
+[[professions.skills.heal]]
+name = 'Well of Blood'
+id = 10527
+palette_id = 18
+[[professions.skills.heal]]
+name = 'Signet of Vampirism'
+id = 21762
+palette_id = 3880
+[[professions.skills.utility]]
+name = 'Well of Suffering'
+id = 10546
+palette_id = 129
+[[professions.skills.utility]]
+name = 'Well of Corruption'
+id = 10545
+palette_id = 371
+[[professions.skills.utility]]
+name = 'Well of Power'
+id = 10609
+palette_id = 372
+[[professions.skills.utility]]
+name = 'Well of Darkness'
+id = 10607
+palette_id = 320
+[[professions.skills.utility]]
+name = 'Summon Bone Minions'
+id = 10541
+palette_id = 228
+[[professions.skills.utility]]
+name = 'Summon Bone Fiend'
+id = 10533
+palette_id = 118
+[[professions.skills.utility]]
+name = 'Summon Shadow Fiend'
+id = 10589
+palette_id = 368
+[[professions.skills.utility]]
+name = 'Summon Flesh Wurm'
+id = 10543
+palette_id = 302
+[[professions.skills.utility]]
+name = 'Signet of Spite'
+id = 10622
+palette_id = 373
+[[professions.skills.utility]]
+name = 'Signet of the Locust'
+id = 10612
+palette_id = 374
+[[professions.skills.utility]]
+name = 'Plague Signet'
+id = 10562
+palette_id = 245
+[[professions.skills.utility]]
+name = 'Signet of Undeath'
+id = 10611
+palette_id = 367
+[[professions.skills.utility]]
+name = 'Spectral Armor'
+id = 10583
+palette_id = 250
+[[professions.skills.utility]]
+name = 'Spectral Grasp'
+id = 10620
+palette_id = 375
+[[professions.skills.utility]]
+name = 'Spectral Ring'
+id = 10608
+palette_id = 364
+[[professions.skills.utility]]
+name = 'Spectral Walk'
+id = 10685
+palette_id = 445
+[[professions.skills.utility]]
+name = 'Corrosive Poison Cloud'
+id = 10689
+palette_id = 139
+[[professions.skills.utility]]
+name = 'Epidemic'
+id = 10606
+palette_id = 409
+[[professions.skills.utility]]
+name = 'Corrupt Boon'
+id = 10602
+palette_id = 304
+[[professions.skills.utility]]
+name = 'Blood Is Power'
+id = 10544
+palette_id = 128
+[[professions.skills.elite]]
+name = 'Plaguelands'
+id = 10549
+palette_id = 146
+[[professions.skills.elite]]
+name = 'Summon Flesh Golem'
+id = 10646
+palette_id = 149
+[[professions.skills.elite]]
+name = 'Lich Form'
+id = 10550
+palette_id = 378
+[[professions.skills.utility]]
+name = '"You Are All Weaklings!"'
+id = 29414
+palette_id = 4849
+[[professions.skills.utility]]
+name = '"Suffer!"'
+id = 30670
+palette_id = 4774
+[[professions.skills.utility]]
+name = '"Nothing Can Save You!"'
+id = 29666
+palette_id = 4843
+[[professions.skills.utility]]
+name = '"Rise!"'
+id = 30772
+palette_id = 4879
+[[professions.skills.heal]]
+name = '"Your Soul Is Mine!"'
+id = 30488
+palette_id = 4801
+[[professions.skills.elite]]
+name = '"Chilled to the Bone!"'
+id = 30105
+palette_id = 4867
+[[professions.skills.heal]]
+name = 'Sand Flare'
+id = 43148
+palette_id = 5758
+[[professions.skills.elite]]
+name = 'Ghastly Breach'
+id = 42355
+palette_id = 5984
+[[professions.skills.utility]]
+name = 'Trail of Anguish'
+id = 40274
+palette_id = 5746
+[[professions.skills.utility]]
+name = 'Desiccate'
+id = 42935
+palette_id = 5924
+[[professions.skills.utility]]
+name = 'Sand Swell'
+id = 42917
+palette_id = 5752
+[[professions.skills.utility]]
+name = 'Serpent Siphon'
+id = 41615
+palette_id = 5921
+[[professions.skills.heal]]
+name = 'Elixir of Promise'
+id = 62667
+palette_id = 6887
+[[professions.skills.elite]]
+name = 'Elixir of Ambition'
+id = 62655
+palette_id = 6888
+[[professions.skills.utility]]
+name = 'Elixir of Risk'
+id = 62530
+palette_id = 6868
+[[professions.skills.utility]]
+name = 'Elixir of Ignorance'
+id = 62646
+palette_id = 6871
+[[professions.skills.utility]]
+name = 'Elixir of Bliss'
+id = 62514
+palette_id = 6891
+[[professions.skills.utility]]
+name = 'Elixir of Anguish'
+id = 62662
+palette_id = 6892
 [professions.weapons]
 [professions.weapons.base]
 main_hand = ['axe', 'dagger', 'scepter']

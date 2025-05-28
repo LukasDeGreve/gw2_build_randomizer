@@ -46,7 +46,7 @@ def determine_random_profession(
     return random.choice(choices)
 
 
-def main() -> str:
+def generate_random_build() -> Build:
     professions = get_professions()
     settings = get_settings(professions)
 
@@ -63,7 +63,7 @@ def main() -> str:
         traits_picked.append(elite_spec)
 
     # chose majors of each trait
-    majors: list[TraitChoice] = ["top", "middle", "bottom"]
+    majors = list(TraitChoice)
     chosen_traits = (
         Trait(
             specialization=profession.specializations[traits_picked[0]],
@@ -112,15 +112,16 @@ def main() -> str:
 
     # if revenenant, pick 2 legends instead of utility skills
     if profession.name == "revenant":
-        special_choices = (
-            heal_choices  # there are as many legends as another class has heal skills
+        chosen_legends = random.sample(profession.skills.special, 2)
+
+        index = profession.skills.special.index(chosen_legends[0])
+        heal = profession.skills.heal[index]
+        skill = (
+            profession.skills.utility[3 * index + 0],
+            profession.skills.utility[3 * index + 1],
+            profession.skills.utility[3 * index + 2],
         )
-        possible_legends = [
-            legend
-            for i, legend in enumerate(profession.skills.special)
-            if i in special_choices
-        ]
-        chosen_legends = random.sample(possible_legends, 2)
+        elite = profession.skills.elite[index]
         special = "Legend", tuple(chosen_legends)
     else:
         # pick a random heal skill
@@ -188,7 +189,7 @@ def main() -> str:
         else:
             weapon_sets.append((two_handed_names[chosen_weapon - main_hand_options],))
 
-    build = Build(
+    return Build(
         profession=profession,
         traits=chosen_traits,
         heal=heal,
@@ -197,8 +198,26 @@ def main() -> str:
         weapon_sets=tuple(weapon_sets),
         special=special,
     )
-    return build.render_for_display()
+
+
+def _main(seed: Optional[int], link_only: bool) -> str:
+    if seed is not None:
+        random.seed(seed)
+    build = generate_random_build()
+    if link_only:
+        return build.render_as_chat_link()
+    else:
+        return build.render_for_display()
+
+
+def main() -> None:
+    from argparse import ArgumentParser
+
+    parser = ArgumentParser()
+    parser.add_argument("--seed", type=int)
+    parser.add_argument("--link-only", action="store_true")
+    print(_main(**vars(parser.parse_args())))
 
 
 if __name__ == "__main__":
-    print(main())
+    main()
